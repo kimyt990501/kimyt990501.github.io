@@ -106,8 +106,8 @@ analytics:
 author:
   name             : "kimyt990501"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "KIMYT990501 Blog"
-  location         : "Soeul"
+  bio              : "A blog for studying programming"
+  location         : "Seoul"
   email            :
   links:
     - label: "Email"
