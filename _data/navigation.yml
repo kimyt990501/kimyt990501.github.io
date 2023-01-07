@@ -16,5 +16,8 @@ main:
     children:
       - title: "Java"
         url: "/java"
+        category: "Java"
+
       - title: "C++"
         url: "/cpp"
+        category: "cpp"
