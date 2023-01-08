@@ -10,4 +10,4 @@ sidebar:
 
 
 {% assign posts = site.categories.java %}
-{% for post in posts %} {% include archive-single.html type=page.entries_layout %} {% endfor %}
+{% for post in posts %} {% include archive-single.html type=entries_layout %} {% endfor %}
