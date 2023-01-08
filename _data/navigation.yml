@@ -11,13 +11,13 @@ main:
   # - title: "Sitemap"
   #   url: /sitemap/
 
-sidebar-category:
-  - title: "카테고리"
+docs:
+  - title: 카테고리
     children:
-      - title: "Java"
-        url: "/java"
-        category: "Java"
+      - title: Java
+        url: java/
+        category: Java
 
-      - title: "C++"
-        url: "/cpp"
-        category: "cpp"
+      - title: C++
+        url: cpp/
+        category: cpp
