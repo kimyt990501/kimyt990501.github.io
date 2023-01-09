@@ -15,9 +15,9 @@ docs:
   - title: "카테고리"
     children:
       - title: "Java"
-        url: "/java"
+        url: "/categories/java"
         category: "Java"
 
       - title: "C++"
-        url: "/cpp"
+        url: "/categories/cpp"
         category: "cpp"
