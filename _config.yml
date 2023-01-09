@@ -19,7 +19,7 @@ locale                   : "ko-KR"
 title                    : "개발공부 블로그"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "장래희망개발자"
+name                     : "kimyt990501"
 description              : "개발공부"
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
