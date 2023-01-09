@@ -5,7 +5,7 @@ excerpt: "JAVA 객체지향 프로그래밍 1"
 categories:
  - Java
 tags:
- - [Blog, jekyll, Github, Git]
+ - [Java, Github]
 
 toc: true
 toc_sticky: true
