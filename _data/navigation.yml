@@ -1,9 +1,9 @@
 # main links
 main:
   - title: "HOME"
-    url: https://kimyt990501.github.io/
+    url: /index.html
   - title: "CATEGORY"
-    url: https://kimyt990501.github.io/categories/
+    url: /categories/
   # - title: "Sample Posts"
   #   url: /year-archive/
   # - title: "Sample Collections"
