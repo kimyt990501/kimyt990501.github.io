@@ -5,7 +5,7 @@ excerpt: "JAVA 배열"
 categories:
  - Java
 tags:
- - [Blog, jekyll, Github, Git]
+ - [Java, Github]
 
 toc: true
 toc_sticky: true
