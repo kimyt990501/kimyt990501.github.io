@@ -2,8 +2,8 @@
 main:
   - title: "HOME"
     url: https://kimyt990501.github.io/
-   - title: "CATEGORY"
-     url: https://kimyt990501.github.io/categories/
+  - title: "CATEGORY"
+    url: https://kimyt990501.github.io/categories/
   # - title: "Sample Posts"
   #   url: /year-archive/
   # - title: "Sample Collections"
