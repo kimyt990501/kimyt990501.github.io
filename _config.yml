@@ -290,5 +290,5 @@ defaults:
       comments: true
       share: true
       related: true
-      sidebar:                  
-        nav: "docs"
+      mathjax: true
+      sidebar_main: true
