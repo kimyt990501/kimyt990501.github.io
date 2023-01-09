@@ -1,6 +1,6 @@
 ---
 title: "JAVA 공부 방향성"
-excerpt: "JAVA 공부의 목표"
+excerpt: "JAVA 공부의 목적"
 
 categories:
  - Java
