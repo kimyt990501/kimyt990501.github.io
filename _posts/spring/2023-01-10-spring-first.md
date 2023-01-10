@@ -1,6 +1,6 @@
 ---
 title: "Spring공부"
-excerpt: "Spring 카테고리 표사 용"
+excerpt: "Spring 카테고리 표시 용"
 
 categories:
  - Spring
