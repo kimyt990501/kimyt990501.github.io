@@ -2,8 +2,8 @@
 main:
   - title: "HOME"
     url: /index.html
-  # - title: "CATEGORY"
-  #   url: /categories/
+  - title: "CATEGORY"
+    url: /categories/
   # - title: "Sample Posts"
   #   url: /year-archive/
   # - title: "Sample Collections"
