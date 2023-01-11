@@ -112,7 +112,7 @@ author:
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      url: "kimyt990501@naver.com"
+      url: "mailto:kimyt990501@naver.com"
     - label: "Github"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/kimyt990501"
