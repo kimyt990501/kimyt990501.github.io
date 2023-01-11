@@ -8,4 +8,4 @@ sidebar_main: true
 
 C++공부 기록용 카테고리
 {% assign posts = site.categories.cpp %}
-{% for post in posts %} {% include archive-single2.html type=page.entries_layout %} {% endfor %}
+{% for post in posts %} {% include archive-single.html type=page.entries_layout %} {% endfor %}
