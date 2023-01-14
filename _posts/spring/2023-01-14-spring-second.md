@@ -29,7 +29,7 @@ HelloSpringApplication.java 를 실행시키면
 ![image](https://user-images.githubusercontent.com/50610894/212460124-b245c21d-16fb-4016-9a61-175100fd266a.png)  
 
 이런 화면이 뜨는데  
-이제 웹 브라우저에서 https://localhost:8080 을 접속했을때 
+이제 웹 브라우저에서 localhost:8080 을 접속했을때 
 
 ![image](https://user-images.githubusercontent.com/50610894/212460166-cd986db9-4529-4dbe-94c3-32b64f1363a3.png)  
 이러한 오류 화면이 뜬다면 성공이다.
