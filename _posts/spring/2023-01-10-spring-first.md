@@ -1,5 +1,5 @@
 ---
-title: "Spring공부 00 <인프런 Spring입문 by 김영한> 공부 시작"
+title: "Spring공부 00 인프런 Spring입문 by 김영한 공부 시작"
 excerpt: "Spring 공부 시작"
 
 categories:
