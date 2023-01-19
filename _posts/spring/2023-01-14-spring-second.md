@@ -124,7 +124,7 @@ public class HelloController {
 
 이러한 화면이 뜬다면 성공이다.
 
-# 마무리
+# Thymeleaf 템플릿 엔진 작동 원리 정리
 
 1. 웹브라우저에서 localhost:8080/hello 이란 페이지를 던지면 스프링부트는 tomcat이라는 웹서버를 내장하고 있는데 이 서버가 이걸 받아서 /hello 를 `@GetMapping` 으로 받은 컨트롤러를 실행시킨다.
 2. 그러면 `HelloController` 가 실행되고 `model.addAttribute("data", "hello!!")` 코드에 의해서 model 에는 `data:hello!!` 가 들어간다.  
