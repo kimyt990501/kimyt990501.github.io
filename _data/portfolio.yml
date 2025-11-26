@@ -243,10 +243,10 @@ certifications:
 languages:
   - name: "한국어"
     level: "Native"
+  - name: "중국어"
+    level: "Native-like"
   - name: "영어"
     level: "Professional"
-  - name: "중국어"
-    level: "Intermediate"
 
 contact:
   email: "kimyt990501@naver.com"
