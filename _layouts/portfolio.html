@@ -150,34 +150,6 @@ layout: default
     </div>
 </section>
 
-<!-- Blog Preview Section -->
-<section id="blog" class="portfolio-section blog-preview">
-    <div class="section-header reveal">
-        <h2 class="section-title">Latest Posts</h2>
-        <p class="section-subtitle">최근 작성한 블로그 글입니다</p>
-    </div>
-    <div class="blog-posts">
-        {% assign recent_posts = site.posts | slice: 0, 3 %}
-        {% for post in recent_posts %}
-        <div class="blog-card reveal">
-            <h3 class="blog-card-title">
-                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-            </h3>
-            <p class="blog-card-excerpt">{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
-            <div class="blog-card-meta">
-                <span><i class="far fa-calendar"></i> {{ post.date | date: "%Y-%m-%d" }}</span>
-                {% if post.categories %}
-                <span><i class="far fa-folder"></i> {{ post.categories | first }}</span>
-                {% endif %}
-            </div>
-        </div>
-        {% endfor %}
-    </div>
-    <div class="blog-more reveal">
-        <a href="{{ '/blog/' | relative_url }}" class="blog-more-link">모든 포스트 보기</a>
-    </div>
-</section>
-
 <!-- Contact Section -->
 <section id="contact" class="portfolio-section">
     <div class="section-header reveal">
