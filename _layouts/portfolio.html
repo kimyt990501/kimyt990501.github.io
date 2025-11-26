@@ -3,413 +3,258 @@
 layout: default
 ---
 
-<head>
-    <!-- Fonts: Outfit (Headings) & Inter (Body) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;700;800&display=swap"
-        rel="stylesheet">
+<!-- Portfolio Styles -->
+<link rel="stylesheet" href="{{ '/assets/css/portfolio.css' | relative_url }}">
 
-    {% include head.html %}
-    {% include head/custom.html %}
+<!-- Fonts: Outfit (Headings) & Inter (Body) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;700;800&display=swap"
+    rel="stylesheet">
 
-    <!-- Portfolio Styles -->
-    <link rel="stylesheet" href="{{ '/assets/css/portfolio.css' | relative_url }}">
+<div class="portfolio-container">
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-content reveal">
+            <h1 class="hero-title">{{ site.data.portfolio.hero.title }}</h1>
+            <h2 class="hero-subtitle">{{ site.data.portfolio.hero.subtitle }}</h2>
+            <p class="hero-description">{{ site.data.portfolio.hero.description }}</p>
+            <a href="{{ site.data.portfolio.hero.cta_link }}" class="hero-cta">{{ site.data.portfolio.hero.cta_text
+                }}</a>
+        </div>
+    </section>
 
-    <style>
-        ::-webkit-scrollbar {
-            width: 12px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background-color: #1a1d23;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background-color: #373b3f;
-            border-radius: 6px;
-            border: 3px solid #1a1d23;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #ffd24c;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #1a1d23;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: 'Outfit', sans-serif;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Scroll Reveal Classes */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Experience Section Styles */
-        .experience-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .experience-card {
-            background: var(--glass-bg);
-            backdrop-filter: var(--glass-blur);
-            -webkit-backdrop-filter: var(--glass-blur);
-            border: 1px solid var(--glass-border);
-            border-radius: 18px;
-            padding: 32px;
-            box-shadow: var(--shadow-md);
-            margin-bottom: 24px;
-        }
-
-        .experience-title {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: var(--accent-primary);
-            margin-bottom: 10px;
-        }
-
-        .experience-period {
-            font-size: 1rem;
-            color: var(--text-muted);
-            margin-bottom: 12px;
-        }
-
-        .experience-description {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
-
-        /* Qualifications Section Styles */
-        .qualifications-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 32px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .qualification-box {
-            background: var(--glass-bg);
-            backdrop-filter: var(--glass-blur);
-            -webkit-backdrop-filter: var(--glass-blur);
-            border: 1px solid var(--glass-border);
-            border-radius: 18px;
-            padding: 36px;
-            box-shadow: var(--shadow-md);
-        }
-
-        .qualification-subtitle {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--accent-primary);
-            margin-bottom: 24px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .qualification-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .qualification-list li {
-            font-size: 1.05rem;
-            color: var(--text-secondary);
-            line-height: 2;
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .qualification-list li:last-child {
-            border-bottom: none;
-        }
-
-        .qualification-list li strong {
-            color: var(--text-primary);
-        }
-
-        @media (max-width: 768px) {
-            .qualifications-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .experience-card {
-                padding: 24px;
-            }
-
-            .qualification-box {
-                padding: 28px;
-            }
-        }
-    </style>
-</head>
-
-<body
-    class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %}">
-    {% include_cached skip-links.html %}
-    {% include_cached masthead.html %}
-
-    <div class="portfolio-container">
-        <!-- Hero Section -->
-        <section id="home" class="hero-section">
-            <div class="hero-content reveal">
-                <h1 class="hero-title">{{ site.data.portfolio.hero.title }}</h1>
-                <h2 class="hero-subtitle">{{ site.data.portfolio.hero.subtitle }}</h2>
-                <p class="hero-description">{{ site.data.portfolio.hero.description }}</p>
-                <a href="{{ site.data.portfolio.hero.cta_link }}" class="hero-cta">{{ site.data.portfolio.hero.cta_text
-                    }}</a>
+    <!-- About Section -->
+    <section id="about" class="portfolio-section">
+        <div class="section-header reveal">
+            <h2 class="section-title">{{ site.data.portfolio.about.title }}</h2>
+        </div>
+        <div class="about-content reveal">
+            <div class="about-image">
+                <img src="{{ site.data.portfolio.about.image | relative_url }}" alt="{{ site.author.name }}">
             </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="portfolio-section">
-            <div class="section-header reveal">
-                <h2 class="section-title">{{ site.data.portfolio.about.title }}</h2>
+            <div class="about-text">
+                {{ site.data.portfolio.about.description | markdownify }}
             </div>
-            <div class="about-content reveal">
-                <div class="about-image">
-                    <img src="{{ site.data.portfolio.about.image | relative_url }}" alt="{{ site.author.name }}">
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="portfolio-section">
+        <div class="section-header reveal">
+            <h2 class="section-title">Projects</h2>
+            <p class="section-subtitle">제가 진행한 주요 프로젝트들입니다</p>
+        </div>
+        <div class="projects-grid">
+            {% for project in site.data.portfolio.projects %}
+            <div class="project-card reveal">
+                <div class="project-image">
+                    {% if project.image and project.image != "" %}
+                    <img src="{{ project.image | relative_url }}" alt="{{ project.title }}">
+                    {% else %}
+                    <i class="fas fa-code"></i>
+                    {% endif %}
                 </div>
-                <div class="about-text">
-                    {{ site.data.portfolio.about.description | markdownify }}
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects" class="portfolio-section">
-            <div class="section-header reveal">
-                <h2 class="section-title">Projects</h2>
-                <p class="section-subtitle">제가 진행한 주요 프로젝트들입니다</p>
-            </div>
-            <div class="projects-grid">
-                {% for project in site.data.portfolio.projects %}
-                <div class="project-card reveal">
-                    <div class="project-image">
-                        {% if project.image %}
-                        <img src="{{ project.image | relative_url }}" alt="{{ project.title }}">
-                        {% else %}
-                        <i class="fas fa-code"></i>
+                <div class="project-content">
+                    <h3 class="project-title">{{ project.title }}</h3>
+                    <p class="project-description">{{ project.description }}</p>
+                    <div class="project-tech">
+                        {% for tech in project.tech_stack %}
+                        <span class="tech-tag">{{ tech }}</span>
+                        {% endfor %}
+                    </div>
+                    <div class="project-links">
+                        {% if project.github %}
+                        <a href="{{ project.github }}" class="project-link" target="_blank">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
                         {% endif %}
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">{{ project.title }}</h3>
-                        <p class="project-description">{{ project.description }}</p>
-                        <div class="project-tech">
-                            {% for tech in project.tech_stack %}
-                            <span class="tech-tag">{{ tech }}</span>
-                            {% endfor %}
-                        </div>
-                        <div class="project-links">
-                            {% if project.github %}
-                            <a href="{{ project.github }}" class="project-link" target="_blank">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
-                            {% endif %}
-                            {% if project.demo %}
-                            <a href="{{ project.demo }}" class="project-link" target="_blank">
-                                <i class="fas fa-external-link-alt"></i> Demo
-                            </a>
-                            {% endif %}
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills" class="portfolio-section">
-            <div class="section-header reveal">
-                <h2 class="section-title">Skills</h2>
-                <p class="section-subtitle">현재 사용하고 있는 기술들입니다</p>
-            </div>
-            <div class="skills-container">
-                {% for skill_category in site.data.portfolio.skills %}
-                <div class="skill-category reveal">
-                    <h3 class="skill-category-title">{{ skill_category.category }}</h3>
-                    <div class="skill-items">
-                        {% for skill in skill_category.items %}
-                        <span class="skill-badge level-{{ skill.level }}">{{ skill.name }}</span>
-                        {% endfor %}
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-        </section>
-
-        <!-- Experience Section -->
-        {% if site.data.portfolio.experience %}
-        <section id="experience" class="portfolio-section">
-            <div class="section-header reveal">
-                <h2 class="section-title">Experience</h2>
-                <p class="section-subtitle">실무 경험</p>
-            </div>
-            <div class="experience-container">
-                {% for exp in site.data.portfolio.experience %}
-                <div class="experience-card reveal">
-                    <h3 class="experience-title">{{ exp.title }}</h3>
-                    <p class="experience-period">{{ exp.period }}</p>
-                    <p class="experience-description">{{ exp.description }}</p>
-                </div>
-                {% endfor %}
-            </div>
-        </section>
-        {% endif %}
-
-        <!-- Certifications & Languages Section -->
-        <section id="qualifications" class="portfolio-section">
-            <div class="section-header reveal">
-                <h2 class="section-title">Qualifications</h2>
-                <p class="section-subtitle">자격 및 언어 능력</p>
-            </div>
-            <div class="qualifications-grid">
-                <!-- Certifications -->
-                {% if site.data.portfolio.certifications %}
-                <div class="qualification-box reveal">
-                    <h3 class="qualification-subtitle">
-                        <i class="fas fa-certificate"></i> 자격증
-                    </h3>
-                    <ul class="qualification-list">
-                        {% for cert in site.data.portfolio.certifications %}
-                        <li>{{ cert.name }}</li>
-                        {% endfor %}
-                    </ul>
-                </div>
-                {% endif %}
-
-                <!-- Languages -->
-                {% if site.data.portfolio.languages %}
-                <div class="qualification-box reveal">
-                    <h3 class="qualification-subtitle">
-                        <i class="fas fa-language"></i> 언어 능력
-                    </h3>
-                    <ul class="qualification-list">
-                        {% for lang in site.data.portfolio.languages %}
-                        <li><strong>{{ lang.name }}</strong>: {{ lang.level }}</li>
-                        {% endfor %}
-                    </ul>
-                </div>
-                {% endif %}
-            </div>
-        </section>
-
-        <!-- Blog Preview Section -->
-        <section id="blog" class="portfolio-section blog-preview">
-            <div class="section-header reveal">
-                <h2 class="section-title">Latest Posts</h2>
-                <p class="section-subtitle">최근 작성한 블로그 글입니다</p>
-            </div>
-            <div class="blog-posts">
-                {% assign recent_posts = site.posts | slice: 0, 3 %}
-                {% for post in recent_posts %}
-                <div class="blog-card reveal">
-                    <h3 class="blog-card-title">
-                        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-                    </h3>
-                    <p class="blog-card-excerpt">{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
-                    <div class="blog-card-meta">
-                        <span><i class="far fa-calendar"></i> {{ post.date | date: "%Y-%m-%d" }}</span>
-                        {% if post.categories %}
-                        <span><i class="far fa-folder"></i> {{ post.categories | first }}</span>
+                        {% if project.demo %}
+                        <a href="{{ project.demo }}" class="project-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> Demo
+                        </a>
                         {% endif %}
                     </div>
                 </div>
-                {% endfor %}
             </div>
-            <div class="blog-more reveal">
-                <a href="{{ '/blog/' | relative_url }}" class="blog-more-link">모든 포스트 보기</a>
-            </div>
-        </section>
+            {% endfor %}
+        </div>
+    </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="portfolio-section">
-            <div class="section-header reveal">
-                <h2 class="section-title">Contact</h2>
-            </div>
-            <div class="contact-content reveal">
-                <p class="contact-description">{{ site.data.portfolio.contact.description }}</p>
-                <div class="contact-links">
-                    <a href="mailto:{{ site.data.portfolio.contact.email }}" class="contact-link">
-                        <i class="fas fa-envelope"></i> Email
-                    </a>
-                    <a href="{{ site.data.portfolio.contact.github }}" class="contact-link" target="_blank">
-                        <i class="fab fa-github"></i> GitHub
-                    </a>
+    <!-- Skills Section -->
+    <section id="skills" class="portfolio-section">
+        <div class="section-header reveal">
+            <h2 class="section-title">Skills</h2>
+            <p class="section-subtitle">현재 사용하고 있는 기술들입니다</p>
+        </div>
+        <div class="skills-container">
+            {% for skill_category in site.data.portfolio.skills %}
+            <div class="skill-category reveal">
+                <h3 class="skill-category-title">{{ skill_category.category }}</h3>
+                <div class="skill-items">
+                    {% for skill in skill_category.items %}
+                    <span class="skill-badge level-{{ skill.level }}">{{ skill.name }}</span>
+                    {% endfor %}
                 </div>
             </div>
-        </section>
-    </div>
+            {% endfor %}
+        </div>
+    </section>
 
-    <!-- Footer -->
-    <div id="footer" class="page__footer">
-        <footer>
-            {% include footer/custom.html %}
-            {% include_cached footer.html %}
-        </footer>
-    </div>
+    <!-- Experience Section -->
+    {% if site.data.portfolio.experience %}
+    <section id="experience" class="portfolio-section">
+        <div class="section-header reveal">
+            <h2 class="section-title">Experience</h2>
+            <p class="section-subtitle">실무 경험</p>
+        </div>
+        <div class="experience-container">
+            {% for exp in site.data.portfolio.experience %}
+            <div class="experience-card reveal">
+                <h3 class="experience-title">{{ exp.title }}</h3>
+                <p class="experience-period">{{ exp.period }}</p>
+                <p class="experience-description">{{ exp.description }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    {% endif %}
 
-    {% include scripts.html %}
+    <!-- Certifications & Languages Section -->
+    <section id="qualifications" class="portfolio-section">
+        <div class="section-header reveal">
+            <h2 class="section-title">Qualifications</h2>
+            <p class="section-subtitle">자격 및 언어 능력</p>
+        </div>
+        <div class="qualifications-grid">
+            <!-- Certifications -->
+            {% if site.data.portfolio.certifications %}
+            <div class="qualification-box reveal">
+                <h3 class="qualification-subtitle">
+                    <i class="fas fa-certificate"></i> 자격증
+                </h3>
+                <ul class="qualification-list">
+                    {% for cert in site.data.portfolio.certifications %}
+                    <li>{{ cert.name }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
 
-    <!-- Scripts -->
-    <script>
-        // Smooth Scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href !== '#' && href !== '') {
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
+            <!-- Languages -->
+            {% if site.data.portfolio.languages %}
+            <div class="qualification-box reveal">
+                <h3 class="qualification-subtitle">
+                    <i class="fas fa-language"></i> 언어 능력
+                </h3>
+                <ul class="qualification-list">
+                    {% for lang in site.data.portfolio.languages %}
+                    <li><strong>{{ lang.name }}</strong>: {{ lang.level }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+        </div>
+    </section>
+
+    <!-- Blog Preview Section -->
+    <section id="blog" class="portfolio-section blog-preview">
+        <div class="section-header reveal">
+            <h2 class="section-title">Latest Posts</h2>
+            <p class="section-subtitle">최근 작성한 블로그 글입니다</p>
+        </div>
+        <div class="blog-posts">
+            {% assign recent_posts = site.posts | slice: 0, 3 %}
+            {% for post in recent_posts %}
+            <div class="blog-card reveal">
+                <h3 class="blog-card-title">
+                    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                </h3>
+                <p class="blog-card-excerpt">{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
+                <div class="blog-card-meta">
+                    <span><i class="far fa-calendar"></i> {{ post.date | date: "%Y-%m-%d" }}</span>
+                    {% if post.categories %}
+                    <span><i class="far fa-folder"></i> {{ post.categories | first }}</span>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="blog-more reveal">
+            <a href="{{ '/blog/' | relative_url }}" class="blog-more-link">모든 포스트 보기</a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="portfolio-section">
+        <div class="section-header reveal">
+            <h2 class="section-title">Contact</h2>
+        </div>
+        <div class="contact-content reveal">
+            <p class="contact-description">{{ site.data.portfolio.contact.description }}</p>
+            <div class="contact-links">
+                <a href="mailto:{{ site.data.portfolio.contact.email }}" class="contact-link">
+                    <i class="fas fa-envelope"></i> Email
+                </a>
+                <a href="{{ site.data.portfolio.contact.github }}" class="contact-link" target="_blank">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
+
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* Scroll Reveal Classes */
+    .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+    }
+
+    .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+</style>
+
+<script>
+    // Smooth Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href !== '#' && href !== '') {
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
-            });
+            }
         });
+    });
 
-        // Scroll Reveal Animation
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 150;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
-                }
+    // Scroll Reveal Animation
+    function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 150;
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add("active");
             }
         }
-        window.addEventListener("scroll", reveal);
-        // Trigger once on load
-        reveal();
-    </script>
-</body>
+    }
+    window.addEventListener("scroll", reveal);
+    // Trigger once on load
+    reveal();
+</script>
 ```
