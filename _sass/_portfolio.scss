@@ -1464,117 +1464,321 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 768px) {
   :root {
-    --section-padding: 40px;
+    --section-padding: 24px;
   }
 
+  /* 섹션 간격 최소화 */
   .portfolio-section {
-    padding: 40px 16px;
+    padding: 24px 12px;
   }
 
   .section-header {
-    margin-bottom: 32px;
+    margin-bottom: 16px;
   }
 
   .section-title {
-    font-size: 2rem !important;
+    font-size: 1.5rem !important;
+    margin-bottom: 4px;
   }
 
   .section-subtitle {
-    font-size: 0.95rem;
+    font-size: 0.8rem;
+    line-height: 1.3;
   }
 
-  /* Hero 섹션 간소화 */
-  .hero-stats {
-    display: none; /* GitHub stats 숨기기 */
+  /* Hero 섹션 컴팩트 */
+  .hero-section {
+    padding: 32px 12px;
+  }
+
+  .hero-name {
+    font-size: 1.8rem !important;
+    margin-bottom: 6px;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem !important;
+    margin-bottom: 4px;
+  }
+
+  .hero-title-secondary {
+    font-size: 0.9rem !important;
+    margin-bottom: 8px;
+  }
+
+  .hero-description-primary {
+    font-size: 0.85rem !important;
+    margin-bottom: 4px;
+    line-height: 1.4;
   }
 
   .hero-description-secondary {
-    display: none; /* 학교 정보 숨기기 */
+    font-size: 0.75rem !important;
+    margin-bottom: 16px;
+    line-height: 1.3;
   }
 
-  .about-content,
-  .qualification-box,
-  .experience-card,
-  .skill-category,
-  .contact-content {
-    padding: 24px 16px;
+  .hero-stats {
+    gap: 12px;
+    margin-top: 16px;
   }
 
+  .hero-stat-value {
+    font-size: 1.3rem;
+  }
+
+  .hero-stat-label {
+    font-size: 0.7rem;
+  }
+
+  /* CTA 버튼 컴팩트 */
   .hero-cta-container {
     flex-direction: column;
-    gap: 12px;
+    gap: 8px;
     width: 100%;
-    margin-top: 32px;
+    margin-top: 16px;
   }
 
   .hero-cta,
   .hero-cta-secondary {
     width: 100%;
     justify-content: center;
-    padding: 14px 32px;
-    font-size: 0.95rem;
+    padding: 10px 24px;
+    font-size: 0.85rem;
+    border-width: 2px;
   }
 
-  /* 프로젝트 카드 간소화 */
+  /* About 섹션 컴팩트 */
+  .about-content {
+    padding: 16px 12px;
+    gap: 16px;
+  }
+
+  .about-image img {
+    max-width: 100px;
+  }
+
+  .about-text {
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  .about-highlights {
+    gap: 8px;
+  }
+
+  .about-highlight {
+    padding: 10px 12px;
+    font-size: 0.75rem;
+  }
+
+  /* 프로젝트 카드 컴팩트 - 내용 유지 */
+  .projects-grid {
+    gap: 16px;
+  }
+
   .project-card-container:hover .project-card-inner {
-    transform: none; /* 플립 효과 비활성화 */
+    transform: none;
   }
 
   .project-card-back {
-    display: none; /* 뒷면 스크린샷 숨기기 */
+    display: none;
+  }
+
+  .project-image {
+    height: 120px !important;
+  }
+
+  .project-content {
+    padding: 16px 12px;
+  }
+
+  .project-title {
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+    line-height: 1.3;
+  }
+
+  .project-subtitle {
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+    line-height: 1.3;
   }
 
   .project-problem,
   .project-solution {
-    display: none; /* Problem/Solution 설명 숨기기 */
+    margin-bottom: 8px;
+  }
+
+  .project-problem-label,
+  .project-solution-label {
+    font-size: 0.7rem;
+    padding: 3px 8px;
+  }
+
+  .project-problem-text,
+  .project-solution-text {
+    font-size: 0.75rem;
+    line-height: 1.4;
+    margin-top: 4px;
   }
 
   .project-impact {
-    display: none; /* Impact 지표 숨기기 */
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .project-highlights {
-    max-height: 120px;
-    overflow: hidden;
-  }
-
-  .project-highlights li {
-    font-size: 0.85rem;
-    line-height: 1.4;
+    gap: 8px;
+    margin: 8px 0;
+    flex-wrap: wrap;
+    flex-direction: row;
   }
 
   .impact-metric {
-    min-width: 100%;
+    min-width: calc(50% - 4px);
+    padding: 8px;
+  }
+
+  .impact-metric-value {
+    font-size: 0.9rem;
+  }
+
+  .impact-metric-label {
+    font-size: 0.65rem;
+  }
+
+  .project-highlights {
+    margin: 8px 0;
+    padding-left: 16px;
+  }
+
+  .project-highlights li {
+    font-size: 0.75rem;
+    line-height: 1.4;
+    margin-bottom: 4px;
+  }
+
+  .project-tech {
+    gap: 4px;
+    margin: 8px 0;
+  }
+
+  .tech-tag {
+    font-size: 0.65rem;
+    padding: 4px 8px;
+  }
+
+  .project-links {
+    padding-top: 8px;
+    gap: 8px;
+  }
+
+  .project-link {
+    font-size: 0.8rem;
+    padding: 8px 12px;
+  }
+
+  /* Skills 섹션 컴팩트 */
+  .skill-category {
+    padding: 16px 12px;
+    margin-bottom: 12px;
+  }
+
+  .skill-category-title {
+    font-size: 1rem;
+    margin-bottom: 4px;
+  }
+
+  .skill-category-subtitle {
+    font-size: 0.75rem;
+    margin-bottom: 12px;
+  }
+
+  .skill-name {
+    font-size: 0.8rem;
+  }
+
+  .skill-level-text {
+    font-size: 0.75rem;
+  }
+
+  .skill-badge {
+    padding: 8px 12px;
+    font-size: 0.75rem;
+  }
+
+  /* Experience 섹션 컴팩트 */
+  .experience-card {
+    padding: 16px 12px;
+    margin-bottom: 12px;
+  }
+
+  .experience-title {
+    font-size: 1rem;
+    margin-bottom: 4px;
+  }
+
+  .experience-company {
+    font-size: 0.8rem;
+  }
+
+  .experience-period {
+    font-size: 0.7rem;
+  }
+
+  .experience-description {
+    font-size: 0.75rem;
+    line-height: 1.5;
+    margin: 8px 0;
+  }
+
+  .experience-achievements-header {
+    font-size: 0.75rem;
+    margin-top: 8px;
+  }
+
+  .experience-achievements li {
+    font-size: 0.75rem;
+    line-height: 1.4;
+    margin-bottom: 4px;
+  }
+
+  .experience-tech-stack {
+    font-size: 0.7rem;
+  }
+
+  /* Qualifications 컴팩트 */
+  .qualification-box {
+    padding: 16px 12px;
+  }
+
+  .qualification-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+  }
+
+  .qualification-list li {
+    font-size: 0.75rem;
+    line-height: 1.5;
+    margin-bottom: 4px;
+  }
+
+  /* Contact 컴팩트 */
+  .contact-content {
+    padding: 16px 12px;
+  }
+
+  .contact-description {
+    font-size: 0.8rem;
+    margin-bottom: 12px;
   }
 
   .contact-links {
     flex-direction: column;
-    gap: 12px;
+    gap: 8px;
   }
 
   .contact-link {
     width: 100%;
     justify-content: center;
-  }
-
-  .project-link {
-    font-size: 0.9rem;
-    padding: 10px 16px;
-  }
-
-  .project-title {
-    font-size: 1.3rem;
-  }
-
-  .project-subtitle {
-    font-size: 0.9rem;
-  }
-
-  .tech-tag {
-    font-size: 0.75rem;
-    padding: 6px 12px;
+    padding: 10px 20px;
+    font-size: 0.85rem;
   }
 }
 
