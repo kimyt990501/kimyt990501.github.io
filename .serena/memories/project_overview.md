@@ -26,4 +26,7 @@
 - 사이드바 네비게이션
 
 ## 배포
-GitHub Pages를 통해 자동 배포됨
+- **배포 URL**: https://kimyt990501.github.io
+- **배포 방식**: GitHub Pages를 통해 자동 배포
+- **배포 프로세스**: 이 레포지토리(kimyt990501.github.io)에 코드를 push하면 자동으로 GitHub Pages에서 빌드되어 사이트에 반영됨
+- **브랜치**: main 브랜치가 배포 대상
