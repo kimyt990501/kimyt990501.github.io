@@ -1,12 +1,12 @@
 /* =====================================================
-   Design Tokens & Variables - Balanced Professional Theme
+   Design Tokens & Variables - Clean Soft Blue Theme
    ===================================================== */
 :root {
-  /* Professional Slate Blue Palette */
-  --accent-primary: #64748B;
-  --accent-secondary: #475569;
-  --accent-bright: #CBD5E1;
-  --accent-dark: #334155;
+  /* Clean Soft Blue Palette - High Readability */
+  --accent-primary: #60A5FA;
+  --accent-secondary: #3B82F6;
+  --accent-bright: #BFDBFE;
+  --accent-dark: #2563EB;
 
   --bg-primary: #0F172A;
   --bg-secondary: #1E293B;
@@ -14,20 +14,20 @@
   --bg-card: #1E293B;
   --bg-card-hover: #334155;
 
-  --text-primary: #F1F5F9;
-  --text-secondary: #CBD5E1;
+  --text-primary: #F8FAFC;
+  --text-secondary: #E2E8F0;
   --text-muted: #94A3B8;
-  --text-accent: #64748B;
+  --text-accent: #60A5FA;
 
   /* Professional Shadows */
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
   --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.5);
   --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.6);
   --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.7);
-  --shadow-accent: 0 8px 32px rgba(100, 116, 139, 0.3);
+  --shadow-accent: 0 8px 32px rgba(96, 165, 250, 0.3);
 
   /* Gradients */
-  --gradient-primary: linear-gradient(135deg, #64748B 0%, #475569 100%);
+  --gradient-primary: linear-gradient(135deg, #60A5FA 0%, #3B82F6 100%);
   --gradient-dark: linear-gradient(180deg, #0F172A 0%, #020617 100%);
   --gradient-card: linear-gradient(135deg, #1E293B 0%, #334155 100%);
 
@@ -52,23 +52,23 @@
 
 ::-webkit-scrollbar-track {
   background: var(--bg-primary);
-  border-left: 1px solid rgba(100, 116, 139, 0.1);
+  border-left: 1px solid rgba(96, 165, 250, 0.1);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #64748B, #475569);
+  background: linear-gradient(180deg, #60A5FA, #3B82F6);
   border-radius: 6px;
   border: 2px solid var(--bg-primary);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #94A3B8, #64748B);
+  background: linear-gradient(180deg, #93C5FD, #60A5FA);
 }
 
 /* Firefox Scrollbar */
 * {
   scrollbar-width: thin;
-  scrollbar-color: #64748B var(--bg-primary);
+  scrollbar-color: #60A5FA var(--bg-primary);
 }
 
 /* =====================================================
@@ -76,7 +76,7 @@
    ===================================================== */
 .masthead {
   background: var(--bg-primary) !important;
-  border-bottom: 1px solid rgba(100, 116, 139, 0.2) !important;
+  border-bottom: 1px solid rgba(96, 165, 250, 0.2) !important;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
 }
 

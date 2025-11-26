@@ -1,15 +1,15 @@
 # Portfolio Design System
 
-## Color Palette - Professional Slate Blue Theme
+## Color Palette - Clean Soft Blue Theme
 
 ### Primary Colors
-- **Accent Primary**: `#64748B` (슬레이트 블루)
+- **Accent Primary**: `#60A5FA` (소프트 블루)
   - 용도: 버튼, 링크, 주요 강조 요소
-- **Accent Secondary**: `#475569` (진한 슬레이트)
+- **Accent Secondary**: `#3B82F6` (모던 블루)
   - 용도: 그라데이션, 호버 상태, 방문한 링크
-- **Accent Bright**: `#CBD5E1` (밝은 슬레이트)
+- **Accent Bright**: `#BFDBFE` (밝은 블루)
   - 용도: Hero subtitle, 호버 상태, 강조 텍스트
-- **Accent Dark**: `#334155` (다크 슬레이트)
+- **Accent Dark**: `#2563EB` (다크 블루)
   - 용도: 어두운 배경 요소
 
 ### Background Colors
@@ -20,13 +20,13 @@
 - **Card Hover BG**: `#334155`
 
 ### Text Colors
-- **Primary Text**: `#F1F5F9` (밝은 회색 - 본문)
-- **Secondary Text**: `#CBD5E1` (중간 회색 - 부가 설명)
+- **Primary Text**: `#F8FAFC` (매우 밝은 회색 - 본문, 더 높은 가독성)
+- **Secondary Text**: `#E2E8F0` (밝은 회색 - 부가 설명)
 - **Muted Text**: `#94A3B8` (흐릿한 회색 - 라벨)
-- **Accent Text**: `#64748B` (슬레이트 블루 - 강조)
+- **Accent Text**: `#60A5FA` (소프트 블루 - 강조)
 
 ### Gradients
-- **Primary Gradient**: `linear-gradient(135deg, #64748B 0%, #475569 100%)`
+- **Primary Gradient**: `linear-gradient(135deg, #60A5FA 0%, #3B82F6 100%)`
 - **Dark Gradient**: `linear-gradient(180deg, #0F172A 0%, #020617 100%)`
 - **Card Gradient**: `linear-gradient(135deg, #1E293B 0%, #334155 100%)`
 
@@ -35,7 +35,7 @@
 - **Medium**: `0 4px 16px rgba(0, 0, 0, 0.5)`
 - **Large**: `0 8px 32px rgba(0, 0, 0, 0.6)`
 - **Extra Large**: `0 16px 48px rgba(0, 0, 0, 0.7)`
-- **Accent Shadow**: `0 8px 32px rgba(100, 116, 139, 0.3)`
+- **Accent Shadow**: `0 8px 32px rgba(96, 165, 250, 0.3)`
 
 ## Layout Structure
 
@@ -78,10 +78,10 @@
 ## Design Philosophy
 
 ### Theme Characteristics
-- **차분하고 전문적인**: 슬레이트 블루 컬러로 미니멀하고 고급스러운 느낌
-- **AI 템플릿 느낌 제거**: 청록색(Cyan) 제거, 슬레이트 계열로 통일
+- **깔끔하고 전문적인**: 소프트 블루 컬러로 가독성 높고 세련된 느낌
+- **높은 가독성**: 밝고 선명한 블루 톤으로 텍스트와 강조 요소가 명확하게 구분됨
 - **일관성**: 모든 링크, 버튼, 강조 요소가 동일한 색상 팔레트 사용
-- **가독성**: 어두운 배경에 밝은 텍스트, 충분한 대비
+- **포트폴리오 최적화**: 튀지 않으면서도 전문적인 인상을 주는 색상 선택
 
 ### Responsive Breakpoints
 - **Desktop**: 1400px+ (2열 그리드, 가로 카드)
@@ -90,7 +90,7 @@
 
 ## Key Design Decisions
 
-1. **색상 변경 이유**: 기존 청록색(#06B6D4)이 너무 AI 템플릿 느낌 → 슬레이트 블루(#64748B)로 변경하여 전문적이고 차별화된 느낌
+1. **색상 변경 이유**: 기존 슬레이트 블루(#64748B)가 가독성이 낮음 → 소프트 블루(#60A5FA)로 변경하여 깔끔하고 가독성 높은 포트폴리오 디자인 구현
 2. **카드 레이아웃**: 세로에서 가로로 변경하여 한 눈에 정보 파악 가능, 더 넓고 짧은 카드
 3. **전역 링크 색상 통일**: 모든 링크를 슬레이트 블루로 강제하여 일관성 확보
 4. **프로필 이미지**: `/assets/profile.jpeg` 사용
