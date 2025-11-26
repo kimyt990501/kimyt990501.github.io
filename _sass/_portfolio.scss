@@ -1464,15 +1464,32 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 768px) {
   :root {
-    --section-padding: 60px;
+    --section-padding: 40px;
   }
 
   .portfolio-section {
-    padding: 60px 20px;
+    padding: 40px 16px;
   }
 
   .section-header {
-    margin-bottom: 56px;
+    margin-bottom: 32px;
+  }
+
+  .section-title {
+    font-size: 2rem !important;
+  }
+
+  .section-subtitle {
+    font-size: 0.95rem;
+  }
+
+  /* Hero 섹션 간소화 */
+  .hero-stats {
+    display: none; /* GitHub stats 숨기기 */
+  }
+
+  .hero-description-secondary {
+    display: none; /* 학교 정보 숨기기 */
   }
 
   .about-content,
@@ -1480,28 +1497,52 @@ h1, h2, h3, h4, h5, h6 {
   .experience-card,
   .skill-category,
   .contact-content {
-    padding: 32px 24px;
+    padding: 24px 16px;
   }
 
   .hero-cta-container {
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
     width: 100%;
+    margin-top: 32px;
   }
 
   .hero-cta,
   .hero-cta-secondary {
     width: 100%;
     justify-content: center;
+    padding: 14px 32px;
+    font-size: 0.95rem;
   }
 
-  .hero-stats {
-    gap: 20px;
+  /* 프로젝트 카드 간소화 */
+  .project-card-container:hover .project-card-inner {
+    transform: none; /* 플립 효과 비활성화 */
+  }
+
+  .project-card-back {
+    display: none; /* 뒷면 스크린샷 숨기기 */
+  }
+
+  .project-problem,
+  .project-solution {
+    display: none; /* Problem/Solution 설명 숨기기 */
   }
 
   .project-impact {
+    display: none; /* Impact 지표 숨기기 */
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
+  }
+
+  .project-highlights {
+    max-height: 120px;
+    overflow: hidden;
+  }
+
+  .project-highlights li {
+    font-size: 0.85rem;
+    line-height: 1.4;
   }
 
   .impact-metric {
@@ -1510,7 +1551,7 @@ h1, h2, h3, h4, h5, h6 {
 
   .contact-links {
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
   }
 
   .contact-link {
@@ -1519,8 +1560,21 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .project-link {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     padding: 10px 16px;
+  }
+
+  .project-title {
+    font-size: 1.3rem;
+  }
+
+  .project-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .tech-tag {
+    font-size: 0.75rem;
+    padding: 6px 12px;
   }
 }
 
