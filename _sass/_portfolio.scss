@@ -594,19 +594,13 @@ h1, h2, h3, h4, h5, h6 {
 .projects-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 32px;
+  gap: 40px;
   align-items: start;
-  max-width: 1400px;
+  max-width: 100%;
   margin: 0 auto;
 }
 
-@media (min-width: 1400px) {
-  .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
+@media (max-width: 968px) {
   .projects-grid {
     gap: 24px;
   }
@@ -614,19 +608,19 @@ h1, h2, h3, h4, h5, h6 {
 
 .project-card-container {
   perspective: 1500px;
-  min-height: 420px;
+  height: auto;
 }
 
 @media (max-width: 968px) {
   .project-card-container {
-    min-height: 550px;
+    height: auto;
   }
 }
 
 .project-card-inner {
   position: relative;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   transition: transform 0.8s ease;
   transform-style: preserve-3d;
 }
@@ -640,13 +634,13 @@ h1, h2, h3, h4, h5, h6 {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   background: var(--bg-card);
   border: 2px solid rgba(6, 182, 212, 0.2);
   border-radius: 24px;
-  overflow: hidden;
+  overflow: visible;
   box-shadow: var(--shadow-md);
   display: flex;
   flex-direction: row;
@@ -656,8 +650,6 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 968px) {
   .project-card {
     flex-direction: column;
-    overflow-y: auto;
-    overflow-x: hidden;
   }
 }
 
@@ -675,14 +667,14 @@ h1, h2, h3, h4, h5, h6 {
 
 /* 앞면 - 프로젝트 이미지 영역 (가로 레이아웃) */
 .project-image {
-  width: 280px;
-  min-width: 280px;
-  height: 100%;
+  width: 320px;
+  min-width: 320px;
+  align-self: stretch;
   background: linear-gradient(135deg, #334155 0%, #475569 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 3.5rem;
+  font-size: 4rem;
   color: var(--accent-primary);
   position: relative;
   overflow: hidden;
@@ -694,8 +686,8 @@ h1, h2, h3, h4, h5, h6 {
   .project-image {
     width: 100%;
     min-width: 100%;
-    height: 180px;
-    font-size: 3rem;
+    height: 200px;
+    font-size: 3.5rem;
   }
 }
 
@@ -840,18 +832,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .project-content {
-  padding: 32px 36px;
+  padding: 36px 40px;
   flex: 1;
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
+  overflow: visible;
   min-width: 0;
 }
 
 @media (max-width: 968px) {
   .project-content {
-    padding: 28px;
-    overflow-y: visible;
+    padding: 32px;
   }
 }
 

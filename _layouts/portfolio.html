@@ -395,11 +395,10 @@ layout: default
         animateSkillBars();
     });
 
-    // 프로젝트 카드 높이 설정 - 가로 레이아웃
+    // 프로젝트 카드 높이 설정 - 가로 레이아웃 (전체 컨텐츠 표시)
     document.addEventListener('DOMContentLoaded', function() {
         function setCardHeights() {
             const containers = document.querySelectorAll('.project-card-container');
-            const isMobile = window.innerWidth <= 968;
 
             containers.forEach(container => {
                 const front = container.querySelector('.project-card-front');
@@ -407,18 +406,20 @@ layout: default
                 const inner = container.querySelector('.project-card-inner');
 
                 if (front && back && inner) {
-                    // 앞면과 뒷면 높이 계산
-                    const frontHeight = front.scrollHeight;
-                    const backHeight = back.scrollHeight;
+                    // 높이 초기화
+                    container.style.height = 'auto';
+                    inner.style.height = 'auto';
 
-                    // 데스크톱: 가로 레이아웃이므로 최소 높이 420px
-                    // 모바일: 세로 레이아웃이므로 최소 높이 550px
-                    const minHeight = isMobile ? 550 : 420;
-                    const maxHeight = Math.max(frontHeight, backHeight, minHeight);
+                    // 앞면과 뒷면의 실제 높이 계산
+                    setTimeout(() => {
+                        const frontHeight = front.offsetHeight;
+                        const backHeight = back.offsetHeight;
+                        const maxHeight = Math.max(frontHeight, backHeight);
 
-                    // 높이 설정
-                    container.style.height = maxHeight + 'px';
-                    inner.style.height = maxHeight + 'px';
+                        // 계산된 높이 적용
+                        container.style.height = maxHeight + 'px';
+                        inner.style.height = maxHeight + 'px';
+                    }, 10);
                 }
             });
         }
