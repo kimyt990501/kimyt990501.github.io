@@ -16,10 +16,11 @@ minimal_mistakes_skin    : "dark" # "air", "aqua", "contrast", "dark", "dirt", "
 
 # Site Settings
 locale                   : "ko-KR"
-title                    : "Backend Developer & AI Engineer"
+# 네비게이션 헤더를 "Yuntae Kim"으로 변경
+title                    : "Yuntae Kim"
 title_separator          : "|"
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "kimyt990501"
+name                     : "김윤태 (Yuntae Kim)"
 description              : "Backend Development, AI/ML, Full Stack Engineering - 김윤태의 포트폴리오"
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"

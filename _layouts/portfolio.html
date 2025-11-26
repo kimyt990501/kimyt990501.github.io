@@ -10,9 +10,16 @@ layout: default
 <!-- Hero Section -->
 <section class="hero-section">
 <div class="hero-content">
-    <h1 class="hero-title">{{ site.data.portfolio.hero.title }}</h1>
+    <!-- 이름을 가장 크고 눈에 띄게 표시 (Hero 타이틀 크기) -->
+    <h1 class="hero-name">{{ site.data.portfolio.hero.name }}</h1>
+    <!-- 역할을 그 아래 약간 작게 -->
     <p class="hero-subtitle">{{ site.data.portfolio.hero.subtitle }}</p>
-    <p class="hero-description">{{ site.data.portfolio.hero.description }}</p>
+    <!-- 타이틀을 세 번째로 -->
+    <p class="hero-title-secondary">{{ site.data.portfolio.hero.title }}</p>
+    <!-- 실무 경험을 첫 번째 줄로 강조 -->
+    <p class="hero-description-primary">{{ site.data.portfolio.hero.description_line1 }}</p>
+    <!-- 학교 정보는 두 번째 줄로 이동하고 폰트 크기 축소 -->
+    <p class="hero-description-secondary">{{ site.data.portfolio.hero.description_line2 }}</p>
 
     <!-- Dual CTA Buttons -->
     <div class="hero-cta-container">
@@ -50,9 +57,7 @@ layout: default
             <img src="{{ site.data.portfolio.about.image | relative_url }}" alt="{{ site.author.name }}">
         </div>
         <div class="about-text">
-            {% if site.data.portfolio.about.tagline %}
-            <span class="about-tagline">{{ site.data.portfolio.about.tagline }}</span>
-            {% endif %}
+            <!-- tagline 제거 - 구체적인 경험 설명만 표시 -->
             {{ site.data.portfolio.about.description | markdownify }}
 
             {% if site.data.portfolio.about.highlights %}
@@ -211,11 +216,18 @@ layout: default
             <p class="experience-description">{{ exp.description }}</p>
 
             {% if exp.achievements %}
+            <div class="experience-achievements-header">주요 성과:</div>
             <ul class="experience-achievements">
                 {% for achievement in exp.achievements %}
                 <li>{{ achievement }}</li>
                 {% endfor %}
             </ul>
+            {% endif %}
+
+            {% if exp.tech_stack %}
+            <div class="experience-tech-stack">
+                <span class="experience-tech-label">기술 스택:</span> {{ exp.tech_stack }}
+            </div>
             {% endif %}
         </div>
         {% endfor %}
