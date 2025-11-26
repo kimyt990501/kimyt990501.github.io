@@ -1016,7 +1016,7 @@ h1, h2, h3, h4, h5, h6 {
 .project-link {
   flex: 1;
   text-align: center;
-  color: var(--accent-primary);
+  color: var(--text-primary);
   text-decoration: none;
   font-weight: 700;
   display: flex;
@@ -1027,13 +1027,14 @@ h1, h2, h3, h4, h5, h6 {
   padding: 12px 24px;
   border-radius: 12px;
   border: 2px solid var(--accent-primary);
-  background: transparent;
+  background: var(--accent-primary);
   font-size: 1rem;
 }
 
 .project-link:hover {
-  background: var(--accent-primary);
-  color: var(--bg-primary);
+  background: var(--accent-secondary);
+  border-color: var(--accent-secondary);
+  color: var(--text-primary);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
