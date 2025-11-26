@@ -1,6 +1,19 @@
-<p class="hero-description">{{ site.data.portfolio.hero.description }}</p>
-<a href="{{ site.data.portfolio.hero.cta_link }}" class="hero-cta">{{ site.data.portfolio.hero.cta_text
-    }}</a>
+---
+layout: default
+---
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<div class="portfolio-container">
+<!-- Hero Section -->
+<section class="hero-section">
+<div class="hero-content">
+    <h1 class="hero-title">{{ site.data.portfolio.hero.title }}</h1>
+    <p class="hero-subtitle">{{ site.data.portfolio.hero.subtitle }}</p>
+    <p class="hero-description">{{ site.data.portfolio.hero.description }}</p>
+    <a href="{{ site.data.portfolio.hero.cta_link }}" class="hero-cta">{{ site.data.portfolio.hero.cta_text }}</a>
 </div>
 </section>
 
@@ -236,4 +249,3 @@
     // Trigger once on load
     reveal();
 </script>
-```
