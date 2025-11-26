@@ -65,9 +65,10 @@ projects:
       - "Docker 컨테이너화로 배포 효율화"
     github: "https://github.com/kimyt990501"
     demo: ""
-    # 스크린샷을 추가하려면 아래 image 필드에 경로 입력
-    # 예: image: "/assets/images/projects/deciphish-screenshot.png"
     image: ""
+    # 카드 뒷면에 표시될 스크린샷 (호버 시 뒤집히면서 보임)
+    # 스크린샷 파일을 /assets/images/projects/ 에 저장한 후 아래 경로 수정
+    screenshot: "/assets/images/projects/deciphish-screenshot.png"
     featured: true
 
   - title: "Enterprise ERP System"
@@ -95,9 +96,9 @@ projects:
       - "MySQL 데이터베이스 스키마 설계 및 최적화"
     github: "https://github.com/kimyt990501"
     demo: ""
-    # 스크린샷을 추가하려면 아래 image 필드에 경로 입력
-    # 예: image: "/assets/images/projects/erp-screenshot.png"
     image: ""
+    # 카드 뒷면에 표시될 스크린샷 (호버 시 뒤집히면서 보임)
+    screenshot: "/assets/images/projects/erp-screenshot.png"
     featured: true
 
   - title: "Multi-Language Sign Language Translator"
@@ -122,9 +123,9 @@ projects:
       - "OpenCV로 비디오 스트림 처리 파이프라인 구축"
     github: "https://github.com/kimyt990501"
     demo: ""
-    # 스크린샷을 추가하려면 아래 image 필드에 경로 입력
-    # 예: image: "/assets/images/projects/signlang-screenshot.png"
     image: ""
+    # 카드 뒷면에 표시될 스크린샷 (호버 시 뒤집히면서 보임)
+    screenshot: "/assets/images/projects/signlang-screenshot.png"
     featured: true
 
 # Core Skills - Backend/Frontend/Database로 카테고리화
