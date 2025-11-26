@@ -395,7 +395,7 @@ layout: default
         animateSkillBars();
     });
 
-    // 프로젝트 카드 높이 설정
+    // 프로젝트 카드 높이 설정 - 더 짧고 넓은 레이아웃
     document.addEventListener('DOMContentLoaded', function() {
         function setCardHeights() {
             const containers = document.querySelectorAll('.project-card-container');
@@ -406,12 +406,12 @@ layout: default
                 const inner = container.querySelector('.project-card-inner');
 
                 if (front && back && inner) {
-                    // 앞면 높이 계산
+                    // 앞면과 뒷면 높이 계산
                     const frontHeight = front.scrollHeight;
                     const backHeight = back.scrollHeight;
 
-                    // 더 큰 높이 사용
-                    const maxHeight = Math.max(frontHeight, backHeight, 700);
+                    // 더 큰 높이 사용하되, 최소 높이를 550px로 설정 (이전 700px에서 축소)
+                    const maxHeight = Math.max(frontHeight, backHeight, 550);
 
                     // 높이 설정
                     container.style.height = maxHeight + 'px';
@@ -426,7 +426,7 @@ layout: default
         // 이미지 로드 후 다시 계산
         window.addEventListener('load', setCardHeights);
 
-        // 윈도우 리사이즈 시 재계산
+        // 윈도우 리사이즈 시 재계산 (디바운싱)
         let resizeTimer;
         window.addEventListener('resize', function() {
             clearTimeout(resizeTimer);
