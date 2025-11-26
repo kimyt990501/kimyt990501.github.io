@@ -87,16 +87,13 @@ layout: default
         <div class="project-card-container reveal">
             <div class="project-card">
                 <div class="project-image">
-                    {% if project.screenshot and project.screenshot != "" %}
-                    <!-- 스크린샷이 있으면 표시 -->
-                    <img src="{{ project.screenshot | relative_url }}" alt="{{ project.title }}" class="project-screenshot-img">
-                    {% elsif project.image and project.image != "" %}
+                    {% if project.image and project.image != "" %}
                     <img src="{{ project.image | relative_url }}" alt="{{ project.title }}">
                     {% else %}
                     <i class="fas fa-code"></i>
                     {% endif %}
                     <div class="project-image-overlay">
-                        <span class="project-view-hint">프로젝트 보기</span>
+                        <span class="project-view-hint">호버하여 자세히 보기</span>
                     </div>
                 </div>
                 <div class="project-content">
