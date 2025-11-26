@@ -5,7 +5,7 @@
   /* Professional Slate Blue Palette */
   --accent-primary: #64748B;
   --accent-secondary: #475569;
-  --accent-bright: #94A3B8;
+  --accent-bright: #CBD5E1;
   --accent-dark: #334155;
 
   --bg-primary: #0F172A;
@@ -133,6 +133,23 @@
 
 .page__footer a:hover {
   color: var(--accent-bright) !important;
+}
+
+/* =====================================================
+   Global Link Color Overrides
+   ===================================================== */
+/* Force all links to use slate blue palette */
+a {
+  color: var(--accent-primary) !important;
+  text-decoration: none !important;
+}
+
+a:hover {
+  color: var(--accent-bright) !important;
+}
+
+a:visited {
+  color: var(--accent-secondary) !important;
 }
 
 /* =====================================================
@@ -332,7 +349,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 32px;
   font-weight: 800;
   letter-spacing: -0.02em;
-  text-shadow: 0 0 40px rgba(34, 211, 238, 0.6);
+  text-shadow: 0 0 40px rgba(148, 163, 184, 0.6);
 }
 
 /* Hero Title Secondary - 타이틀 문구 */
