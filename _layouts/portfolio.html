@@ -395,13 +395,42 @@ layout: default
         animateSkillBars();
     });
 
-    // 프로젝트 카드 효과
+    // 프로젝트 카드 높이 설정
     document.addEventListener('DOMContentLoaded', function() {
-        const projectCards = document.querySelectorAll('.project-card');
+        function setCardHeights() {
+            const containers = document.querySelectorAll('.project-card-container');
 
-        projectCards.forEach(card => {
-            // 카드 호버 효과는 CSS로 처리됨
-            // 추가 JavaScript 이벤트는 필요 없음
+            containers.forEach(container => {
+                const front = container.querySelector('.project-card-front');
+                const back = container.querySelector('.project-card-back');
+                const inner = container.querySelector('.project-card-inner');
+
+                if (front && back && inner) {
+                    // 앞면 높이 계산
+                    const frontHeight = front.scrollHeight;
+                    const backHeight = back.scrollHeight;
+
+                    // 더 큰 높이 사용
+                    const maxHeight = Math.max(frontHeight, backHeight, 700);
+
+                    // 높이 설정
+                    container.style.height = maxHeight + 'px';
+                    inner.style.height = maxHeight + 'px';
+                }
+            });
+        }
+
+        // 초기 로드 시 실행
+        setCardHeights();
+
+        // 이미지 로드 후 다시 계산
+        window.addEventListener('load', setCardHeights);
+
+        // 윈도우 리사이즈 시 재계산
+        let resizeTimer;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(setCardHeights, 250);
         });
 
         // Add click animation to CTA buttons

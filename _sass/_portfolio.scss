@@ -595,19 +595,18 @@ h1, h2, h3, h4, h5, h6 {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   gap: 40px;
+  align-items: start;
 }
 
 .project-card-container {
-  perspective: 1000px;
-  height: auto;
-  min-height: 700px;
+  perspective: 1500px;
 }
 
 .project-card-inner {
   position: relative;
   width: 100%;
-  min-height: 700px;
-  transition: transform 0.8s;
+  height: 100%;
+  transition: transform 0.8s ease;
   transform-style: preserve-3d;
 }
 
@@ -617,21 +616,23 @@ h1, h2, h3, h4, h5, h6 {
 
 .project-card {
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  min-height: 700px;
+  height: 100%;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   background: var(--bg-card);
   border: 2px solid rgba(6, 182, 212, 0.2);
   border-radius: 24px;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
   box-shadow: var(--shadow-md);
   display: flex;
   flex-direction: column;
 }
 
 .project-card-front {
-  z-index: 2;
   transform: rotateY(0deg);
 }
 
