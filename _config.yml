@@ -16,11 +16,11 @@ minimal_mistakes_skin    : "dark" # "air", "aqua", "contrast", "dark", "dirt", "
 
 # Site Settings
 locale                   : "ko-KR"
-title                    : "개발공부 블로그"
-title_separator          : "-"
+title                    : "Backend Developer & AI Engineer"
+title_separator          : "|"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "kimyt990501"
-description              : "개발공부"
+description              : "Backend Development, AI/ML, Full Stack Engineering - 김윤태의 포트폴리오"
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : kimyt990501/comments # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -104,10 +104,10 @@ analytics:
 
 # Site Author
 author:
-  name             : "장래희망개발자"
+  name             : "김윤태"
   avatar           : "/assets/codingcat.jpeg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "공부 용"
-  # location         : "Seoul, South Korea"
+  bio              : "Backend Developer & AI Enthusiast"
+  location         : "Seoul, South Korea"
   email            :
   links:
     - label: "Email"
