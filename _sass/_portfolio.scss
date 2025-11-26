@@ -400,21 +400,21 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
   padding: 18px 48px;
   background: var(--gradient-primary);
-  color: var(--bg-primary);
+  color: var(--text-primary);
   font-weight: 700;
   font-size: 1.1rem;
   border-radius: 50px;
   text-decoration: none;
   transition: all var(--transition-normal);
-  box-shadow: 0 12px 40px rgba(100, 116, 139, 0.4);
+  box-shadow: 0 12px 40px rgba(96, 165, 250, 0.4);
   border: none;
   letter-spacing: 0.02em;
 }
 
 .hero-cta:hover {
   transform: translateY(-4px) scale(1.05);
-  box-shadow: 0 16px 56px rgba(100, 116, 139, 0.5);
-  color: var(--bg-primary);
+  box-shadow: 0 16px 56px rgba(96, 165, 250, 0.5);
+  color: var(--text-primary);
 }
 
 .hero-cta-secondary {
@@ -434,10 +434,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-cta-secondary:hover {
-  background: rgba(100, 116, 139, 0.1);
+  background: rgba(96, 165, 250, 0.1);
   transform: translateY(-4px);
   border-color: var(--accent-bright);
-  box-shadow: 0 12px 40px rgba(100, 116, 139, 0.3);
+  box-shadow: 0 12px 40px rgba(96, 165, 250, 0.3);
   color: var(--accent-bright);
 }
 

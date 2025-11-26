@@ -140,18 +140,13 @@ layout: default
                             {% endfor %}
                         </div>
 
+                        {% if project.demo and project.demo != "" %}
                         <div class="project-links">
-                            {% if project.github %}
-                            <a href="{{ project.github }}" class="project-link" target="_blank">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
-                            {% endif %}
-                            {% if project.demo and project.demo != "" %}
                             <a href="{{ project.demo }}" class="project-link" target="_blank">
                                 <i class="fas fa-external-link-alt"></i> Demo
                             </a>
-                            {% endif %}
                         </div>
+                        {% endif %}
                     </div>
                 </div>
 

@@ -7,7 +7,7 @@ hero:
   title: "Building Intelligent Systems That Solve Real Problems"
   # 실무 경험을 첫 번째 줄로, 학교 정보는 두 번째 줄로 이동
   description_line1: "2개 스타트업 실무 경험 10개월 | Python, FastAPI, Docker, Message Queue 전문"
-  description_line2: "숭실대학교 소프트웨어학부 재학"
+  description_line2: "숭실대학교 소프트웨어학부 재학 (2019.03 ~ 2026.02)"
   cta_primary_text: "주요 프로젝트 보기"
   cta_primary_link: "#projects"
   cta_secondary_text: "GitHub 방문하기"
