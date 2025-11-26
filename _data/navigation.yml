@@ -1,23 +1,14 @@
 # main links
 main:
-  - title: "HOME"
-    url: /index.html
-  - title: "CATEGORY"
-    url: /categories/
-  # - title: "Sample Posts"
-  #   url: /year-archive/
-  # - title: "Sample Collections"
-  #   url: /collection-archive/
-  # - title: "Sitemap"
-  #   url: /sitemap/
-
-# docs:
-#   - title: "카테고리"
-#     children:
-#       - title: "Java"
-#         url: "/categories/java"
-#         category: "Java"
-
-#       - title: "C++"
-#         url: "/categories/cpp"
-#         category: "cpp"
+  - title: "Home"
+    url: "/#home"
+  - title: "About"
+    url: "/#about"
+  - title: "Projects"
+    url: "/#projects"
+  - title: "Skills"
+    url: "/#skills"
+  - title: "Blog"
+    url: "/blog/"
+  - title: "Contact"
+    url: "/#contact"

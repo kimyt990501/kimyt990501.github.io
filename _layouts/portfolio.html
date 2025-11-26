@@ -1,0 +1,229 @@
+---
+layout: compress
+---
+
+<!doctype html>
+<html lang="{{ site.locale | slice: 0,2 | default: " en" }}" class="no-js">
+
+<head>
+    <!--폰트 : "Gowun Dodum"-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+
+    {% include head.html %}
+    {% include head/custom.html %}
+
+    <!-- Portfolio Styles -->
+    <link rel="stylesheet" href="{{ '/assets/css/portfolio.css' | relative_url }}">
+
+    <style>
+        ::-webkit-scrollbar {
+            width: 16px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: #4b4f52;
+            border-radius: 16px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #5e6265;
+            border-radius: 16px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ffd24c;
+        }
+
+        ::-webkit-scrollbar-button:start:decrement,
+        ::-webkit-scrollbar-button:end:increment {
+            width: 12px;
+            height: 12px;
+            background: transparent;
+        }
+        }
+
+        /* Portfolio page specific styles */
+        body {
+            font-family: 'Gowun Dodum', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body
+    class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %}">
+    {% include_cached skip-links.html %}
+
+    <div class="portfolio-container">
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">{{ site.data.portfolio.hero.title }}</h1>
+                <h2 class="hero-subtitle">{{ site.data.portfolio.hero.subtitle }}</h2>
+                <p class="hero-description">{{ site.data.portfolio.hero.description }}</p>
+                <a href="{{ site.data.portfolio.hero.cta_link }}" class="hero-cta">{{ site.data.portfolio.hero.cta_text
+                    }}</a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="portfolio-section">
+            <div class="section-header">
+                <h2 class="section-title">{{ site.data.portfolio.about.title }}</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="{{ site.data.portfolio.about.image | relative_url }}" alt="{{ site.author.name }}">
+                </div>
+                <div class="about-text">
+                    {{ site.data.portfolio.about.description | markdownify }}
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="portfolio-section">
+            <div class="section-header">
+                <h2 class="section-title">Projects</h2>
+                <p class="section-subtitle">제가 진행한 주요 프로젝트들입니다</p>
+            </div>
+            <div class="projects-grid">
+                {% for project in site.data.portfolio.projects %}
+                <div class="project-card">
+                    <div class="project-image">
+                        {% if project.image %}
+                        <img src="{{ project.image | relative_url }}" alt="{{ project.title }}">
+                        {% else %}
+                        <i class="fas fa-code"></i>
+                        {% endif %}
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">{{ project.title }}</h3>
+                        <p class="project-description">{{ project.description }}</p>
+                        <div class="project-tech">
+                            {% for tech in project.tech_stack %}
+                            <span class="tech-tag">{{ tech }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="project-links">
+                            {% if project.github %}
+                            <a href="{{ project.github }}" class="project-link" target="_blank">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                            {% endif %}
+                            {% if project.demo %}
+                            <a href="{{ project.demo }}" class="project-link" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> Demo
+                            </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="portfolio-section">
+            <div class="section-header">
+                <h2 class="section-title">Skills</h2>
+                <p class="section-subtitle">현재 사용하고 있는 기술들입니다</p>
+            </div>
+            <div class="skills-container">
+                {% for skill_category in site.data.portfolio.skills %}
+                <div class="skill-category">
+                    <h3 class="skill-category-title">{{ skill_category.category }}</h3>
+                    <div class="skill-items">
+                        {% for skill in skill_category.items %}
+                        <span class="skill-badge level-{{ skill.level }}">{{ skill.name }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <!-- Blog Preview Section -->
+        <section id="blog" class="portfolio-section blog-preview">
+            <div class="section-header">
+                <h2 class="section-title">Latest Posts</h2>
+                <p class="section-subtitle">최근 작성한 블로그 글입니다</p>
+            </div>
+            <div class="blog-posts">
+                {% assign recent_posts = site.posts | slice: 0, 3 %}
+                {% for post in recent_posts %}
+                <div class="blog-card">
+                    <h3 class="blog-card-title">
+                        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                    </h3>
+                    <p class="blog-card-excerpt">{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
+                    <div class="blog-card-meta">
+                        <span><i class="far fa-calendar"></i> {{ post.date | date: "%Y-%m-%d" }}</span>
+                        {% if post.categories %}
+                        <span><i class="far fa-folder"></i> {{ post.categories | first }}</span>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="blog-more">
+                <a href="{{ '/blog/' | relative_url }}" class="blog-more-link">모든 포스트 보기</a>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="portfolio-section">
+            <div class="section-header">
+                <h2 class="section-title">Contact</h2>
+            </div>
+            <div class="contact-content">
+                <p class="contact-description">{{ site.data.portfolio.contact.description }}</p>
+                <div class="contact-links">
+                    <a href="mailto:{{ site.data.portfolio.contact.email }}" class="contact-link">
+                        <i class="fas fa-envelope"></i> Email
+                    </a>
+                    <a href="{{ site.data.portfolio.contact.github }}" class="contact-link" target="_blank">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer" class="page__footer">
+        <footer>
+            {% include footer/custom.html %}
+            {% include_cached footer.html %}
+        </footer>
+    </div>
+
+    {% include scripts.html %}
+
+    <!-- Smooth Scroll Script -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && href !== '') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

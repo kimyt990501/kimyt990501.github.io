@@ -1,0 +1,78 @@
+hero:
+  title: "안녕하세요, 장래희망개발자입니다"
+  subtitle: "Backend Developer & Problem Solver"
+  description: "Java와 Spring을 활용한 백엔드 개발을 공부하고 있습니다."
+  cta_text: "프로젝트 보기"
+  cta_link: "#projects"
+  
+about:
+  title: "About Me"
+  description: |
+    개발 공부를 꾸준히 하고 있는 백엔드 개발자 지망생입니다.
+    Java 기초부터 Spring 프레임워크까지 학습하며 실력을 쌓아가고 있습니다.
+    문제 해결과 효율적인 코드 작성에 관심이 많습니다.
+  image: "/assets/codingcat.jpeg"
+
+projects:
+  - title: "Spring Boot REST API"
+    description: "Spring Boot를 활용한 RESTful API 서버 구축 프로젝트"
+    tech_stack:
+      - Java
+      - Spring Boot
+      - JPA
+      - MySQL
+    github: "https://github.com/kimyt990501"
+    demo: ""
+    image: ""
+    
+  - title: "알고리즘 문제 풀이"
+    description: "Java를 사용한 자료구조 및 알고리즘 학습"
+    tech_stack:
+      - Java
+      - Algorithm
+      - Data Structure
+    github: "https://github.com/kimyt990501"
+    demo: ""
+    image: ""
+    
+  - title: "개발 블로그"
+    description: "Jekyll 기반 개인 개발 블로그 운영 및 커스터마이징"
+    tech_stack:
+      - Jekyll
+      - HTML/CSS
+      - JavaScript
+      - GitHub Pages
+    github: "https://github.com/kimyt990501/kimyt990501.github.io"
+    demo: "https://kimyt990501.github.io"
+    image: ""
+
+skills:
+  - category: "Languages"
+    items:
+      - name: "Java"
+        level: "intermediate"
+      - name: "C++"
+        level: "beginner"
+      - name: "JavaScript"
+        level: "beginner"
+        
+  - category: "Frameworks"
+    items:
+      - name: "Spring"
+        level: "beginner"
+      - name: "Spring Boot"
+        level: "beginner"
+        
+  - category: "Tools & Others"
+    items:
+      - name: "Git/GitHub"
+        level: "intermediate"
+      - name: "MySQL"
+        level: "beginner"
+      - name: "JPA"
+        level: "beginner"
+
+contact:
+  email: "kimyt990501@naver.com"
+  github: "https://github.com/kimyt990501"
+  description: "프로젝트 협업이나 문의사항이 있으시면 언제든지 연락주세요!"
