@@ -2,7 +2,7 @@
 
 hero:
   # 최우선 수정: 이름을 가장 눈에 띄게 표시
-  name: "김윤태 (Yuntae Kim)"
+  name: "김윤태 (Yoontae Kim)"
   subtitle: "Backend Developer & AI Engineer"
   title: "Building Intelligent Systems That Solve Real Problems"
   # 실무 경험을 첫 번째 줄로, 학교 정보는 두 번째 줄로 이동
@@ -66,6 +66,8 @@ projects:
     github: "https://github.com/kimyt990501"
     demo: ""
     image: ""
+    # 프로젝트 스크린샷 (호버 시 카드 뒷면에 표시됨)
+    screenshot: "/assets/images/projects/deciphish-screenshot.png"
     featured: true
 
   - title: "Enterprise ERP System"
@@ -94,6 +96,8 @@ projects:
     github: "https://github.com/kimyt990501"
     demo: ""
     image: ""
+    # 프로젝트 스크린샷 (호버 시 카드 뒷면에 표시됨)
+    screenshot: "/assets/images/projects/erp-screenshot.png"
     featured: true
 
   - title: "Multi-Language Sign Language Translator"
@@ -119,6 +123,8 @@ projects:
     github: "https://github.com/kimyt990501"
     demo: ""
     image: ""
+    # 프로젝트 스크린샷 (호버 시 카드 뒷면에 표시됨)
+    screenshot: "/assets/images/projects/signlang-screenshot.png"
     featured: true
 
 # Core Skills - Backend/Frontend/Database로 카테고리화

@@ -84,15 +84,19 @@ layout: default
     </div>
     <div class="projects-grid">
         {% for project in site.data.portfolio.projects %}
-        <div class="project-card reveal">
-            <div class="project-image">
-                {% if project.image and project.image != "" %}
-                <img src="{{ project.image | relative_url }}" alt="{{ project.title }}">
-                {% else %}
-                <i class="fas fa-code"></i>
-                {% endif %}
-            </div>
-            <div class="project-content">
+        <!-- 카드 플립 효과: 호버 시 앞/뒤 전환 -->
+        <div class="project-card-wrapper reveal">
+            <div class="project-card-flip">
+                <!-- 앞면: 프로젝트 정보 -->
+                <div class="project-card project-card-front">
+                    <div class="project-image">
+                        {% if project.image and project.image != "" %}
+                        <img src="{{ project.image | relative_url }}" alt="{{ project.title }}">
+                        {% else %}
+                        <i class="fas fa-code"></i>
+                        {% endif %}
+                    </div>
+                    <div class="project-content">
                 <h3 class="project-title">{{ project.title }}</h3>
                 {% if project.subtitle %}
                 <p class="project-subtitle">{{ project.subtitle }}</p>
@@ -148,7 +152,21 @@ layout: default
                         <i class="fas fa-external-link-alt"></i> Demo
                     </a>
                     {% endif %}
+                    </div>
                 </div>
+
+                <!-- 뒷면: 스크린샷 -->
+                {% if project.screenshot %}
+                <div class="project-card project-card-back">
+                    <div class="project-screenshot-container">
+                        <img src="{{ project.screenshot | relative_url }}" alt="{{ project.title }} Screenshot" class="project-screenshot">
+                        <div class="project-screenshot-overlay">
+                            <div class="project-screenshot-title">{{ project.title }}</div>
+                            <div class="project-screenshot-hint">클릭하여 자세히 보기</div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
             </div>
         </div>
         {% endfor %}
@@ -372,28 +390,22 @@ layout: default
         animateSkillBars();
     });
 
-    // Add hover effect to project cards - rotate on mouse move
+    // 카드 플립 효과를 위한 이벤트 (기존 3D 회전 효과는 제거)
     document.addEventListener('DOMContentLoaded', function() {
-        const projectCards = document.querySelectorAll('.project-card');
+        // 프로젝트 카드 플립 효과는 CSS로 처리됨
+        const projectCardWrappers = document.querySelectorAll('.project-card-wrapper');
 
-        projectCards.forEach(card => {
-            card.addEventListener('mousemove', function(e) {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-
-                const rotateX = (y - centerY) / 20;
-                const rotateY = (centerX - x) / 20;
-
-                card.style.transform = `translateY(-12px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-            });
-
-            card.addEventListener('mouseleave', function() {
-                card.style.transform = '';
-            });
+        projectCardWrappers.forEach(wrapper => {
+            // 모바일에서는 탭으로 플립 토글
+            if ('ontouchstart' in window) {
+                wrapper.addEventListener('click', function(e) {
+                    // 링크 클릭은 무시
+                    if (e.target.tagName === 'A' || e.target.closest('a')) {
+                        return;
+                    }
+                    this.classList.toggle('flipped');
+                });
+            }
         });
 
         // Add click animation to CTA buttons
