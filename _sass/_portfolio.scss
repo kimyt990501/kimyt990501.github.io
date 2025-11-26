@@ -1,37 +1,35 @@
 /* =====================================================
-   Design Tokens & Variables - Professional Portfolio
+   Design Tokens & Variables - Balanced Professional Theme
    ===================================================== */
 :root {
-  /* Vibrant Professional Color Palette */
-  --accent-primary: #00E5FF;
-  --accent-secondary: #00B8D4;
-  --accent-bright: #18FFFF;
-  --accent-dark: #00ACC1;
+  /* Sophisticated Color Palette - Eye-Friendly */
+  --accent-primary: #06B6D4;
+  --accent-secondary: #0891B2;
+  --accent-bright: #22D3EE;
+  --accent-dark: #0E7490;
 
-  --bg-primary: #FFFFFF;
-  --bg-secondary: #F8F9FA;
-  --bg-dark: #0A1929;
-  --bg-darker: #071318;
-  --bg-card: #FFFFFF;
-  --bg-card-hover: #F8FEFF;
+  --bg-primary: #0F172A;
+  --bg-secondary: #1E293B;
+  --bg-tertiary: #334155;
+  --bg-card: #1E293B;
+  --bg-card-hover: #334155;
 
-  --text-primary: #0A1929;
-  --text-secondary: #334155;
-  --text-muted: #64748B;
-  --text-on-dark: #FFFFFF;
-  --text-on-accent: #FFFFFF;
+  --text-primary: #F1F5F9;
+  --text-secondary: #CBD5E1;
+  --text-muted: #94A3B8;
+  --text-accent: #06B6D4;
 
   /* Professional Shadows */
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
-  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.15);
-  --shadow-accent: 0 8px 32px rgba(0, 229, 255, 0.25);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.6);
+  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.7);
+  --shadow-accent: 0 8px 32px rgba(6, 182, 212, 0.3);
 
   /* Gradients */
-  --gradient-hero: linear-gradient(135deg, #00E5FF 0%, #00ACC1 100%);
-  --gradient-dark: linear-gradient(180deg, #0A1929 0%, #071318 100%);
-  --gradient-overlay: linear-gradient(135deg, rgba(0, 229, 255, 0.05) 0%, rgba(0, 188, 212, 0.05) 100%);
+  --gradient-primary: linear-gradient(135deg, #06B6D4 0%, #0891B2 100%);
+  --gradient-dark: linear-gradient(180deg, #0F172A 0%, #020617 100%);
+  --gradient-card: linear-gradient(135deg, #1E293B 0%, #334155 100%);
 
   /* Transitions */
   --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
@@ -40,14 +38,48 @@
   --transition-slow: 0.5s var(--ease-smooth);
 
   /* Spacing */
-  --section-padding: 120px;
+  --section-padding: 100px;
+}
+
+/* =====================================================
+   Global Overrides for Header/Masthead
+   ===================================================== */
+.masthead {
+  background: var(--bg-primary) !important;
+  border-bottom: 1px solid rgba(6, 182, 212, 0.2) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+}
+
+.greedy-nav {
+  background: var(--bg-primary) !important;
+}
+
+.greedy-nav a,
+.greedy-nav .site-title {
+  color: var(--text-primary) !important;
+}
+
+.greedy-nav .visible-links a:hover {
+  color: var(--accent-primary) !important;
+}
+
+.greedy-nav .visible-links a::before {
+  background: var(--accent-primary) !important;
+}
+
+.greedy-nav__toggle {
+  color: var(--text-primary) !important;
+}
+
+.greedy-nav__toggle:hover {
+  color: var(--accent-primary) !important;
 }
 
 /* =====================================================
    Global Styles
    ===================================================== */
 body {
-  background-color: var(--bg-secondary);
+  background-color: var(--bg-primary) !important;
   color: var(--text-primary);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   overflow-x: hidden;
@@ -64,6 +96,7 @@ h1, h2, h3, h4, h5, h6 {
 .portfolio-container {
   width: 100%;
   overflow: hidden;
+  background: var(--bg-primary);
 }
 
 .portfolio-section {
@@ -74,7 +107,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* =====================================================
-   Hero Section - Eye-Catching & Professional
+   Hero Section - Balanced & Eye-Catching
    ===================================================== */
 .hero-section {
   min-height: 100vh;
@@ -94,8 +127,8 @@ h1, h2, h3, h4, h5, h6 {
   right: 0;
   bottom: 0;
   background:
-    radial-gradient(circle at 20% 50%, rgba(0, 229, 255, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(0, 188, 212, 0.1) 0%, transparent 50%);
+    radial-gradient(circle at 20% 50%, rgba(6, 182, 212, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(8, 145, 178, 0.08) 0%, transparent 50%);
   animation: pulseGlow 8s ease-in-out infinite;
 }
 
@@ -117,9 +150,9 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 900;
   line-height: 1.1;
   margin-bottom: 32px;
-  color: var(--text-on-dark);
+  color: var(--text-primary);
   letter-spacing: -0.04em;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
 .hero-subtitle {
@@ -128,12 +161,12 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 24px;
   font-weight: 800;
   letter-spacing: -0.02em;
-  text-shadow: 0 0 40px rgba(0, 229, 255, 0.6);
+  text-shadow: 0 0 40px rgba(34, 211, 238, 0.6);
 }
 
 .hero-description {
-  font-size: clamp(1.15rem, 2.5vw, 1.4rem);
-  color: rgba(255, 255, 255, 0.85);
+  font-size: clamp(1.15rem, 2.5vw, 1.35rem);
+  color: var(--text-secondary);
   max-width: 650px;
   margin: 0 auto 48px;
   line-height: 1.8;
@@ -145,22 +178,22 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: center;
   padding: 20px 56px;
-  background: var(--gradient-hero);
-  color: var(--text-on-accent);
+  background: var(--gradient-primary);
+  color: var(--bg-primary);
   font-weight: 700;
   font-size: 1.2rem;
   border-radius: 50px;
   text-decoration: none;
   transition: all var(--transition-normal);
-  box-shadow: 0 12px 40px rgba(0, 229, 255, 0.4);
+  box-shadow: 0 12px 40px rgba(6, 182, 212, 0.4);
   border: none;
   letter-spacing: 0.02em;
 }
 
 .hero-cta:hover {
   transform: translateY(-4px) scale(1.05);
-  box-shadow: 0 16px 56px rgba(0, 229, 255, 0.5);
-  color: var(--text-on-accent);
+  box-shadow: 0 16px 56px rgba(6, 182, 212, 0.5);
+  color: var(--bg-primary);
 }
 
 /* =====================================================
@@ -189,12 +222,12 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateX(-50%);
   width: 100px;
   height: 5px;
-  background: var(--gradient-hero);
+  background: var(--gradient-primary);
   border-radius: 3px;
 }
 
 .section-subtitle {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   color: var(--text-muted);
   font-weight: 600;
   margin-top: 32px;
@@ -202,7 +235,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* =====================================================
-   About Section - Clean & Professional
+   About Section - Balanced & Professional
    ===================================================== */
 .about-content {
   display: grid;
@@ -213,7 +246,7 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 24px;
   padding: 60px;
   box-shadow: var(--shadow-lg);
-  border: 1px solid rgba(0, 229, 255, 0.1);
+  border: 1px solid rgba(6, 182, 212, 0.15);
 }
 
 .about-image img {
@@ -221,7 +254,7 @@ h1, h2, h3, h4, h5, h6 {
   max-width: 350px;
   border-radius: 20px;
   box-shadow: var(--shadow-xl);
-  border: 4px solid rgba(0, 229, 255, 0.2);
+  border: 3px solid rgba(6, 182, 212, 0.3);
   transition: var(--transition-normal);
 }
 
@@ -242,12 +275,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .about-text strong {
-  color: var(--accent-dark);
+  color: var(--accent-bright);
   font-weight: 700;
-  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 /* =====================================================
@@ -261,7 +290,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .project-card {
   background: var(--bg-card);
-  border: 2px solid rgba(0, 229, 255, 0.15);
+  border: 2px solid rgba(6, 182, 212, 0.2);
   border-radius: 20px;
   overflow: hidden;
   transition: var(--transition-normal);
@@ -276,7 +305,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   right: 0;
   height: 6px;
-  background: var(--gradient-hero);
+  background: var(--gradient-primary);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform var(--transition-normal);
@@ -290,11 +319,12 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateY(-12px);
   border-color: var(--accent-primary);
   box-shadow: var(--shadow-accent);
+  background: var(--bg-card-hover);
 }
 
 .project-image {
   height: 220px;
-  background: linear-gradient(135deg, #E3F2FD 0%, #B3E5FC 100%);
+  background: linear-gradient(135deg, #334155 0%, #475569 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -302,7 +332,7 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--accent-primary);
   position: relative;
   overflow: hidden;
-  border-bottom: 2px solid rgba(0, 229, 255, 0.1);
+  border-bottom: 2px solid rgba(6, 182, 212, 0.15);
 }
 
 .project-image::after {
@@ -312,7 +342,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   right: 0;
   bottom: 0;
-  background: var(--gradient-overlay);
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.05) 0%, rgba(8, 145, 178, 0.05) 100%);
 }
 
 .project-image i {
@@ -358,19 +388,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .tech-tag {
-  background: linear-gradient(135deg, rgba(0, 229, 255, 0.1), rgba(0, 188, 212, 0.15));
+  background: rgba(6, 182, 212, 0.1);
   padding: 8px 18px;
   border-radius: 20px;
   font-size: 0.9rem;
-  color: var(--accent-dark);
-  border: 1.5px solid rgba(0, 229, 255, 0.3);
+  color: var(--accent-bright);
+  border: 1.5px solid rgba(6, 182, 212, 0.3);
   transition: var(--transition-fast);
   font-weight: 600;
 }
 
 .tech-tag:hover {
-  background: var(--gradient-hero);
-  color: var(--text-on-accent);
+  background: var(--gradient-primary);
+  color: var(--bg-primary);
   border-color: transparent;
   transform: translateY(-3px);
   box-shadow: var(--shadow-sm);
@@ -402,7 +432,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .project-link:hover {
   background: var(--accent-primary);
-  color: var(--text-on-accent);
+  color: var(--bg-primary);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
@@ -421,7 +451,13 @@ h1, h2, h3, h4, h5, h6 {
   padding: 40px;
   border-radius: 20px;
   box-shadow: var(--shadow-md);
-  border: 1px solid rgba(0, 229, 255, 0.1);
+  border: 1px solid rgba(6, 182, 212, 0.15);
+  transition: var(--transition-normal);
+}
+
+.skill-category:hover {
+  border-color: rgba(6, 182, 212, 0.3);
+  box-shadow: var(--shadow-lg);
 }
 
 .skill-category-title {
@@ -440,7 +476,7 @@ h1, h2, h3, h4, h5, h6 {
   content: '';
   width: 6px;
   height: 32px;
-  background: var(--gradient-hero);
+  background: var(--gradient-primary);
   border-radius: 3px;
 }
 
@@ -451,8 +487,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .skill-badge {
-  background: linear-gradient(135deg, rgba(0, 229, 255, 0.08), rgba(0, 188, 212, 0.12));
-  border: 2px solid rgba(0, 229, 255, 0.25);
+  background: rgba(6, 182, 212, 0.1);
+  border: 2px solid rgba(6, 182, 212, 0.25);
   padding: 14px 28px;
   border-radius: 12px;
   font-weight: 700;
@@ -463,8 +499,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .skill-badge:hover {
-  background: var(--gradient-hero);
-  color: var(--text-on-accent);
+  background: var(--gradient-primary);
+  color: var(--bg-primary);
   border-color: transparent;
   transform: translateY(-4px);
   box-shadow: var(--shadow-accent);
@@ -480,7 +516,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .experience-card {
   background: var(--bg-card);
-  border: 2px solid rgba(0, 229, 255, 0.15);
+  border: 2px solid rgba(6, 182, 212, 0.2);
   border-radius: 20px;
   padding: 48px;
   margin-bottom: 32px;
@@ -496,7 +532,7 @@ h1, h2, h3, h4, h5, h6 {
   top: 0;
   bottom: 0;
   width: 6px;
-  background: var(--gradient-hero);
+  background: var(--gradient-primary);
   border-radius: 20px 0 0 20px;
   transform: scaleY(0);
   transition: transform var(--transition-normal);
@@ -510,6 +546,7 @@ h1, h2, h3, h4, h5, h6 {
   border-color: var(--accent-primary);
   transform: translateX(12px);
   box-shadow: var(--shadow-accent);
+  background: var(--bg-card-hover);
 }
 
 .experience-title {
@@ -520,15 +557,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .experience-period {
-  color: var(--accent-primary);
+  color: var(--accent-bright);
   font-weight: 700;
   margin-bottom: 20px;
   font-size: 1.1rem;
   display: inline-block;
-  background: linear-gradient(135deg, rgba(0, 229, 255, 0.1), rgba(0, 188, 212, 0.15));
+  background: rgba(6, 182, 212, 0.15);
   padding: 6px 16px;
   border-radius: 20px;
-  border: 1.5px solid rgba(0, 229, 255, 0.3);
+  border: 1.5px solid rgba(6, 182, 212, 0.3);
 }
 
 .experience-description {
@@ -547,7 +584,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .qualification-box {
   background: var(--bg-card);
-  border: 2px solid rgba(0, 229, 255, 0.15);
+  border: 2px solid rgba(6, 182, 212, 0.2);
   border-radius: 20px;
   padding: 48px;
   transition: var(--transition-normal);
@@ -558,6 +595,7 @@ h1, h2, h3, h4, h5, h6 {
   border-color: var(--accent-primary);
   box-shadow: var(--shadow-accent);
   transform: translateY(-8px);
+  background: var(--bg-card-hover);
 }
 
 .qualification-subtitle {
@@ -585,7 +623,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .qualification-list li {
   padding: 18px 0;
-  border-bottom: 1px solid rgba(0, 229, 255, 0.1);
+  border-bottom: 1px solid rgba(6, 182, 212, 0.1);
   color: var(--text-secondary);
   font-size: 1.1rem;
   transition: var(--transition-fast);
@@ -613,7 +651,7 @@ h1, h2, h3, h4, h5, h6 {
 .contact-content {
   text-align: center;
   background: var(--bg-card);
-  border: 2px solid rgba(0, 229, 255, 0.2);
+  border: 2px solid rgba(6, 182, 212, 0.25);
   border-radius: 32px;
   padding: 80px 48px;
   max-width: 900px;
@@ -622,7 +660,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .contact-description {
-  font-size: 1.35rem;
+  font-size: 1.3rem;
   color: var(--text-secondary);
   margin-bottom: 48px;
   line-height: 1.8;
@@ -652,8 +690,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .contact-link:hover {
-  background: var(--gradient-hero);
-  color: var(--text-on-accent);
+  background: var(--gradient-primary);
+  color: var(--bg-primary);
   transform: translateY(-4px);
   box-shadow: var(--shadow-accent);
   border-color: transparent;
