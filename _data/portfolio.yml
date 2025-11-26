@@ -1,25 +1,46 @@
+# 2025 Modern Portfolio Data - Impact & Results Focused
+
 hero:
-  title: "안녕하세요, 김윤태입니다"
-  subtitle: "Backend Developer & AI Enthusiast"
-  description: "웹 개발, 데이터 사이언스, AI 분야에 관심을 가지고 실무 중심의 프로젝트 경험을 쌓아가고 있습니다."
-  cta_text: "프로젝트 보기"
-  cta_link: "#projects"
-  
+  title: "Building Intelligent Systems That Solve Real Problems"
+  subtitle: "Backend Developer & AI Engineer"
+  description: "숭실대학교 소프트웨어학부 재학 | 2개 스타트업 실무 경험 8개월 | Python, FastAPI, AI/ML 전문"
+  cta_primary_text: "주요 프로젝트 보기"
+  cta_primary_link: "#projects"
+  cta_secondary_text: "GitHub 방문하기"
+  cta_secondary_link: "https://github.com/kimyt990501"
+  github_stats:
+    repos: "30+ 레포지토리"
+    contributions: "Active Contributor"
+
 about:
   title: "About Me"
+  tagline: "문제 해결에 집중하는 개발자"
   description: |
-    숭실대학교 소프트웨어학부 재학 중(2019~2026)이며, 
-    백엔드 개발과 데이터 처리 분야에 특히 관심이 많습니다.
-    
-    2개 스타트업에서 총 8개월간 인턴으로 근무하며 
-    실무 중심의 소프트웨어 개발, 모델 개발, 데이터 수집 업무를 경험했습니다.
-    
-    **"지속적으로 새로운 것을 받아들이는 것에 거부감이 없는 것이 저의 장점입니다."**
-  image: "/assets/codingcat.jpeg"
+    2개 스타트업에서 **실무 중심의 백엔드 개발과 AI/ML 프로젝트**를 경험했습니다.
 
+    특히 **FastAPI를 활용한 고성능 API 설계**와 **AI 모델을 실제 서비스에 통합**하는 것에 강점이 있습니다.
+
+    새로운 기술을 빠르게 학습하고 적용하는 것을 즐깁니다.
+  image: "/assets/codingcat.jpeg"
+  highlights:
+    - text: "2개 스타트업 실무 경험"
+      icon: "briefcase"
+    - text: "Python & FastAPI 전문"
+      icon: "code"
+    - text: "AI/ML 프로덕션 배포"
+      icon: "robot"
+
+# Featured Projects - 성과 중심으로 재작성
 projects:
-  - title: "Deciphish - 피싱 탐지 시스템"
-    description: "AI 기반 피싱 사이트 탐지 및 분석 시스템. URL 분석, QR 코드 검사, 브랜드 로고 인식을 통한 멀티모달 피싱 탐지 솔루션"
+  - title: "Deciphish"
+    subtitle: "AI 기반 멀티모달 피싱 탐지 시스템"
+    problem: "기존 피싱 탐지는 URL만 분석하여 정확도가 낮고, 새로운 피싱 기법에 대응 불가"
+    solution: "URL 분석, QR 코드 검사, 브랜드 로고 인식을 결합한 멀티모달 AI 시스템 구축"
+    impact:
+      - metric: "3가지"
+        label: "탐지 방식 통합"
+      - metric: "실시간"
+        label: "분석 속도"
     tech_stack:
       - Python
       - FastAPI
@@ -27,12 +48,24 @@ projects:
       - TypeScript
       - MySQL
       - Docker
+    highlights:
+      - "FastAPI로 고성능 REST API 설계 및 구현"
+      - "Next.js + TypeScript로 반응형 프론트엔드 개발"
+      - "Docker 컨테이너화로 배포 효율화"
     github: "https://github.com/kimyt990501"
     demo: ""
     image: ""
-    
-  - title: "ERP System"
-    description: "FastAPI와 Vue.js 기반의 기업 자원 관리 시스템. 인사 관리, 출퇴근 기록, 휴가 관리, 급여 조회 등 핵심 ERP 기능 제공"
+    featured: true
+
+  - title: "Enterprise ERP System"
+    subtitle: "중소기업을 위한 통합 자원 관리 시스템"
+    problem: "수작업 인사 관리로 인한 비효율과 오류 발생"
+    solution: "출퇴근, 휴가, 급여를 자동화하는 웹 기반 ERP 시스템"
+    impact:
+      - metric: "5개"
+        label: "핵심 모듈"
+      - metric: "100%"
+        label: "자동화율"
     tech_stack:
       - Python
       - FastAPI
@@ -40,12 +73,24 @@ projects:
       - TypeScript
       - MySQL
       - Docker
+    highlights:
+      - "RESTful API 아키텍처로 확장 가능한 백엔드 설계"
+      - "Vue.js로 직관적인 관리자 대시보드 구현"
+      - "MySQL 데이터베이스 스키마 설계 및 최적화"
     github: "https://github.com/kimyt990501"
     demo: ""
     image: ""
-    
-  - title: "다국가 수어인식 번역 서비스"
-    description: "미국수어(ASL), 한국수어(KSL), 중국수어(CSL)를 실시간으로 인식하여 텍스트로 번역하는 AI 서비스. MediaPipe와 딥러닝을 활용한 제스처 분석"
+    featured: true
+
+  - title: "Multi-Language Sign Language Translator"
+    subtitle: "AI 기반 실시간 수어 번역 시스템"
+    problem: "언어 장벽으로 인한 청각장애인 소통의 어려움"
+    solution: "ASL, KSL, CSL 3개국 수어를 실시간 인식하여 텍스트로 번역"
+    impact:
+      - metric: "3개국"
+        label: "수어 지원"
+      - metric: "실시간"
+        label: "번역 속도"
     tech_stack:
       - Python
       - OpenCV
@@ -53,107 +98,96 @@ projects:
       - TensorFlow
       - Keras
       - Scikit-learn
+    highlights:
+      - "MediaPipe로 손동작 랜드마크 실시간 추출"
+      - "TensorFlow/Keras로 LSTM 기반 제스처 분류 모델 학습"
+      - "OpenCV로 비디오 스트림 처리 파이프라인 구축"
     github: "https://github.com/kimyt990501"
     demo: ""
     image: ""
+    featured: true
 
+# Core Skills Only - 핵심 기술만 선별
 skills:
-  - category: "Backend & API"
+  core:
+    title: "Core Tech Stack"
+    subtitle: "현재 프로덕션에서 사용 중인 핵심 기술"
     items:
       - name: "Python"
-        level: "advanced"
+        level: 90
+        category: "Backend"
       - name: "FastAPI"
-        level: "advanced"
-      - name: "Flask"
-        level: "intermediate"
-      - name: "RESTful API"
-        level: "advanced"
-      - name: "Spring"
-        level: "beginner"
-      - name: "NestJS"
-        level: "beginner"
-        
-  - category: "Frontend"
-    items:
+        level: 90
+        category: "Backend"
       - name: "TypeScript"
-        level: "intermediate"
+        level: 75
+        category: "Frontend"
       - name: "Next.js"
-        level: "intermediate"
+        level: 75
+        category: "Frontend"
       - name: "Vue.js"
-        level: "intermediate"
-      - name: "React"
-        level: "beginner"
-        
-  - category: "AI/ML & Data"
+        level: 75
+        category: "Frontend"
+      - name: "MySQL"
+        level: 75
+        category: "Database"
+      - name: "Docker"
+        level: 75
+        category: "DevOps"
+
+  ai_ml:
+    title: "AI/ML"
+    subtitle: "머신러닝 모델 개발 및 배포 경험"
     items:
       - name: "PyTorch"
-        level: "intermediate"
+        level: 70
       - name: "TensorFlow"
-        level: "intermediate"
-      - name: "Hugging Face"
-        level: "intermediate"
+        level: 70
       - name: "OpenCV"
-        level: "intermediate"
-      - name: "MediaPipe"
-        level: "intermediate"
-      - name: "Pandas"
-        level: "intermediate"
+        level: 75
+      - name: "Hugging Face"
+        level: 70
       - name: "Scikit-learn"
-        level: "intermediate"
-        
-  - category: "DevOps & Infrastructure"
-    items:
-      - name: "Docker"
-        level: "intermediate"
-      - name: "Redis"
-        level: "intermediate"
-      - name: "Celery"
-        level: "beginner"
-      - name: "RabbitMQ"
-        level: "beginner"
-        
-  - category: "Database"
-    items:
-      - name: "MySQL"
-        level: "intermediate"
-      - name: "MongoDB"
-        level: "beginner"
-        
-  - category: "Web Scraping"
-    items:
-      - name: "Selenium"
-        level: "intermediate"
-      - name: "Playwright"
-        level: "intermediate"
+        level: 75
 
-  - category: "Languages"
+  tools:
+    title: "Tools & Others"
     items:
-      - name: "C++"
-        level: "beginner"
-      - name: "C"
-        level: "beginner"
-      - name: "Java"
-        level: "beginner"
+      - name: "Git/GitHub"
+      - name: "Redis"
+      - name: "RESTful API Design"
+      - name: "Selenium/Playwright"
 
 experience:
-  - title: "스타트업 인턴"
+  - title: "스타트업 백엔드 & AI 엔지니어 인턴"
+    company: "2개 스타트업"
     period: "총 8개월"
-    description: "2개 스타트업에서 소프트웨어 개발, 모델 개발, 데이터 수집 업무 수행"
-    
+    description: "FastAPI 기반 백엔드 API 개발, AI 모델 프로덕션 배포, 데이터 수집 자동화"
+    achievements:
+      - "FastAPI로 고성능 REST API 개발 및 배포"
+      - "AI 모델을 실제 서비스에 통합 및 운영"
+      - "Selenium/Playwright를 활용한 데이터 수집 자동화"
+
 certifications:
   - name: "SQLD (SQL 개발자)"
-  - name: "TOEIC 855점"
+    icon: "database"
+  - name: "TOEIC 855"
+    icon: "language"
   - name: "신HSK 6급"
+    icon: "language"
 
 languages:
   - name: "한국어"
-    level: "모국어"
+    level: "Native"
   - name: "중국어"
-    level: "유창 (중국 거주 10년)"
+    level: "Fluent (10년 거주)"
   - name: "영어"
-    level: "상급 (TOEIC 855점)"
+    level: "Professional"
 
 contact:
   email: "kimyt990501@naver.com"
   github: "https://github.com/kimyt990501"
-  description: "궁금한 점이나 협업 제안이 있으시면 언제든지 연락주세요!"
+  linkedin: ""
+  title: "Let's Build Something Together"
+  description: "새로운 프로젝트나 협업 기회에 대해 이야기 나누고 싶습니다."
+  cta_text: "이메일 보내기"
