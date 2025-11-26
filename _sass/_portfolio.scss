@@ -780,9 +780,9 @@ h1, h2, h3, h4, h5, h6 {
   flex-shrink: 0;
 }
 
-/* Day 모드 - 프로젝트 이미지 진한 베이지 배경 */
+/* Day 모드 - 프로젝트 이미지 진한 아이보리 배경 */
 [data-theme="light"] .project-image {
-  background: linear-gradient(135deg, #C4A77D 0%, #A88F68 100%);
+  background: linear-gradient(135deg, #E5E3DE 0%, #D4D2CC 100%);
 }
 
 /* Day 모드 - 아이콘 진한 갈색 */
@@ -927,9 +927,9 @@ h1, h2, h3, h4, h5, h6 {
   background: linear-gradient(to top, rgba(15, 23, 42, 0.85) 0%, rgba(15, 23, 42, 0.5) 70%, transparent 100%);
 }
 
-/* Day 모드 - 스크린샷 그림자 연하게 */
+/* Day 모드 - 스크린샷 그림자 완전 옅게 */
 [data-theme="light"] .project-screenshot-info {
-  background: linear-gradient(to top, rgba(245, 243, 238, 0.9) 0%, rgba(245, 243, 238, 0.6) 70%, transparent 100%);
+  background: linear-gradient(to top, rgba(245, 243, 238, 0.7) 0%, rgba(245, 243, 238, 0.3) 70%, transparent 100%);
 }
 
 .project-screenshot-info h4 {
@@ -940,9 +940,9 @@ h1, h2, h3, h4, h5, h6 {
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* Day 모드 - 텍스트 그림자 연하게 */
+/* Day 모드 - 텍스트 그림자 완전 옅게 */
 [data-theme="light"] .project-screenshot-info h4 {
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .project-screenshot-info p {
@@ -952,9 +952,9 @@ h1, h2, h3, h4, h5, h6 {
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* Day 모드 - 부제목 그림자 연하게 */
+/* Day 모드 - 부제목 그림자 완전 옅게 */
 [data-theme="light"] .project-screenshot-info p {
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.03);
   color: var(--text-secondary);
 }
 
