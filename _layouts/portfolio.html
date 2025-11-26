@@ -93,6 +93,62 @@ layout: default
         </div>
     </section>
 
+    <!-- Experience Section -->
+    {% if site.data.portfolio.experience %}
+    <section id="experience" class="portfolio-section">
+        <div class="section-header">
+            <h2 class="section-title">Experience</h2>
+            <p class="section-subtitle">실무 경험</p>
+        </div>
+        <div class="experience-container">
+            {% for exp in site.data.portfolio.experience %}
+            <div class="experience-card">
+                <h3 class="experience-title">{{ exp.title }}</h3>
+                <p class="experience-period">{{ exp.period }}</p>
+                <p class="experience-description">{{ exp.description }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    {% endif %}
+
+    <!-- Certifications & Languages Section -->
+    <section id="qualifications" class="portfolio-section">
+        <div class="section-header">
+            <h2 class="section-title">Qualifications</h2>
+            <p class="section-subtitle">자격 및 언어 능력</p>
+        </div>
+        <div class="qualifications-grid">
+            <!-- Certifications -->
+            {% if site.data.portfolio.certifications %}
+            <div class="qualification-box">
+                <h3 class="qualification-subtitle">
+                    <i class="fas fa-certificate"></i> 자격증
+                </h3>
+                <ul class="qualification-list">
+                    {% for cert in site.data.portfolio.certifications %}
+                    <li>{{ cert.name }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+
+            <!-- Languages -->
+            {% if site.data.portfolio.languages %}
+            <div class="qualification-box">
+                <h3 class="qualification-subtitle">
+                    <i class="fas fa-language"></i> 언어 능력
+                </h3>
+                <ul class="qualification-list">
+                    {% for lang in site.data.portfolio.languages %}
+                    <li><strong>{{ lang.name }}</strong>: {{ lang.level }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+        </div>
+    </section>
+
     <!-- Blog Preview Section -->
     <section id="blog" class="portfolio-section blog-preview">
         <div class="section-header">
@@ -143,6 +199,107 @@ layout: default
 <style>
     html {
         scroll-behavior: smooth;
+    }
+
+    /* Experience Section Styles */
+    .experience-container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .experience-card {
+        background: var(--glass-bg);
+        backdrop-filter: var(--glass-blur);
+        -webkit-backdrop-filter: var(--glass-blur);
+        border: 1px solid var(--glass-border);
+        border-radius: 18px;
+        padding: 32px;
+        box-shadow: var(--shadow-md);
+        margin-bottom: 24px;
+    }
+
+    .experience-title {
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: var(--accent-primary);
+        margin-bottom: 10px;
+    }
+
+    .experience-period {
+        font-size: 1rem;
+        color: var(--text-muted);
+        margin-bottom: 12px;
+    }
+
+    .experience-description {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        line-height: 1.7;
+    }
+
+    /* Qualifications Section Styles */
+    .qualifications-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 32px;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .qualification-box {
+        background: var(--glass-bg);
+        backdrop-filter: var(--glass-blur);
+        -webkit-backdrop-filter: var(--glass-blur);
+        border: 1px solid var(--glass-border);
+        border-radius: 18px;
+        padding: 36px;
+        box-shadow: var(--shadow-md);
+    }
+
+    .qualification-subtitle {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--accent-primary);
+        margin-bottom: 24px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .qualification-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .qualification-list li {
+        font-size: 1.05rem;
+        color: var(--text-secondary);
+        line-height: 2;
+        padding: 8px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .qualification-list li:last-child {
+        border-bottom: none;
+    }
+
+    .qualification-list li strong {
+        color: var(--text-primary);
+    }
+
+    @media (max-width: 768px) {
+        .qualifications-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .experience-card {
+            padding: 24px;
+        }
+
+        .qualification-box {
+            padding: 28px;
+        }
     }
 </style>
 

@@ -1,78 +1,159 @@
 hero:
-  title: "안녕하세요, 장래희망개발자입니다"
-  subtitle: "Backend Developer & Problem Solver"
-  description: "Java와 Spring을 활용한 백엔드 개발을 공부하고 있습니다."
+  title: "안녕하세요, 김윤태입니다"
+  subtitle: "Backend Developer & AI Enthusiast"
+  description: "웹 개발, 데이터 사이언스, AI 분야에 관심을 가지고 실무 중심의 프로젝트 경험을 쌓아가고 있습니다."
   cta_text: "프로젝트 보기"
   cta_link: "#projects"
   
 about:
   title: "About Me"
   description: |
-    개발 공부를 꾸준히 하고 있는 백엔드 개발자 지망생입니다.
-    Java 기초부터 Spring 프레임워크까지 학습하며 실력을 쌓아가고 있습니다.
-    문제 해결과 효율적인 코드 작성에 관심이 많습니다.
+    숭실대학교 소프트웨어학부 재학 중(2019~2026)이며, 
+    백엔드 개발과 데이터 처리 분야에 특히 관심이 많습니다.
+    
+    2개 스타트업에서 총 8개월간 인턴으로 근무하며 
+    실무 중심의 소프트웨어 개발, 모델 개발, 데이터 수집 업무를 경험했습니다.
+    
+    **"지속적으로 새로운 것을 받아들이는 것에 거부감이 없는 것이 저의 장점입니다."**
   image: "/assets/codingcat.jpeg"
 
 projects:
-  - title: "Spring Boot REST API"
-    description: "Spring Boot를 활용한 RESTful API 서버 구축 프로젝트"
+  - title: "Deciphish - 피싱 탐지 시스템"
+    description: "AI 기반 피싱 사이트 탐지 및 분석 시스템. URL 분석, QR 코드 검사, 브랜드 로고 인식을 통한 멀티모달 피싱 탐지 솔루션"
     tech_stack:
-      - Java
-      - Spring Boot
-      - JPA
+      - Python
+      - FastAPI
+      - Next.js
+      - TypeScript
       - MySQL
+      - Docker
     github: "https://github.com/kimyt990501"
     demo: ""
     image: ""
     
-  - title: "알고리즘 문제 풀이"
-    description: "Java를 사용한 자료구조 및 알고리즘 학습"
+  - title: "ERP System"
+    description: "FastAPI와 Vue.js 기반의 기업 자원 관리 시스템. 인사 관리, 출퇴근 기록, 휴가 관리, 급여 조회 등 핵심 ERP 기능 제공"
     tech_stack:
-      - Java
-      - Algorithm
-      - Data Structure
+      - Python
+      - FastAPI
+      - Vue.js
+      - TypeScript
+      - MySQL
+      - Docker
     github: "https://github.com/kimyt990501"
     demo: ""
     image: ""
     
-  - title: "개발 블로그"
-    description: "Jekyll 기반 개인 개발 블로그 운영 및 커스터마이징"
+  - title: "다국가 수어인식 번역 서비스"
+    description: "미국수어(ASL), 한국수어(KSL), 중국수어(CSL)를 실시간으로 인식하여 텍스트로 번역하는 AI 서비스. MediaPipe와 딥러닝을 활용한 제스처 분석"
     tech_stack:
-      - Jekyll
-      - HTML/CSS
-      - JavaScript
-      - GitHub Pages
-    github: "https://github.com/kimyt990501/kimyt990501.github.io"
-    demo: "https://kimyt990501.github.io"
+      - Python
+      - OpenCV
+      - MediaPipe
+      - TensorFlow
+      - Keras
+      - Scikit-learn
+    github: "https://github.com/kimyt990501"
+    demo: ""
     image: ""
 
 skills:
-  - category: "Languages"
+  - category: "Backend & API"
     items:
-      - name: "Java"
+      - name: "Python"
+        level: "advanced"
+      - name: "FastAPI"
+        level: "advanced"
+      - name: "Flask"
         level: "intermediate"
-      - name: "C++"
-        level: "beginner"
-      - name: "JavaScript"
-        level: "beginner"
-        
-  - category: "Frameworks"
-    items:
+      - name: "RESTful API"
+        level: "advanced"
       - name: "Spring"
         level: "beginner"
-      - name: "Spring Boot"
+      - name: "NestJS"
         level: "beginner"
         
-  - category: "Tools & Others"
+  - category: "Frontend"
     items:
-      - name: "Git/GitHub"
+      - name: "TypeScript"
         level: "intermediate"
+      - name: "Next.js"
+        level: "intermediate"
+      - name: "Vue.js"
+        level: "intermediate"
+      - name: "React"
+        level: "beginner"
+        
+  - category: "AI/ML & Data"
+    items:
+      - name: "PyTorch"
+        level: "intermediate"
+      - name: "TensorFlow"
+        level: "intermediate"
+      - name: "Hugging Face"
+        level: "intermediate"
+      - name: "OpenCV"
+        level: "intermediate"
+      - name: "MediaPipe"
+        level: "intermediate"
+      - name: "Pandas"
+        level: "intermediate"
+      - name: "Scikit-learn"
+        level: "intermediate"
+        
+  - category: "DevOps & Infrastructure"
+    items:
+      - name: "Docker"
+        level: "intermediate"
+      - name: "Redis"
+        level: "intermediate"
+      - name: "Celery"
+        level: "beginner"
+      - name: "RabbitMQ"
+        level: "beginner"
+        
+  - category: "Database"
+    items:
       - name: "MySQL"
+        level: "intermediate"
+      - name: "MongoDB"
         level: "beginner"
-      - name: "JPA"
+        
+  - category: "Web Scraping"
+    items:
+      - name: "Selenium"
+        level: "intermediate"
+      - name: "Playwright"
+        level: "intermediate"
+
+  - category: "Languages"
+    items:
+      - name: "C++"
         level: "beginner"
+      - name: "C"
+        level: "beginner"
+      - name: "Java"
+        level: "beginner"
+
+experience:
+  - title: "스타트업 인턴"
+    period: "총 8개월"
+    description: "2개 스타트업에서 소프트웨어 개발, 모델 개발, 데이터 수집 업무 수행"
+    
+certifications:
+  - name: "SQLD (SQL 개발자)"
+  - name: "TOEIC 855점"
+  - name: "신HSK 6급"
+
+languages:
+  - name: "한국어"
+    level: "모국어"
+  - name: "중국어"
+    level: "유창 (중국 거주 10년)"
+  - name: "영어"
+    level: "상급 (TOEIC 855점)"
 
 contact:
   email: "kimyt990501@naver.com"
   github: "https://github.com/kimyt990501"
-  description: "프로젝트 협업이나 문의사항이 있으시면 언제든지 연락주세요!"
+  description: "궁금한 점이나 협업 제안이 있으시면 언제든지 연락주세요!"
