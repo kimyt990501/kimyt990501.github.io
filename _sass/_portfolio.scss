@@ -42,6 +42,36 @@
 }
 
 /* =====================================================
+   Global Overrides - Scrollbar
+   ===================================================== */
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+  border-left: 1px solid rgba(6, 182, 212, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #06B6D4, #0891B2);
+  border-radius: 6px;
+  border: 2px solid var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #22D3EE, #06B6D4);
+}
+
+/* Firefox Scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #06B6D4 var(--bg-primary);
+}
+
+/* =====================================================
    Global Overrides for Header/Masthead
    ===================================================== */
 .masthead {
@@ -73,6 +103,145 @@
 
 .greedy-nav__toggle:hover {
   color: var(--accent-primary) !important;
+}
+
+/* =====================================================
+   Global Overrides for Footer
+   ===================================================== */
+.page__footer {
+  background: var(--bg-card) !important;
+  border-top: 2px solid rgba(6, 182, 212, 0.2) !important;
+  color: var(--text-secondary) !important;
+  margin-top: 0 !important;
+}
+
+.page__footer-copyright {
+  color: var(--text-muted) !important;
+}
+
+.page__footer-follow .social-icons li a {
+  color: var(--text-secondary) !important;
+}
+
+.page__footer-follow .social-icons li a:hover {
+  color: var(--accent-primary) !important;
+}
+
+.page__footer a {
+  color: var(--accent-primary) !important;
+}
+
+.page__footer a:hover {
+  color: var(--accent-bright) !important;
+}
+
+/* =====================================================
+   Global Overrides for All Pages
+   ===================================================== */
+/* Main content area */
+.page {
+  background: var(--bg-primary) !important;
+}
+
+.page__content {
+  background: var(--bg-primary) !important;
+  color: var(--text-secondary) !important;
+}
+
+/* Sidebar */
+.sidebar {
+  background: var(--bg-card) !important;
+  border: 1px solid rgba(6, 182, 212, 0.15) !important;
+}
+
+.sidebar__right {
+  background: var(--bg-card) !important;
+}
+
+/* Author sidebar */
+.author__avatar img {
+  border: 3px solid rgba(6, 182, 212, 0.3) !important;
+}
+
+.author__name {
+  color: var(--text-primary) !important;
+}
+
+.author__bio {
+  color: var(--text-secondary) !important;
+}
+
+.author__urls a {
+  color: var(--text-secondary) !important;
+}
+
+.author__urls a:hover {
+  color: var(--accent-primary) !important;
+}
+
+/* Archive pages */
+.archive {
+  background: var(--bg-primary) !important;
+  color: var(--text-secondary) !important;
+}
+
+.archive__item-title {
+  color: var(--text-primary) !important;
+}
+
+.archive__item-title a {
+  color: var(--text-primary) !important;
+}
+
+.archive__item-title a:hover {
+  color: var(--accent-primary) !important;
+}
+
+.archive__item-excerpt {
+  color: var(--text-secondary) !important;
+}
+
+/* Pagination */
+.pagination {
+  background: var(--bg-card) !important;
+  border: 1px solid rgba(6, 182, 212, 0.15) !important;
+}
+
+.pagination a {
+  color: var(--accent-primary) !important;
+}
+
+/* Taxonomy */
+.taxonomy__section {
+  background: var(--bg-card) !important;
+  border: 1px solid rgba(6, 182, 212, 0.15) !important;
+  border-radius: 12px !important;
+  padding: 24px !important;
+  margin-bottom: 24px !important;
+}
+
+.taxonomy__title {
+  color: var(--text-primary) !important;
+}
+
+/* Table of contents */
+.toc {
+  background: var(--bg-card) !important;
+  border: 1px solid rgba(6, 182, 212, 0.15) !important;
+}
+
+.toc__menu a {
+  color: var(--text-secondary) !important;
+}
+
+.toc__menu a:hover {
+  color: var(--accent-primary) !important;
+}
+
+/* Code blocks */
+pre.highlight {
+  background: var(--bg-card) !important;
+  border: 1px solid rgba(6, 182, 212, 0.15) !important;
 }
 
 /* =====================================================
