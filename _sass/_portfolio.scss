@@ -1,8 +1,8 @@
 /* =====================================================
-   Design Tokens & Variables - Clean Soft Blue Theme
+   Design Tokens & Variables - Night/Day Theme
    ===================================================== */
 :root {
-  /* Clean Soft Blue Palette - High Readability */
+  /* Night Mode (Default) - Clean Soft Blue Theme */
   --accent-primary: #60A5FA;
   --accent-secondary: #3B82F6;
   --accent-bright: #BFDBFE;
@@ -41,6 +41,82 @@
   --section-padding: 100px;
 }
 
+/* Day Mode - Ivory & Dark Gray Theme */
+[data-theme="light"] {
+  /* Light Mode - Ivory Background with Dark Accents */
+  --accent-primary: #4B5563;
+  --accent-secondary: #374151;
+  --accent-bright: #6B7280;
+  --accent-dark: #1F2937;
+
+  --bg-primary: #F5F3EE;
+  --bg-secondary: #FFFFFF;
+  --bg-tertiary: #E5E3DE;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #F9F7F4;
+
+  --text-primary: #1F2937;
+  --text-secondary: #374151;
+  --text-muted: #6B7280;
+  --text-accent: #4B5563;
+
+  /* Light Mode Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.15);
+  --shadow-accent: 0 8px 32px rgba(75, 85, 99, 0.15);
+
+  /* Light Mode Gradients */
+  --gradient-primary: linear-gradient(135deg, #4B5563 0%, #374151 100%);
+  --gradient-dark: linear-gradient(180deg, #F5F3EE 0%, #E5E3DE 100%);
+  --gradient-card: linear-gradient(135deg, #FFFFFF 0%, #F9F7F4 100%);
+}
+
+/* =====================================================
+   Theme Toggle Button
+   ===================================================== */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 2px solid var(--accent-primary);
+  box-shadow: var(--shadow-lg);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-normal);
+  color: var(--text-primary);
+  font-size: 1.5rem;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1) rotate(20deg);
+  box-shadow: var(--shadow-xl);
+  background: var(--bg-card-hover);
+}
+
+.theme-toggle:active {
+  transform: scale(0.95);
+}
+
+/* 모바일에서 토글 버튼 크기 조정 */
+@media (max-width: 768px) {
+  .theme-toggle {
+    width: 48px;
+    height: 48px;
+    top: 16px;
+    right: 16px;
+    font-size: 1.2rem;
+  }
+}
+
 /* =====================================================
    Global Overrides - Scrollbar
    ===================================================== */
@@ -52,23 +128,23 @@
 
 ::-webkit-scrollbar-track {
   background: var(--bg-primary);
-  border-left: 1px solid rgba(96, 165, 250, 0.1);
+  border-left: 1px solid var(--accent-primary);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #60A5FA, #3B82F6);
+  background: var(--accent-primary);
   border-radius: 6px;
   border: 2px solid var(--bg-primary);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #93C5FD, #60A5FA);
+  background: var(--accent-secondary);
 }
 
 /* Firefox Scrollbar */
 * {
   scrollbar-width: thin;
-  scrollbar-color: #60A5FA var(--bg-primary);
+  scrollbar-color: var(--accent-primary) var(--bg-primary);
 }
 
 /* =====================================================
@@ -264,12 +340,17 @@ pre.highlight {
 /* =====================================================
    Global Styles
    ===================================================== */
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
 body {
   background-color: var(--bg-primary) !important;
   color: var(--text-primary);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   overflow-x: hidden;
   line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1, h2, h3, h4, h5, h6 {

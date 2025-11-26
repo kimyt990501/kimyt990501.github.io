@@ -1,23 +1,52 @@
 # Portfolio Design System
 
-## Color Palette - Clean Soft Blue Theme
+## Theme System - Night/Day Mode Toggle
 
-### Primary Colors
-- **Accent Primary**: `#60A5FA` (소프트 블루)
-  - 용도: 버튼, 링크, 주요 강조 요소
-- **Accent Secondary**: `#3B82F6` (모던 블루)
-  - 용도: 그라데이션, 호버 상태, 방문한 링크
-- **Accent Bright**: `#BFDBFE` (밝은 블루)
-  - 용도: Hero subtitle, 호버 상태, 강조 텍스트
-- **Accent Dark**: `#2563EB` (다크 블루)
-  - 용도: 어두운 배경 요소
+### 테마 전환
+- **기본 모드**: Night Mode (다크 테마)
+- **대체 모드**: Day Mode (라이트 테마)
+- **토글 버튼**: 우측 상단 고정 원형 버튼
+- **저장**: localStorage에 사용자 선택 저장
+- **전환 효과**: 0.3s 부드러운 transition
 
-### Background Colors
-- **Primary BG**: `#0F172A` (다크 네이비)
-- **Secondary BG**: `#1E293B` (카드 배경)
-- **Tertiary BG**: `#334155` (호버 배경)
-- **Card BG**: `#1E293B`
-- **Card Hover BG**: `#334155`
+## Color Palette - Night Mode (Default)
+
+### Night Mode Colors
+**Accent Colors:**
+- Primary: `#60A5FA` (소프트 블루)
+- Secondary: `#3B82F6` (모던 블루)
+- Bright: `#BFDBFE` (밝은 블루)
+- Dark: `#2563EB` (다크 블루)
+
+**Background Colors:**
+- Primary: `#0F172A` (다크 네이비)
+- Secondary: `#1E293B` (카드 배경)
+- Card: `#1E293B`
+
+**Text Colors:**
+- Primary: `#F8FAFC` (흰색에 가까운 밝은 회색)
+- Secondary: `#E2E8F0` (밝은 회색)
+- Muted: `#94A3B8` (중간 회색)
+
+## Color Palette - Day Mode (Light)
+
+### Day Mode Colors
+**Accent Colors:**
+- Primary: `#4B5563` (진한 회색)
+- Secondary: `#374151` (더 진한 회색)
+- Bright: `#6B7280` (중간 회색)
+- Dark: `#1F2937` (거의 검정)
+
+**Background Colors:**
+- Primary: `#F5F3EE` (아이보리)
+- Secondary: `#FFFFFF` (순백)
+- Card: `#FFFFFF`
+- Card Hover: `#F9F7F4` (밝은 아이보리)
+
+**Text Colors:**
+- Primary: `#1F2937` (거의 검정)
+- Secondary: `#374151` (진한 회색)
+- Muted: `#6B7280` (중간 회색)
 
 ### Text Colors
 - **Primary Text**: `#F8FAFC` (매우 밝은 회색 - 본문, 더 높은 가독성)
