@@ -614,7 +614,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .project-card-container {
   perspective: 1500px;
-  min-height: 550px;
+  min-height: 420px;
+}
+
+@media (max-width: 968px) {
+  .project-card-container {
+    min-height: 550px;
+  }
 }
 
 .project-card-inner {
@@ -640,11 +646,19 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--bg-card);
   border: 2px solid rgba(6, 182, 212, 0.2);
   border-radius: 24px;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: hidden;
   box-shadow: var(--shadow-md);
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+}
+
+/* 모바일에서는 세로 레이아웃 */
+@media (max-width: 968px) {
+  .project-card {
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
 }
 
 .project-card-front {
@@ -656,26 +670,32 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: center;
   padding: 40px;
+  flex-direction: column;
 }
 
-/* 앞면 - 프로젝트 이미지 영역 (높이 축소) */
+/* 앞면 - 프로젝트 이미지 영역 (가로 레이아웃) */
 .project-image {
-  height: 140px;
+  width: 280px;
+  min-width: 280px;
+  height: 100%;
   background: linear-gradient(135deg, #334155 0%, #475569 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 3rem;
+  font-size: 3.5rem;
   color: var(--accent-primary);
   position: relative;
   overflow: hidden;
   flex-shrink: 0;
 }
 
-@media (max-width: 768px) {
+/* 모바일에서는 이미지가 위에 */
+@media (max-width: 968px) {
   .project-image {
-    height: 120px;
-    font-size: 2.5rem;
+    width: 100%;
+    min-width: 100%;
+    height: 180px;
+    font-size: 3rem;
   }
 }
 
@@ -820,15 +840,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .project-content {
-  padding: 28px 32px;
+  padding: 32px 36px;
   flex: 1;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
+  min-width: 0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 968px) {
   .project-content {
-    padding: 24px;
+    padding: 28px;
+    overflow-y: visible;
   }
 }
 

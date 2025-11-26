@@ -395,10 +395,11 @@ layout: default
         animateSkillBars();
     });
 
-    // 프로젝트 카드 높이 설정 - 더 짧고 넓은 레이아웃
+    // 프로젝트 카드 높이 설정 - 가로 레이아웃
     document.addEventListener('DOMContentLoaded', function() {
         function setCardHeights() {
             const containers = document.querySelectorAll('.project-card-container');
+            const isMobile = window.innerWidth <= 968;
 
             containers.forEach(container => {
                 const front = container.querySelector('.project-card-front');
@@ -410,8 +411,10 @@ layout: default
                     const frontHeight = front.scrollHeight;
                     const backHeight = back.scrollHeight;
 
-                    // 더 큰 높이 사용하되, 최소 높이를 550px로 설정 (이전 700px에서 축소)
-                    const maxHeight = Math.max(frontHeight, backHeight, 550);
+                    // 데스크톱: 가로 레이아웃이므로 최소 높이 420px
+                    // 모바일: 세로 레이아웃이므로 최소 높이 550px
+                    const minHeight = isMobile ? 550 : 420;
+                    const maxHeight = Math.max(frontHeight, backHeight, minHeight);
 
                     // 높이 설정
                     container.style.height = maxHeight + 'px';
