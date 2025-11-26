@@ -84,89 +84,79 @@ layout: default
     </div>
     <div class="projects-grid">
         {% for project in site.data.portfolio.projects %}
-        <!-- 카드 플립 효과: 호버 시 앞/뒤 전환 -->
-        <div class="project-card-wrapper reveal">
-            <div class="project-card-flip">
-                <!-- 앞면: 프로젝트 정보 -->
-                <div class="project-card project-card-front">
-                    <div class="project-image">
-                        {% if project.image and project.image != "" %}
-                        <img src="{{ project.image | relative_url }}" alt="{{ project.title }}">
-                        {% else %}
-                        <i class="fas fa-code"></i>
+        <div class="project-card-container reveal">
+            <div class="project-card">
+                <div class="project-image">
+                    {% if project.screenshot and project.screenshot != "" %}
+                    <!-- 스크린샷이 있으면 표시 -->
+                    <img src="{{ project.screenshot | relative_url }}" alt="{{ project.title }}" class="project-screenshot-img">
+                    {% elsif project.image and project.image != "" %}
+                    <img src="{{ project.image | relative_url }}" alt="{{ project.title }}">
+                    {% else %}
+                    <i class="fas fa-code"></i>
+                    {% endif %}
+                    <div class="project-image-overlay">
+                        <span class="project-view-hint">프로젝트 보기</span>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">{{ project.title }}</h3>
+                    {% if project.subtitle %}
+                    <p class="project-subtitle">{{ project.subtitle }}</p>
+                    {% endif %}
+
+                    {% if project.problem %}
+                    <div class="project-problem">
+                        <span class="project-problem-label">Problem</span>
+                        <p class="project-problem-text">{{ project.problem }}</p>
+                    </div>
+                    {% endif %}
+
+                    {% if project.solution %}
+                    <div class="project-solution">
+                        <span class="project-solution-label">Solution</span>
+                        <p class="project-solution-text">{{ project.solution }}</p>
+                    </div>
+                    {% endif %}
+
+                    {% if project.impact %}
+                    <div class="project-impact">
+                        {% for metric in project.impact %}
+                        <div class="impact-metric">
+                            <span class="impact-metric-value">{{ metric.metric }}</span>
+                            <span class="impact-metric-label">{{ metric.label }}</span>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+
+                    {% if project.highlights %}
+                    <ul class="project-highlights">
+                        {% for highlight in project.highlights %}
+                        <li>{{ highlight }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+
+                    <div class="project-tech">
+                        {% for tech in project.tech_stack %}
+                        <span class="tech-tag">{{ tech }}</span>
+                        {% endfor %}
+                    </div>
+
+                    <div class="project-links">
+                        {% if project.github %}
+                        <a href="{{ project.github }}" class="project-link" target="_blank">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                        {% endif %}
+                        {% if project.demo and project.demo != "" %}
+                        <a href="{{ project.demo }}" class="project-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> Demo
+                        </a>
                         {% endif %}
                     </div>
-                    <div class="project-content">
-                <h3 class="project-title">{{ project.title }}</h3>
-                {% if project.subtitle %}
-                <p class="project-subtitle">{{ project.subtitle }}</p>
-                {% endif %}
-
-                {% if project.problem %}
-                <div class="project-problem">
-                    <span class="project-problem-label">Problem</span>
-                    <p class="project-problem-text">{{ project.problem }}</p>
                 </div>
-                {% endif %}
-
-                {% if project.solution %}
-                <div class="project-solution">
-                    <span class="project-solution-label">Solution</span>
-                    <p class="project-solution-text">{{ project.solution }}</p>
-                </div>
-                {% endif %}
-
-                {% if project.impact %}
-                <div class="project-impact">
-                    {% for metric in project.impact %}
-                    <div class="impact-metric">
-                        <span class="impact-metric-value">{{ metric.metric }}</span>
-                        <span class="impact-metric-label">{{ metric.label }}</span>
-                    </div>
-                    {% endfor %}
-                </div>
-                {% endif %}
-
-                {% if project.highlights %}
-                <ul class="project-highlights">
-                    {% for highlight in project.highlights %}
-                    <li>{{ highlight }}</li>
-                    {% endfor %}
-                </ul>
-                {% endif %}
-
-                <div class="project-tech">
-                    {% for tech in project.tech_stack %}
-                    <span class="tech-tag">{{ tech }}</span>
-                    {% endfor %}
-                </div>
-
-                <div class="project-links">
-                    {% if project.github %}
-                    <a href="{{ project.github }}" class="project-link" target="_blank">
-                        <i class="fab fa-github"></i> GitHub
-                    </a>
-                    {% endif %}
-                    {% if project.demo and project.demo != "" %}
-                    <a href="{{ project.demo }}" class="project-link" target="_blank">
-                        <i class="fas fa-external-link-alt"></i> Demo
-                    </a>
-                    {% endif %}
-                    </div>
-                </div>
-
-                <!-- 뒷면: 스크린샷 -->
-                {% if project.screenshot %}
-                <div class="project-card project-card-back">
-                    <div class="project-screenshot-container">
-                        <img src="{{ project.screenshot | relative_url }}" alt="{{ project.title }} Screenshot" class="project-screenshot">
-                        <div class="project-screenshot-overlay">
-                            <div class="project-screenshot-title">{{ project.title }}</div>
-                            <div class="project-screenshot-hint">클릭하여 자세히 보기</div>
-                        </div>
-                    </div>
-                </div>
-                {% endif %}
             </div>
         </div>
         {% endfor %}
@@ -390,22 +380,13 @@ layout: default
         animateSkillBars();
     });
 
-    // 카드 플립 효과를 위한 이벤트 (기존 3D 회전 효과는 제거)
+    // 프로젝트 카드 효과
     document.addEventListener('DOMContentLoaded', function() {
-        // 프로젝트 카드 플립 효과는 CSS로 처리됨
-        const projectCardWrappers = document.querySelectorAll('.project-card-wrapper');
+        const projectCards = document.querySelectorAll('.project-card');
 
-        projectCardWrappers.forEach(wrapper => {
-            // 모바일에서는 탭으로 플립 토글
-            if ('ontouchstart' in window) {
-                wrapper.addEventListener('click', function(e) {
-                    // 링크 클릭은 무시
-                    if (e.target.tagName === 'A' || e.target.closest('a')) {
-                        return;
-                    }
-                    this.classList.toggle('flipped');
-                });
-            }
+        projectCards.forEach(card => {
+            // 카드 호버 효과는 CSS로 처리됨
+            // 추가 JavaScript 이벤트는 필요 없음
         });
 
         // Add click animation to CTA buttons
