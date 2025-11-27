@@ -4,7 +4,9 @@ layout: default
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
 
 <!-- Theme Toggle Button -->
 <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
@@ -12,180 +14,194 @@ layout: default
 </button>
 
 <div class="portfolio-container">
-<!-- Hero Section -->
-<section class="hero-section">
-<div class="hero-content">
-    <!-- 이름을 가장 크고 눈에 띄게 표시 (Hero 타이틀 크기) -->
-    <h1 class="hero-name">{{ site.data.portfolio.hero.name }}</h1>
-    <!-- 역할을 그 아래 약간 작게 -->
-    <p class="hero-subtitle">{{ site.data.portfolio.hero.subtitle }}</p>
-    <!-- 타이틀을 세 번째로 -->
-    <p class="hero-title-secondary">{{ site.data.portfolio.hero.title }}</p>
-    <!-- 실무 경험을 첫 번째 줄로 강조 -->
-    <p class="hero-description-primary">{{ site.data.portfolio.hero.description_line1 }}</p>
-    <!-- 학교 정보는 두 번째 줄로 이동하고 폰트 크기 축소 -->
-    <p class="hero-description-secondary">{{ site.data.portfolio.hero.description_line2 }}</p>
-
-    <!-- Dual CTA Buttons -->
-    <div class="hero-cta-container">
-        <a href="{{ site.data.portfolio.hero.cta_primary_link }}" class="hero-cta">
-            {{ site.data.portfolio.hero.cta_primary_text }}
-        </a>
-        <a href="{{ site.data.portfolio.hero.cta_secondary_link }}" class="hero-cta-secondary" target="_blank">
-            {{ site.data.portfolio.hero.cta_secondary_text }}
-        </a>
-    </div>
-
-    <!-- GitHub Stats -->
-    {% if site.data.portfolio.hero.github_stats %}
-    <div class="hero-stats">
-        <div class="hero-stat">
-            <span class="hero-stat-value">{{ site.data.portfolio.hero.github_stats.repos }}</span>
-            <span class="hero-stat-label">Repositories</span>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <!-- Floating Icons Background -->
+        <div class="hero-floating-icons">
+            <i class="fab fa-python hero-floating-icon"
+                style="top: 15%; left: 10%; font-size: 3rem; animation-delay: 0s;"></i>
+            <i class="fab fa-docker hero-floating-icon"
+                style="top: 25%; right: 15%; font-size: 2.5rem; animation-delay: 1s;"></i>
+            <i class="fas fa-database hero-floating-icon"
+                style="bottom: 20%; left: 15%; font-size: 2.8rem; animation-delay: 2s;"></i>
+            <i class="fas fa-code hero-floating-icon"
+                style="bottom: 30%; right: 10%; font-size: 2.2rem; animation-delay: 3s;"></i>
+            <i class="fas fa-cloud hero-floating-icon"
+                style="top: 40%; left: 50%; font-size: 2rem; animation-delay: 1.5s; opacity: 0.1;"></i>
         </div>
-        <div class="hero-stat">
-            <span class="hero-stat-value">{{ site.data.portfolio.hero.github_stats.contributions }}</span>
-            <span class="hero-stat-label">Contributions</span>
-        </div>
-    </div>
-    {% endif %}
-</div>
-</section>
+        <div class="hero-content">
+            <!-- 이름을 가장 크고 눈에 띄게 표시 (Hero 타이틀 크기) -->
+            <h1 class="hero-name">{{ site.data.portfolio.hero.name }}</h1>
+            <!-- 역할을 그 아래 약간 작게 -->
+            <p class="hero-subtitle">{{ site.data.portfolio.hero.subtitle }}</p>
+            <!-- 타이틀을 세 번째로 -->
+            <p class="hero-title-secondary">{{ site.data.portfolio.hero.title }}</p>
+            <!-- 실무 경험을 첫 번째 줄로 강조 -->
+            <p class="hero-description-primary">{{ site.data.portfolio.hero.description_line1 }}</p>
+            <!-- 학교 정보는 두 번째 줄로 이동하고 폰트 크기 축소 -->
+            <p class="hero-description-secondary">{{ site.data.portfolio.hero.description_line2 }}</p>
 
-<!-- About Section -->
-<section id="about" class="portfolio-section">
-    <div class="section-header reveal">
-        <h2 class="section-title">{{ site.data.portfolio.about.title }}</h2>
-    </div>
-    <div class="about-content reveal">
-        <div class="about-image">
-            <img src="{{ site.data.portfolio.about.image | relative_url }}" alt="{{ site.author.name }}">
-        </div>
-        <div class="about-text">
-            <!-- tagline 제거 - 구체적인 경험 설명만 표시 -->
-            {{ site.data.portfolio.about.description | markdownify }}
+            <!-- Dual CTA Buttons -->
+            <div class="hero-cta-container">
+                <a href="{{ site.data.portfolio.hero.cta_primary_link }}" class="hero-cta">
+                    {{ site.data.portfolio.hero.cta_primary_text }}
+                </a>
+                <a href="{{ site.data.portfolio.hero.cta_secondary_link }}" class="hero-cta-secondary" target="_blank">
+                    {{ site.data.portfolio.hero.cta_secondary_text }}
+                </a>
+            </div>
 
-            {% if site.data.portfolio.about.highlights %}
-            <div class="about-highlights">
-                {% for highlight in site.data.portfolio.about.highlights %}
-                <div class="about-highlight">
-                    <div class="about-highlight-icon">
-                        <i class="fas fa-{{ highlight.icon }}"></i>
-                    </div>
-                    <div class="about-highlight-text">{{ highlight.text }}</div>
+            <!-- GitHub Stats -->
+            {% if site.data.portfolio.hero.github_stats %}
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="hero-stat-value">{{ site.data.portfolio.hero.github_stats.repos }}</span>
+                    <span class="hero-stat-label">Repositories</span>
                 </div>
-                {% endfor %}
+                <div class="hero-stat">
+                    <span class="hero-stat-value">{{ site.data.portfolio.hero.github_stats.contributions }}</span>
+                    <span class="hero-stat-label">Contributions</span>
+                </div>
             </div>
             {% endif %}
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Projects Section -->
-<section id="projects" class="portfolio-section">
-    <div class="section-header reveal">
-        <h2 class="section-title">Projects</h2>
-        <p class="section-subtitle">제가 진행한 주요 프로젝트들입니다</p>
-    </div>
-    <div class="projects-grid">
-        {% for project in site.data.portfolio.projects %}
-        <div class="project-card-container reveal">
-            <div class="project-card-inner">
-                <!-- 앞면: 프로젝트 상세 정보 -->
-                <div class="project-card project-card-front">
-                    <div class="project-image">
-                        {% if project.image and project.image != "" %}
-                        <img src="{{ project.image | relative_url }}" alt="{{ project.title }}">
-                        {% else %}
-                        <i class="fas fa-code"></i>
-                        {% endif %}
+    <!-- About Section -->
+    <section id="about" class="portfolio-section">
+        <div class="section-header reveal">
+            <h2 class="section-title">{{ site.data.portfolio.about.title }}</h2>
+        </div>
+        <div class="about-content reveal">
+            <div class="about-image">
+                <img src="{{ site.data.portfolio.about.image | relative_url }}" alt="{{ site.author.name }}">
+            </div>
+            <div class="about-text">
+                <!-- tagline 제거 - 구체적인 경험 설명만 표시 -->
+                {{ site.data.portfolio.about.description | markdownify }}
+
+                {% if site.data.portfolio.about.highlights %}
+                <div class="about-highlights">
+                    {% for highlight in site.data.portfolio.about.highlights %}
+                    <div class="about-highlight">
+                        <div class="about-highlight-icon">
+                            <i class="fas fa-{{ highlight.icon }}"></i>
+                        </div>
+                        <div class="about-highlight-text">{{ highlight.text }}</div>
                     </div>
-                    <div class="project-content">
-                        <h3 class="project-title">{{ project.title }}</h3>
-                        {% if project.subtitle %}
-                        <p class="project-subtitle">{{ project.subtitle }}</p>
-                        {% endif %}
-
-                        {% if project.problem %}
-                        <div class="project-problem">
-                            <span class="project-problem-label">Problem</span>
-                            <p class="project-problem-text">{{ project.problem }}</p>
-                        </div>
-                        {% endif %}
-
-                        {% if project.solution %}
-                        <div class="project-solution">
-                            <span class="project-solution-label">Solution</span>
-                            <p class="project-solution-text">{{ project.solution }}</p>
-                        </div>
-                        {% endif %}
-
-                        {% if project.impact %}
-                        <div class="project-impact">
-                            {% for metric in project.impact %}
-                            <div class="impact-metric">
-                                <span class="impact-metric-value">{{ metric.metric }}</span>
-                                <span class="impact-metric-label">{{ metric.label }}</span>
-                            </div>
-                            {% endfor %}
-                        </div>
-                        {% endif %}
-
-                        {% if project.highlights %}
-                        <ul class="project-highlights">
-                            {% for highlight in project.highlights %}
-                            <li>{{ highlight }}</li>
-                            {% endfor %}
-                        </ul>
-                        {% endif %}
-
-                        <div class="project-tech">
-                            {% for tech in project.tech_stack %}
-                            <span class="tech-tag">{{ tech }}</span>
-                            {% endfor %}
-                        </div>
-
-                        {% if project.demo and project.demo != "" %}
-                        <div class="project-links">
-                            <a href="{{ project.demo }}" class="project-link" target="_blank">
-                                <i class="fas fa-external-link-alt"></i> Demo
-                            </a>
-                        </div>
-                        {% endif %}
-                    </div>
+                    {% endfor %}
                 </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
 
-                <!-- 뒷면: 스크린샷 -->
-                <div class="project-card project-card-back">
-                    <div class="project-screenshot-wrapper">
-                        {% if project.screenshot and project.screenshot != "" %}
-                        <img src="{{ project.screenshot | relative_url }}" alt="{{ project.title }} Screenshot" class="project-screenshot">
-                        {% else %}
-                        <div class="project-screenshot-placeholder">
-                            <i class="fas fa-laptop-code"></i>
-                            <p>프로젝트 개발 진행중</p>
+    <!-- Projects Section -->
+    <section id="projects" class="portfolio-section">
+        <div class="section-header reveal">
+            <h2 class="section-title">Projects</h2>
+            <p class="section-subtitle">제가 진행한 주요 프로젝트들입니다</p>
+        </div>
+        <div class="projects-grid">
+            {% for project in site.data.portfolio.projects %}
+            <div class="project-card-container reveal">
+                <div class="project-card-inner">
+                    <!-- 앞면: 프로젝트 상세 정보 -->
+                    <div class="project-card project-card-front">
+                        <div class="project-image">
+                            {% if project.image and project.image != "" %}
+                            <img src="{{ project.image | relative_url }}" alt="{{ project.title }}">
+                            {% else %}
+                            <i class="fas fa-code"></i>
+                            {% endif %}
                         </div>
-                        {% endif %}
-                        <div class="project-screenshot-info">
-                            <h4>{{ project.title }}</h4>
-                            <p>{{ project.subtitle }}</p>
+                        <div class="project-content">
+                            <h3 class="project-title">{{ project.title }}</h3>
+                            {% if project.subtitle %}
+                            <p class="project-subtitle">{{ project.subtitle }}</p>
+                            {% endif %}
+
+                            {% if project.problem %}
+                            <div class="project-problem">
+                                <span class="project-problem-label">Problem</span>
+                                <p class="project-problem-text">{{ project.problem }}</p>
+                            </div>
+                            {% endif %}
+
+                            {% if project.solution %}
+                            <div class="project-solution">
+                                <span class="project-solution-label">Solution</span>
+                                <p class="project-solution-text">{{ project.solution }}</p>
+                            </div>
+                            {% endif %}
+
+                            {% if project.impact %}
+                            <div class="project-impact">
+                                {% for metric in project.impact %}
+                                <div class="impact-metric">
+                                    <span class="impact-metric-value">{{ metric.metric }}</span>
+                                    <span class="impact-metric-label">{{ metric.label }}</span>
+                                </div>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+
+                            {% if project.highlights %}
+                            <ul class="project-highlights">
+                                {% for highlight in project.highlights %}
+                                <li>{{ highlight }}</li>
+                                {% endfor %}
+                            </ul>
+                            {% endif %}
+
+                            <div class="project-tech">
+                                {% for tech in project.tech_stack %}
+                                <span class="tech-tag">{{ tech }}</span>
+                                {% endfor %}
+                            </div>
+
+                            {% if project.demo and project.demo != "" %}
+                            <div class="project-links">
+                                <a href="{{ project.demo }}" class="project-link" target="_blank">
+                                    <i class="fas fa-external-link-alt"></i> Demo
+                                </a>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <!-- 뒷면: 스크린샷 -->
+                    <div class="project-card project-card-back">
+                        <div class="project-screenshot-wrapper">
+                            {% if project.screenshot and project.screenshot != "" %}
+                            <img src="{{ project.screenshot | relative_url }}" alt="{{ project.title }} Screenshot"
+                                class="project-screenshot">
+                            {% else %}
+                            <div class="project-screenshot-placeholder">
+                                <i class="fas fa-laptop-code"></i>
+                                <p>프로젝트 개발 진행중</p>
+                            </div>
+                            {% endif %}
+                            <div class="project-screenshot-info">
+                                <h4>{{ project.title }}</h4>
+                                <p>{{ project.subtitle }}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            {% endfor %}
         </div>
-        {% endfor %}
-    </div>
-</section>
+    </section>
 
-<!-- Skills Section -->
-<section id="skills" class="portfolio-section">
-    <div class="section-header reveal">
-        <h2 class="section-title">Skills</h2>
-        <p class="section-subtitle">현재 사용하고 있는 기술들입니다</p>
-    </div>
-    <div class="skills-container">
-        {% for category_name in site.data.portfolio.skills %}
+    <!-- Skills Section -->
+    <section id="skills" class="portfolio-section">
+        <div class="section-header reveal">
+            <h2 class="section-title">Skills</h2>
+            <p class="section-subtitle">현재 사용하고 있는 기술들입니다</p>
+        </div>
+        <div class="skills-container">
+            {% for category_name in site.data.portfolio.skills %}
             {% assign category = category_name[1] %}
             <div class="skill-category reveal">
                 <h3 class="skill-category-title">{{ category.title }}</h3>
@@ -217,106 +233,106 @@ layout: default
                 </div>
                 {% endif %}
             </div>
-        {% endfor %}
-    </div>
-</section>
+            {% endfor %}
+        </div>
+    </section>
 
-<!-- Experience Section -->
-{% if site.data.portfolio.experience %}
-<section id="experience" class="portfolio-section">
-    <div class="section-header reveal">
-        <h2 class="section-title">Experience</h2>
-        <p class="section-subtitle">실무 경험</p>
-    </div>
-    <div class="experience-container">
-        {% for exp in site.data.portfolio.experience %}
-        <div class="experience-card reveal">
-            <h3 class="experience-title">{{ exp.title }}</h3>
-            {% if exp.company %}
-            <p class="experience-company">{{ exp.company }}</p>
+    <!-- Experience Section -->
+    {% if site.data.portfolio.experience %}
+    <section id="experience" class="portfolio-section">
+        <div class="section-header reveal">
+            <h2 class="section-title">Experience</h2>
+            <p class="section-subtitle">실무 경험</p>
+        </div>
+        <div class="experience-container">
+            {% for exp in site.data.portfolio.experience %}
+            <div class="experience-card reveal">
+                <h3 class="experience-title">{{ exp.title }}</h3>
+                {% if exp.company %}
+                <p class="experience-company">{{ exp.company }}</p>
+                {% endif %}
+                <p class="experience-period">{{ exp.period }}</p>
+                <p class="experience-description">{{ exp.description }}</p>
+
+                {% if exp.achievements %}
+                <div class="experience-achievements-header">주요 성과:</div>
+                <ul class="experience-achievements">
+                    {% for achievement in exp.achievements %}
+                    <li>{{ achievement }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+
+                {% if exp.tech_stack %}
+                <div class="experience-tech-stack">
+                    <span class="experience-tech-label">기술 스택:</span> {{ exp.tech_stack }}
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    {% endif %}
+
+    <!-- Certifications & Languages Section -->
+    <section id="qualifications" class="portfolio-section">
+        <div class="section-header reveal">
+            <h2 class="section-title">Qualifications</h2>
+            <p class="section-subtitle">자격 및 언어 능력</p>
+        </div>
+        <div class="qualifications-grid">
+            <!-- Certifications -->
+            {% if site.data.portfolio.certifications %}
+            <div class="qualification-box reveal">
+                <h3 class="qualification-subtitle">
+                    <i class="fas fa-certificate"></i> 자격증
+                </h3>
+                <ul class="qualification-list">
+                    {% for cert in site.data.portfolio.certifications %}
+                    <li>{{ cert.name }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
             {% endif %}
-            <p class="experience-period">{{ exp.period }}</p>
-            <p class="experience-description">{{ exp.description }}</p>
 
-            {% if exp.achievements %}
-            <div class="experience-achievements-header">주요 성과:</div>
-            <ul class="experience-achievements">
-                {% for achievement in exp.achievements %}
-                <li>{{ achievement }}</li>
-                {% endfor %}
-            </ul>
-            {% endif %}
-
-            {% if exp.tech_stack %}
-            <div class="experience-tech-stack">
-                <span class="experience-tech-label">기술 스택:</span> {{ exp.tech_stack }}
+            <!-- Languages -->
+            {% if site.data.portfolio.languages %}
+            <div class="qualification-box reveal">
+                <h3 class="qualification-subtitle">
+                    <i class="fas fa-language"></i> 언어 능력
+                </h3>
+                <ul class="qualification-list">
+                    {% for lang in site.data.portfolio.languages %}
+                    <li><strong>{{ lang.name }}</strong>: {{ lang.level }}</li>
+                    {% endfor %}
+                </ul>
             </div>
             {% endif %}
         </div>
-        {% endfor %}
-    </div>
-</section>
-{% endif %}
+    </section>
 
-<!-- Certifications & Languages Section -->
-<section id="qualifications" class="portfolio-section">
-    <div class="section-header reveal">
-        <h2 class="section-title">Qualifications</h2>
-        <p class="section-subtitle">자격 및 언어 능력</p>
-    </div>
-    <div class="qualifications-grid">
-        <!-- Certifications -->
-        {% if site.data.portfolio.certifications %}
-        <div class="qualification-box reveal">
-            <h3 class="qualification-subtitle">
-                <i class="fas fa-certificate"></i> 자격증
-            </h3>
-            <ul class="qualification-list">
-                {% for cert in site.data.portfolio.certifications %}
-                <li>{{ cert.name }}</li>
-                {% endfor %}
-            </ul>
+    <!-- Contact Section -->
+    <section id="contact" class="portfolio-section">
+        <div class="section-header reveal">
+            <h2 class="section-title">{{ site.data.portfolio.contact.title | default: "Contact" }}</h2>
         </div>
-        {% endif %}
-
-        <!-- Languages -->
-        {% if site.data.portfolio.languages %}
-        <div class="qualification-box reveal">
-            <h3 class="qualification-subtitle">
-                <i class="fas fa-language"></i> 언어 능력
-            </h3>
-            <ul class="qualification-list">
-                {% for lang in site.data.portfolio.languages %}
-                <li><strong>{{ lang.name }}</strong>: {{ lang.level }}</li>
-                {% endfor %}
-            </ul>
+        <div class="contact-content reveal">
+            <p class="contact-description">{{ site.data.portfolio.contact.description }}</p>
+            <div class="contact-links">
+                <a href="mailto:{{ site.data.portfolio.contact.email }}" class="contact-link">
+                    <i class="fas fa-envelope"></i>
+                    {% if site.data.portfolio.contact.cta_text %}
+                    {{ site.data.portfolio.contact.cta_text }}
+                    {% else %}
+                    Email
+                    {% endif %}
+                </a>
+                <a href="{{ site.data.portfolio.contact.github }}" class="contact-link" target="_blank">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+            </div>
         </div>
-        {% endif %}
-    </div>
-</section>
-
-<!-- Contact Section -->
-<section id="contact" class="portfolio-section">
-    <div class="section-header reveal">
-        <h2 class="section-title">{{ site.data.portfolio.contact.title | default: "Contact" }}</h2>
-    </div>
-    <div class="contact-content reveal">
-        <p class="contact-description">{{ site.data.portfolio.contact.description }}</p>
-        <div class="contact-links">
-            <a href="mailto:{{ site.data.portfolio.contact.email }}" class="contact-link">
-                <i class="fas fa-envelope"></i>
-                {% if site.data.portfolio.contact.cta_text %}
-                {{ site.data.portfolio.contact.cta_text }}
-                {% else %}
-                Email
-                {% endif %}
-            </a>
-            <a href="{{ site.data.portfolio.contact.github }}" class="contact-link" target="_blank">
-                <i class="fab fa-github"></i> GitHub
-            </a>
-        </div>
-    </div>
-</section>
+    </section>
 </div>
 
 <style>
@@ -428,7 +444,7 @@ layout: default
     });
 
     // 프로젝트 카드 높이 설정 - 가로 레이아웃 (전체 컨텐츠 표시)
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         function setCardHeights() {
             const containers = document.querySelectorAll('.project-card-container');
 
@@ -464,7 +480,7 @@ layout: default
 
         // 윈도우 리사이즈 시 재계산 (디바운싱)
         let resizeTimer;
-        window.addEventListener('resize', function() {
+        window.addEventListener('resize', function () {
             clearTimeout(resizeTimer);
             resizeTimer = setTimeout(setCardHeights, 250);
         });
@@ -472,7 +488,7 @@ layout: default
         // Add click animation to CTA buttons
         const ctaButtons = document.querySelectorAll('.hero-cta, .hero-cta-secondary, .contact-link');
         ctaButtons.forEach(button => {
-            button.addEventListener('click', function(e) {
+            button.addEventListener('click', function (e) {
                 this.style.transform = 'scale(0.95)';
                 setTimeout(() => {
                     this.style.transform = '';
@@ -481,7 +497,7 @@ layout: default
         });
 
         // Parallax effect for hero section
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             const scrolled = window.pageYOffset;
             const heroSection = document.querySelector('.hero-section');
             if (heroSection) {
