@@ -542,136 +542,245 @@ h6 {
 }
 
 /* =====================================================
-   Interactive Terminal (Terminal Window)
+   System Architecture Visualization (Architecture Window)
    ===================================================== */
-.terminal-window {
+.architecture-window {
   width: 100%;
-  max-width: 800px;
-  background: #0C0C0C;
-  /* Deep Black */
-  border-radius: 8px;
+  max-width: 900px;
+  background: #0F172A;
+  /* Slate 900 */
+  border-radius: 16px;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
   margin: 48px auto 0;
   overflow: hidden;
-  text-align: left;
-  border: 1px solid rgba(255, 255, 255, 0.15);
   position: relative;
   z-index: 20;
-  font-family: 'Fira Code', 'Consolas', monospace;
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  padding: 40px;
+  display: flex;
+  justify-content: center;
 }
 
-.terminal-header {
-  background: #1F1F1F;
-  padding: 10px 16px;
+.arch-diagram {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.arch-node {
+  background: #1E293B;
+  border: 2px solid #334155;
+  border-radius: 12px;
+  padding: 12px 24px;
+  color: #E2E8F0;
+  font-weight: 600;
+  font-size: 0.95rem;
   display: flex;
   align-items: center;
-  gap: 8px;
-  border-bottom: 1px solid #333;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 2;
+  transition: all 0.3s ease;
 }
 
-.terminal-button {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
+.arch-node:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-primary);
+  box-shadow: 0 8px 24px rgba(96, 165, 250, 0.2);
 }
 
-.terminal-button.red {
-  background: #FF5F56;
+.arch-node i {
+  font-size: 1.2rem;
+  color: var(--accent-primary);
 }
 
-.terminal-button.yellow {
-  background: #FFBD2E;
+/* Specific Node Styles */
+.arch-client {
+  border-color: #60A5FA;
 }
 
-.terminal-button.green {
-  background: #27C93F;
+.arch-lb {
+  border-color: #A78BFA;
 }
 
-.terminal-title {
-  margin-left: 12px;
-  font-size: 0.85rem;
-  color: #999;
-  font-weight: 500;
+.arch-api {
+  border-color: #34D399;
+  width: 200px;
 }
 
-.terminal-content {
-  padding: 24px;
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #CCCCCC;
-  min-height: 300px;
-  overflow-y: auto;
+.arch-worker {
+  border-color: #FBBF24;
+  width: 200px;
 }
 
-.terminal-line {
-  margin-bottom: 8px;
+.arch-db {
+  border-color: #F87171;
+}
+
+.arch-cache {
+  border-color: #F472B6;
+}
+
+/* Layout Groups */
+.arch-layer {
   display: flex;
-  flex-wrap: wrap;
-}
-
-.prompt-user {
-  color: #27C93F;
-  font-weight: bold;
-}
-
-/* Green */
-.prompt-path {
-  color: #3B82F6;
-  font-weight: bold;
-}
-
-/* Blue */
-.prompt-symbol {
-  color: #CCCCCC;
-  margin-right: 8px;
-}
-
-.command-text {
-  color: #FFFFFF;
-}
-
-.output-text {
-  color: #AAAAAA;
-  display: block;
+  justify-content: center;
+  gap: 40px;
   width: 100%;
-  margin-top: 4px;
-  white-space: pre-wrap;
+  position: relative;
 }
 
-/* Blinking Block Cursor */
-.cursor-block {
-  display: inline-block;
-  width: 10px;
-  height: 1.2em;
-  background-color: #CCCCCC;
-  vertical-align: text-bottom;
-  animation: blinkBlock 1s step-end infinite;
-  margin-left: 4px;
+/* Connection Lines */
+.arch-connections {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
 }
 
-@keyframes blinkBlock {
+.connection-line {
+  position: absolute;
+  background: rgba(148, 163, 184, 0.2);
+  transition: all 0.3s ease;
+}
 
-  0%,
-  100% {
+/* Vertical Line */
+.line-v {
+  width: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Horizontal Line */
+.line-h {
+  height: 2px;
+}
+
+/* Data Packets Animation */
+.packet {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #60A5FA;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #60A5FA;
+  z-index: 3;
+  opacity: 0;
+}
+
+@keyframes flowDown {
+  0% {
+    top: 40px;
+    opacity: 0;
+  }
+
+  10% {
     opacity: 1;
   }
 
-  50% {
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    top: 360px;
     opacity: 0;
   }
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-  .terminal-window {
-    max-width: 100%;
-    margin-top: 32px;
+@keyframes flowSplitLeft {
+  0% {
+    top: 150px;
+    left: 50%;
+    opacity: 0;
   }
 
-  .terminal-content {
-    font-size: 0.9rem;
-    padding: 16px;
-    min-height: 250px;
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    top: 250px;
+    left: 30%;
+    opacity: 0;
+  }
+}
+
+@keyframes flowSplitRight {
+  0% {
+    top: 150px;
+    left: 50%;
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    top: 250px;
+    left: 70%;
+    opacity: 0;
+  }
+}
+
+.packet-main {
+  left: 50%;
+  transform: translateX(-50%);
+  animation: flowDown 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.packet-left {
+  animation: flowSplitLeft 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation-delay: 1.5s;
+  background: #34D399;
+  box-shadow: 0 0 10px #34D399;
+}
+
+.packet-right {
+  animation: flowSplitRight 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation-delay: 1.5s;
+  background: #FBBF24;
+  box-shadow: 0 0 10px #FBBF24;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .architecture-window {
+    padding: 20px;
+    max-width: 100%;
+  }
+
+  .arch-diagram {
+    height: auto;
+    gap: 30px;
+  }
+
+  .arch-layer {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .arch-node {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .arch-connections,
+  .packet {
+    display: none;
+    /* Hide complex animations on mobile */
   }
 }
 

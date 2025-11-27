@@ -38,52 +38,16 @@ layout: default
                 </a>
             </div>
 
-            <!-- System Architecture Visualization Window -->
-            <div class="architecture-window">
-                <div class="arch-diagram">
-                    <!-- Layer 1: Client -->
-                    <div class="arch-layer">
-                        <div class="arch-node arch-client">
-                            <i class="fas fa-laptop-code"></i> Client
-                        </div>
-                    </div>
-
-                    <!-- Layer 2: Load Balancer -->
-                    <div class="arch-layer">
-                        <div class="arch-node arch-lb">
-                            <i class="fas fa-network-wired"></i> Load Balancer
-                        </div>
-                    </div>
-
-                    <!-- Layer 3: API & Workers -->
-                    <div class="arch-layer">
-                        <div class="arch-node arch-api">
-                            <i class="fas fa-server"></i> API Server
-                        </div>
-                        <div class="arch-node arch-worker">
-                            <i class="fas fa-cogs"></i> Worker
-                        </div>
-                    </div>
-
-                    <!-- Layer 4: Data -->
-                    <div class="arch-layer">
-                        <div class="arch-node arch-db">
-                            <i class="fas fa-database"></i> Database
-                        </div>
-                        <div class="arch-node arch-cache">
-                            <i class="fas fa-bolt"></i> Cache
-                        </div>
-                    </div>
-
-                    <!-- Animated Connections & Packets -->
-                    <div class="arch-connections">
-                        <div class="connection-line line-v" style="top: 40px; height: 320px;"></div>
-                        <div class="connection-line line-h" style="top: 250px; left: 30%; width: 40%;"></div>
-                    </div>
-
-                    <div class="packet packet-main"></div>
-                    <div class="packet packet-left"></div>
-                    <div class="packet packet-right"></div>
+            <!-- Interactive Terminal Window -->
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="terminal-button red"></div>
+                    <div class="terminal-button yellow"></div>
+                    <div class="terminal-button green"></div>
+                    <div class="terminal-title">user@kimyt-portfolio:~</div>
+                </div>
+                <div class="terminal-content" id="terminal-content">
+                    <!-- Dynamic content will go here -->
                 </div>
             </div>
 
@@ -563,6 +527,81 @@ layout: default
 
             setTimeout(typeWriter, 500);
         }
-        // System Architecture Animation is purely CSS-based
+        // Interactive Terminal Animation
+        const terminalContent = document.getElementById('terminal-content');
+        if (terminalContent) {
+            const commands = [
+                { cmd: "whoami", output: "Yoontae Kim (Backend Developer)" },
+                { cmd: "cat skills.txt", output: "Python, FastAPI, Docker, RabbitMQ, Celery, Redis..." },
+                { cmd: "date", output: new Date().toDateString() },
+                { cmd: "./start_portfolio.sh", output: "Starting portfolio... [OK]" }
+            ];
+
+            let cmdIndex = 0;
+            let charIndex = 0;
+            let isTyping = true;
+
+            function createLine() {
+                const line = document.createElement('div');
+                line.className = 'terminal-line';
+                line.innerHTML = `
+                    <span class="prompt-user">user@kimyt:~</span>
+                    <span class="prompt-symbol">$</span>
+                    <span class="command-text"></span>
+                    <span class="cursor-block"></span>
+                `;
+                terminalContent.appendChild(line);
+                return line;
+            }
+
+            let currentLine = createLine();
+            let commandSpan = currentLine.querySelector('.command-text');
+            let cursorSpan = currentLine.querySelector('.cursor-block');
+
+            function typeCommand() {
+                if (cmdIndex >= commands.length) {
+                    // Finished all commands
+                    cursorSpan.style.display = 'inline-block'; // Keep cursor blinking at the end
+                    return;
+                }
+
+                const currentCmd = commands[cmdIndex].cmd;
+
+                if (charIndex < currentCmd.length) {
+                    commandSpan.textContent += currentCmd.charAt(charIndex);
+                    charIndex++;
+                    setTimeout(typeCommand, 50 + Math.random() * 50); // Random typing speed
+                } else {
+                    // Command finished typing
+                    cursorSpan.remove(); // Remove cursor from current line
+
+                    // Show output if exists
+                    if (commands[cmdIndex].output) {
+                        const outputDiv = document.createElement('div');
+                        outputDiv.className = 'output-text';
+                        outputDiv.textContent = commands[cmdIndex].output;
+                        terminalContent.appendChild(outputDiv);
+                    }
+
+                    cmdIndex++;
+                    charIndex = 0;
+
+                    // Start next command after delay
+                    setTimeout(() => {
+                        currentLine = createLine();
+                        commandSpan = currentLine.querySelector('.command-text');
+                        cursorSpan = currentLine.querySelector('.cursor-block');
+
+                        // Scroll to bottom
+                        terminalContent.scrollTop = terminalContent.scrollHeight;
+
+                        typeCommand();
+                    }, 800);
+                }
+            }
+
+            // Start animation after delay
+            setTimeout(typeCommand, 1000);
+        }
     });
 </script>
