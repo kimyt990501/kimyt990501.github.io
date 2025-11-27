@@ -452,6 +452,11 @@ h6 {
   .hero-text-col {
     text-align: center;
   }
+
+  .hero-stats {
+    justify-content: center;
+    /* Center stats on mobile */
+  }
 }
 
 /* Hero Name - 가장 크고 눈에 띄게 */
@@ -705,8 +710,10 @@ h6 {
 .hero-stats {
   display: flex;
   gap: 32px;
-  justify-content: center;
-  margin-top: 56px;
+  justify-content: flex-start;
+  /* Align left for column layout */
+  margin-top: 40px;
+  /* Reduced margin */
   flex-wrap: wrap;
 }
 

@@ -41,6 +41,21 @@ layout: default
                             {{ site.data.portfolio.hero.cta_secondary_text }}
                         </a>
                     </div>
+
+                    <!-- GitHub Stats (Moved here for better alignment) -->
+                    {% if site.data.portfolio.hero.github_stats %}
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">{{ site.data.portfolio.hero.github_stats.repos }}</span>
+                            <span class="hero-stat-label">Repositories</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">{{ site.data.portfolio.hero.github_stats.contributions
+                                }}</span>
+                            <span class="hero-stat-label">Contributions</span>
+                        </div>
+                    </div>
+                    {% endif %}
                 </div>
 
                 <!-- Right Column: Code Window -->
@@ -58,19 +73,7 @@ layout: default
                 </div>
             </div>
 
-            <!-- GitHub Stats -->
-            {% if site.data.portfolio.hero.github_stats %}
-            <div class="hero-stats">
-                <div class="hero-stat">
-                    <span class="hero-stat-value">{{ site.data.portfolio.hero.github_stats.repos }}</span>
-                    <span class="hero-stat-label">Repositories</span>
-                </div>
-                <div class="hero-stat">
-                    <span class="hero-stat-value">{{ site.data.portfolio.hero.github_stats.contributions }}</span>
-                    <span class="hero-stat-label">Contributions</span>
-                </div>
-            </div>
-            {% endif %}
+
         </div>
     </section>
 
