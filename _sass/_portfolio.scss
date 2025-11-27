@@ -49,7 +49,7 @@
   --accent-bright: #6B7280;
   --accent-dark: #1F2937;
 
-  --bg-primary: #F5F3EE;
+  --bg-primary: #FAF9F6;
   --bg-secondary: #FFFFFF;
   --bg-tertiary: #E5E3DE;
   --bg-card: #FFFFFF;
@@ -69,7 +69,7 @@
 
   /* Light Mode Gradients */
   --gradient-primary: linear-gradient(135deg, #4B5563 0%, #374151 100%);
-  --gradient-dark: linear-gradient(180deg, #F5F3EE 0%, #E5E3DE 100%);
+  --gradient-dark: linear-gradient(180deg, #FAF9F6 0%, #E5E3DE 100%);
   --gradient-card: linear-gradient(135deg, #FFFFFF 0%, #F9F7F4 100%);
 }
 
@@ -353,7 +353,12 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
   letter-spacing: -0.02em;
   font-weight: 700;
@@ -400,8 +405,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @keyframes pulseGlow {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.7;
+  }
 }
 
 .hero-content {
@@ -421,6 +433,12 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text-primary);
   letter-spacing: -0.03em;
   text-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
+}
+
+/* Light Mode Override for Hero Name */
+[data-theme="light"] .hero-name {
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  color: var(--text-primary);
 }
 
 /* Hero Subtitle - 역할 표시 */
@@ -890,9 +908,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @keyframes float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(-10px);
   }
@@ -1252,15 +1273,20 @@ h1, h2, h3, h4, h5, h6 {
   bottom: 0;
   right: 0;
   background: linear-gradient(90deg,
-    transparent,
-    rgba(255, 255, 255, 0.3),
-    transparent);
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent);
   animation: shimmer 2s infinite;
 }
 
 @keyframes shimmer {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
 }
 
 /* Badge Style (for Tools section without levels) */
