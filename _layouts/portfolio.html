@@ -495,18 +495,18 @@ layout: default
             });
         });
 
-        // Parallax effect for hero section
-        window.addEventListener('scroll', function () {
-            const scrolled = window.pageYOffset;
-            const heroSection = document.querySelector('.hero-section');
-            if (heroSection) {
-                const heroContent = heroSection.querySelector('.hero-content');
-                if (heroContent && scrolled < window.innerHeight) {
-                    heroContent.style.transform = `translateY(${scrolled * 0.5}px)`;
-                    heroContent.style.opacity = 1 - (scrolled / (window.innerHeight * 0.8));
-                }
-            }
-        });
+        // Parallax effect removed to prevent code window from fading/overlapping
+        // window.addEventListener('scroll', function() {
+        //     const scrolled = window.pageYOffset;
+        //     const heroSection = document.querySelector('.hero-section');
+        //     if (heroSection) {
+        //         const heroContent = heroSection.querySelector('.hero-content');
+        //         if (heroContent && scrolled < window.innerHeight) {
+        //             // heroContent.style.transform = `translateY(${scrolled * 0.5}px)`;
+        //             // heroContent.style.opacity = 1 - (scrolled / (window.innerHeight * 0.8));
+        //         }
+        //     }
+        // });
 
         // Typewriter effect for hero title (subtle)
         const heroTitle = document.querySelector('.hero-title');
