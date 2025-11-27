@@ -542,245 +542,128 @@ h6 {
 }
 
 /* =====================================================
-   System Architecture Visualization (Architecture Window)
+   Code Typewriter (IDE Window)
    ===================================================== */
-.architecture-window {
-  width: 100%;
-  max-width: 900px;
-  background: #0F172A;
-  /* Slate 900 */
-  border-radius: 16px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-  margin: 48px auto 0;
-  overflow: hidden;
-  position: relative;
-  z-index: 20;
-  border: 1px solid rgba(148, 163, 184, 0.1);
-  padding: 40px;
-  display: flex;
-  justify-content: center;
-}
-
-.arch-diagram {
-  position: relative;
+.code-window {
   width: 100%;
   max-width: 800px;
-  height: 400px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.arch-node {
-  background: #1E293B;
-  border: 2px solid #334155;
+  background: #1E1E1E;
+  /* VS Code Dark */
   border-radius: 12px;
-  padding: 12px 24px;
-  color: #E2E8F0;
-  font-weight: 600;
-  font-size: 0.95rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  margin: 48px auto 0;
+  overflow: hidden;
+  text-align: left;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   position: relative;
-  z-index: 2;
-  transition: all 0.3s ease;
+  z-index: 20;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.arch-node:hover {
-  transform: translateY(-2px);
-  border-color: var(--accent-primary);
-  box-shadow: 0 8px 24px rgba(96, 165, 250, 0.2);
+.code-window:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
 }
 
-.arch-node i {
-  font-size: 1.2rem;
-  color: var(--accent-primary);
-}
-
-/* Specific Node Styles */
-.arch-client {
-  border-color: #60A5FA;
-}
-
-.arch-lb {
-  border-color: #A78BFA;
-}
-
-.arch-api {
-  border-color: #34D399;
-  width: 200px;
-}
-
-.arch-worker {
-  border-color: #FBBF24;
-  width: 200px;
-}
-
-.arch-db {
-  border-color: #F87171;
-}
-
-.arch-cache {
-  border-color: #F472B6;
-}
-
-/* Layout Groups */
-.arch-layer {
+.code-header {
+  background: #252526;
+  padding: 12px 16px;
   display: flex;
-  justify-content: center;
-  gap: 40px;
-  width: 100%;
-  position: relative;
+  gap: 8px;
+  border-bottom: 1px solid #333;
 }
 
-/* Connection Lines */
-.arch-connections {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.connection-line {
-  position: absolute;
-  background: rgba(148, 163, 184, 0.2);
-  transition: all 0.3s ease;
-}
-
-/* Vertical Line */
-.line-v {
-  width: 2px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-/* Horizontal Line */
-.line-h {
-  height: 2px;
-}
-
-/* Data Packets Animation */
-.packet {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  background: #60A5FA;
+.code-dot {
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
-  box-shadow: 0 0 10px #60A5FA;
-  z-index: 3;
-  opacity: 0;
 }
 
-@keyframes flowDown {
-  0% {
-    top: 40px;
-    opacity: 0;
-  }
+.code-dot.red {
+  background: #FF5F56;
+}
 
-  10% {
-    opacity: 1;
-  }
+.code-dot.yellow {
+  background: #FFBD2E;
+}
 
-  90% {
-    opacity: 1;
-  }
+.code-dot.green {
+  background: #27C93F;
+}
 
+.code-content {
+  padding: 24px;
+  font-family: 'Fira Code', 'Consolas', monospace;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #D4D4D4;
+  overflow-x: auto;
+}
+
+/* Syntax Highlighting (VS Code Style) */
+.code-keyword {
+  color: #569CD6;
+}
+
+/* def, class, return */
+.code-class {
+  color: #4EC9B0;
+}
+
+/* ClassName */
+.code-function {
+  color: #DCDCAA;
+}
+
+/* __init__, function */
+.code-string {
+  color: #CE9178;
+}
+
+/* "String" */
+.code-property {
+  color: #9CDCFE;
+}
+
+/* self.name */
+.code-comment {
+  color: #6A9955;
+}
+
+/* # Comment */
+
+/* Cursor Animation */
+.cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.2em;
+  background-color: #A7A7A7;
+  vertical-align: text-bottom;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+
+  0%,
   100% {
-    top: 360px;
-    opacity: 0;
-  }
-}
-
-@keyframes flowSplitLeft {
-  0% {
-    top: 150px;
-    left: 50%;
-    opacity: 0;
-  }
-
-  20% {
     opacity: 1;
   }
 
-  100% {
-    top: 250px;
-    left: 30%;
+  50% {
     opacity: 0;
   }
-}
-
-@keyframes flowSplitRight {
-  0% {
-    top: 150px;
-    left: 50%;
-    opacity: 0;
-  }
-
-  20% {
-    opacity: 1;
-  }
-
-  100% {
-    top: 250px;
-    left: 70%;
-    opacity: 0;
-  }
-}
-
-.packet-main {
-  left: 50%;
-  transform: translateX(-50%);
-  animation: flowDown 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-}
-
-.packet-left {
-  animation: flowSplitLeft 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-  animation-delay: 1.5s;
-  background: #34D399;
-  box-shadow: 0 0 10px #34D399;
-}
-
-.packet-right {
-  animation: flowSplitRight 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-  animation-delay: 1.5s;
-  background: #FBBF24;
-  box-shadow: 0 0 10px #FBBF24;
 }
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
-  .architecture-window {
-    padding: 20px;
+  .code-window {
     max-width: 100%;
+    margin-top: 32px;
   }
 
-  .arch-diagram {
-    height: auto;
-    gap: 30px;
-  }
-
-  .arch-layer {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .arch-node {
-    width: 100%;
-    max-width: 280px;
-  }
-
-  .arch-connections,
-  .packet {
-    display: none;
-    /* Hide complex animations on mobile */
+  .code-content {
+    font-size: 0.85rem;
+    padding: 16px;
   }
 }
 

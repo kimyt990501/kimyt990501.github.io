@@ -38,52 +38,15 @@ layout: default
                 </a>
             </div>
 
-            <!-- System Architecture Visualization Window -->
-            <div class="architecture-window">
-                <div class="arch-diagram">
-                    <!-- Layer 1: Client -->
-                    <div class="arch-layer">
-                        <div class="arch-node arch-client">
-                            <i class="fas fa-laptop-code"></i> Client
-                        </div>
-                    </div>
-
-                    <!-- Layer 2: Load Balancer -->
-                    <div class="arch-layer">
-                        <div class="arch-node arch-lb">
-                            <i class="fas fa-network-wired"></i> Load Balancer
-                        </div>
-                    </div>
-
-                    <!-- Layer 3: API & Workers -->
-                    <div class="arch-layer">
-                        <div class="arch-node arch-api">
-                            <i class="fas fa-server"></i> API Server
-                        </div>
-                        <div class="arch-node arch-worker">
-                            <i class="fas fa-cogs"></i> Worker
-                        </div>
-                    </div>
-
-                    <!-- Layer 4: Data -->
-                    <div class="arch-layer">
-                        <div class="arch-node arch-db">
-                            <i class="fas fa-database"></i> Database
-                        </div>
-                        <div class="arch-node arch-cache">
-                            <i class="fas fa-bolt"></i> Cache
-                        </div>
-                    </div>
-
-                    <!-- Animated Connections & Packets -->
-                    <div class="arch-connections">
-                        <div class="connection-line line-v" style="top: 40px; height: 320px;"></div>
-                        <div class="connection-line line-h" style="top: 250px; left: 30%; width: 40%;"></div>
-                    </div>
-
-                    <div class="packet packet-main"></div>
-                    <div class="packet packet-left"></div>
-                    <div class="packet packet-right"></div>
+            <!-- Code Typewriter Window -->
+            <div class="code-window">
+                <div class="code-header">
+                    <div class="code-dot red"></div>
+                    <div class="code-dot yellow"></div>
+                    <div class="code-dot green"></div>
+                </div>
+                <div class="code-content">
+                    <pre><code id="typewriter"></code><span class="cursor"></span></pre>
                 </div>
             </div>
 
@@ -563,6 +526,48 @@ layout: default
 
             setTimeout(typeWriter, 500);
         }
-        // System Architecture Animation is purely CSS-based
+        // Typewriter Effect for Code Window
+        // Typewriter Effect for Code Window
+        const codeElement = document.getElementById('typewriter');
+        if (codeElement) {
+            const codeHTML = `
+<span class="code-keyword">class</span> <span class="code-class">BackendDeveloper</span>:
+    <span class="code-keyword">def</span> <span class="code-function">__init__</span>(<span class="code-property">self</span>):
+        <span class="code-property">self</span>.name = <span class="code-string">"Yoontae Kim"</span>
+        <span class="code-property">self</span>.role = <span class="code-string">"Backend Developer"</span>
+        <span class="code-property">self</span>.stack = [<span class="code-string">"Python"</span>, <span class="code-string">"FastAPI"</span>, <span class="code-string">"Docker"</span>]
+
+    <span class="code-keyword">def</span> <span class="code-function">solve_problem</span>(<span class="code-property">self</span>):
+        <span class="code-keyword">return</span> <span class="code-string">"Efficient & Scalable Solutions"</span>
+`;
+
+            let i = 0;
+            let currentHTML = "";
+            const speed = 30; // Typing speed in ms
+
+            function typeWriterCode() {
+                if (i < codeHTML.length) {
+                    // If we encounter a tag opening
+                    if (codeHTML.charAt(i) === '<') {
+                        // Find the closing '>'
+                        let tagClose = codeHTML.indexOf('>', i);
+                        // Append the whole tag
+                        currentHTML += codeHTML.substring(i, tagClose + 1);
+                        i = tagClose + 1;
+                        // Recursively call immediately to type the content inside the tag
+                        typeWriterCode();
+                    } else {
+                        // Append normal character
+                        currentHTML += codeHTML.charAt(i);
+                        i++;
+                        codeElement.innerHTML = currentHTML;
+                        setTimeout(typeWriterCode, speed);
+                    }
+                }
+            }
+
+            // Start typing after a short delay
+            setTimeout(typeWriterCode, 1000);
+        }
     });
 </script>
