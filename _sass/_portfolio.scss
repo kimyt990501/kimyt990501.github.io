@@ -456,13 +456,16 @@ h6 {
 
 /* Hero Name - 가장 크고 눈에 띄게 */
 .hero-name {
-  font-size: clamp(3.5rem, 9vw, 5rem);
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  /* Reduced min size to prevent overflow */
   font-weight: 900;
   line-height: 1.1;
   margin-bottom: 24px;
   color: var(--text-primary);
   letter-spacing: -0.03em;
   text-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
+  white-space: nowrap;
+  /* Prevent line break */
 }
 
 /* Light Mode Override for Hero Name */
