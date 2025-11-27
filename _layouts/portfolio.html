@@ -38,6 +38,18 @@ layout: default
                 </a>
             </div>
 
+            <!-- Code Typewriter Window -->
+            <div class="code-window">
+                <div class="code-header">
+                    <div class="code-dot red"></div>
+                    <div class="code-dot yellow"></div>
+                    <div class="code-dot green"></div>
+                </div>
+                <div class="code-content">
+                    <pre><code id="typewriter"></code><span class="cursor"></span></pre>
+                </div>
+            </div>
+
             <!-- GitHub Stats -->
             {% if site.data.portfolio.hero.github_stats %}
             <div class="hero-stats">
@@ -513,6 +525,49 @@ layout: default
             }
 
             setTimeout(typeWriter, 500);
+        }
+        // Typewriter Effect for Code Window
+        // Typewriter Effect for Code Window
+        const codeElement = document.getElementById('typewriter');
+        if (codeElement) {
+            const codeHTML = `
+<span class="code-keyword">class</span> <span class="code-class">BackendDeveloper</span>:
+    <span class="code-keyword">def</span> <span class="code-function">__init__</span>(<span class="code-property">self</span>):
+        <span class="code-property">self</span>.name = <span class="code-string">"Yoontae Kim"</span>
+        <span class="code-property">self</span>.role = <span class="code-string">"Backend Developer"</span>
+        <span class="code-property">self</span>.stack = [<span class="code-string">"Python"</span>, <span class="code-string">"FastAPI"</span>, <span class="code-string">"Docker"</span>]
+
+    <span class="code-keyword">def</span> <span class="code-function">solve_problem</span>(<span class="code-property">self</span>):
+        <span class="code-keyword">return</span> <span class="code-string">"Efficient & Scalable Solutions"</span>
+`;
+
+            let i = 0;
+            let currentHTML = "";
+            const speed = 30; // Typing speed in ms
+
+            function typeWriterCode() {
+                if (i < codeHTML.length) {
+                    // If we encounter a tag opening
+                    if (codeHTML.charAt(i) === '<') {
+                        // Find the closing '>'
+                        let tagClose = codeHTML.indexOf('>', i);
+                        // Append the whole tag
+                        currentHTML += codeHTML.substring(i, tagClose + 1);
+                        i = tagClose + 1;
+                        // Recursively call immediately to type the content inside the tag
+                        typeWriterCode();
+                    } else {
+                        // Append normal character
+                        currentHTML += codeHTML.charAt(i);
+                        i++;
+                        codeElement.innerHTML = currentHTML;
+                        setTimeout(typeWriterCode, speed);
+                    }
+                }
+            }
+
+            // Start typing after a short delay
+            setTimeout(typeWriterCode, 1000);
         }
     });
 </script>
