@@ -419,58 +419,20 @@ h6 {
 .hero-content {
   position: relative;
   z-index: 10;
-  width: 100%;
-  max-width: 1400px;
+  text-align: center;
+  max-width: 1000px;
   padding: 0 24px;
-}
-
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: center;
-}
-
-.hero-text-col {
-  text-align: left;
-}
-
-.hero-visual-col {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Mobile Responsiveness for Grid */
-@media (max-width: 1024px) {
-  .hero-grid {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 40px;
-  }
-
-  .hero-text-col {
-    text-align: center;
-  }
-
-  .hero-stats {
-    justify-content: center;
-    /* Center stats on mobile */
-  }
 }
 
 /* Hero Name - 가장 크고 눈에 띄게 */
 .hero-name {
-  font-size: clamp(2.5rem, 6vw, 5rem);
-  /* Reduced min size to prevent overflow */
+  font-size: clamp(3.5rem, 9vw, 5rem);
   font-weight: 900;
   line-height: 1.1;
   margin-bottom: 24px;
   color: var(--text-primary);
   letter-spacing: -0.03em;
   text-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
-  white-space: nowrap;
-  /* Prevent line break */
 }
 
 /* Light Mode Override for Hero Name */
@@ -589,8 +551,7 @@ h6 {
   /* VS Code Dark */
   border-radius: 12px;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-  margin: 0;
-  /* Removed margin-top for grid layout */
+  margin: 48px auto 0;
   overflow: hidden;
   text-align: left;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -710,16 +671,13 @@ h6 {
 .hero-stats {
   display: flex;
   gap: 32px;
-  justify-content: flex-start;
-  /* Align left for column layout */
-  margin-top: 40px;
-  /* Reduced margin */
+  justify-content: center;
+  margin-top: 56px;
   flex-wrap: wrap;
 }
 
 .hero-stat {
-  text-align: left;
-  /* Align text left for column layout */
+  text-align: center;
 }
 
 .hero-stat-value {

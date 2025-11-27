@@ -17,63 +17,52 @@ layout: default
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="hero-content">
-            <div class="hero-grid">
-                <!-- Left Column: Text Content -->
-                <div class="hero-text-col">
-                    <!-- 이름을 가장 크고 눈에 띄게 표시 (Hero 타이틀 크기) -->
-                    <h1 class="hero-name">{{ site.data.portfolio.hero.name }}</h1>
-                    <!-- 역할을 그 아래 약간 작게 -->
-                    <p class="hero-subtitle">{{ site.data.portfolio.hero.subtitle }}</p>
-                    <!-- 타이틀을 세 번째로 -->
-                    <p class="hero-title-secondary">{{ site.data.portfolio.hero.title }}</p>
-                    <!-- 실무 경험을 첫 번째 줄로 강조 -->
-                    <p class="hero-description-primary">{{ site.data.portfolio.hero.description_line1 }}</p>
-                    <!-- 학교 정보는 두 번째 줄로 이동하고 폰트 크기 축소 -->
-                    <p class="hero-description-secondary">{{ site.data.portfolio.hero.description_line2 }}</p>
+            <!-- 이름을 가장 크고 눈에 띄게 표시 (Hero 타이틀 크기) -->
+            <h1 class="hero-name">{{ site.data.portfolio.hero.name }}</h1>
+            <!-- 역할을 그 아래 약간 작게 -->
+            <p class="hero-subtitle">{{ site.data.portfolio.hero.subtitle }}</p>
+            <!-- 타이틀을 세 번째로 -->
+            <p class="hero-title-secondary">{{ site.data.portfolio.hero.title }}</p>
+            <!-- 실무 경험을 첫 번째 줄로 강조 -->
+            <p class="hero-description-primary">{{ site.data.portfolio.hero.description_line1 }}</p>
+            <!-- 학교 정보는 두 번째 줄로 이동하고 폰트 크기 축소 -->
+            <p class="hero-description-secondary">{{ site.data.portfolio.hero.description_line2 }}</p>
 
-                    <!-- Dual CTA Buttons -->
-                    <div class="hero-cta-container">
-                        <a href="{{ site.data.portfolio.hero.cta_primary_link }}" class="hero-cta">
-                            {{ site.data.portfolio.hero.cta_primary_text }}
-                        </a>
-                        <a href="{{ site.data.portfolio.hero.cta_secondary_link }}" class="hero-cta-secondary"
-                            target="_blank">
-                            {{ site.data.portfolio.hero.cta_secondary_text }}
-                        </a>
-                    </div>
+            <!-- Dual CTA Buttons -->
+            <div class="hero-cta-container">
+                <a href="{{ site.data.portfolio.hero.cta_primary_link }}" class="hero-cta">
+                    {{ site.data.portfolio.hero.cta_primary_text }}
+                </a>
+                <a href="{{ site.data.portfolio.hero.cta_secondary_link }}" class="hero-cta-secondary" target="_blank">
+                    {{ site.data.portfolio.hero.cta_secondary_text }}
+                </a>
+            </div>
 
-                    <!-- GitHub Stats (Moved here for better alignment) -->
-                    {% if site.data.portfolio.hero.github_stats %}
-                    <div class="hero-stats">
-                        <div class="hero-stat">
-                            <span class="hero-stat-value">{{ site.data.portfolio.hero.github_stats.repos }}</span>
-                            <span class="hero-stat-label">IMPACT</span>
-                        </div>
-                        <div class="hero-stat">
-                            <span class="hero-stat-value">{{ site.data.portfolio.hero.github_stats.contributions
-                                }}</span>
-                            <span class="hero-stat-label">PERFORMANCE</span>
-                        </div>
-                    </div>
-                    {% endif %}
+            <!-- Code Typewriter Window -->
+            <div class="code-window">
+                <div class="code-header">
+                    <div class="code-dot red"></div>
+                    <div class="code-dot yellow"></div>
+                    <div class="code-dot green"></div>
                 </div>
-
-                <!-- Right Column: Code Window -->
-                <div class="hero-visual-col">
-                    <div class="code-window">
-                        <div class="code-header">
-                            <div class="code-dot red"></div>
-                            <div class="code-dot yellow"></div>
-                            <div class="code-dot green"></div>
-                        </div>
-                        <div class="code-content">
-                            <pre><code id="typewriter"></code><span class="cursor"></span></pre>
-                        </div>
-                    </div>
+                <div class="code-content">
+                    <pre><code id="typewriter"></code><span class="cursor"></span></pre>
                 </div>
             </div>
 
-
+            <!-- GitHub Stats -->
+            {% if site.data.portfolio.hero.github_stats %}
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="hero-stat-value">{{ site.data.portfolio.hero.github_stats.repos }}</span>
+                    <span class="hero-stat-label">Repositories</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-value">{{ site.data.portfolio.hero.github_stats.contributions }}</span>
+                    <span class="hero-stat-label">Contributions</span>
+                </div>
+            </div>
+            {% endif %}
         </div>
     </section>
 
