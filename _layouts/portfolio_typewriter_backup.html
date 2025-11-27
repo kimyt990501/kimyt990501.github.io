@@ -38,16 +38,15 @@ layout: default
                 </a>
             </div>
 
-            <!-- Interactive Terminal Window -->
-            <div class="terminal-window">
-                <div class="terminal-header">
-                    <div class="terminal-button red"></div>
-                    <div class="terminal-button yellow"></div>
-                    <div class="terminal-button green"></div>
-                    <div class="terminal-title">user@kimyt-portfolio:~</div>
+            <!-- Code Typewriter Window -->
+            <div class="code-window">
+                <div class="code-header">
+                    <div class="code-dot red"></div>
+                    <div class="code-dot yellow"></div>
+                    <div class="code-dot green"></div>
                 </div>
-                <div class="terminal-content" id="terminal-content">
-                    <!-- Dynamic content will go here -->
+                <div class="code-content">
+                    <pre><code id="typewriter"></code><span class="cursor"></span></pre>
                 </div>
             </div>
 
@@ -527,81 +526,48 @@ layout: default
 
             setTimeout(typeWriter, 500);
         }
-        // Interactive Terminal Animation
-        const terminalContent = document.getElementById('terminal-content');
-        if (terminalContent) {
-            const commands = [
-                { cmd: "whoami", output: "Yoontae Kim (Backend Developer)" },
-                { cmd: "cat skills.txt", output: "Python, FastAPI, Docker, RabbitMQ, Celery, Redis..." },
-                { cmd: "date", output: new Date().toDateString() },
-                { cmd: "./start_portfolio.sh", output: "Starting portfolio... [OK]" }
-            ];
+        // Typewriter Effect for Code Window
+        // Typewriter Effect for Code Window
+        const codeElement = document.getElementById('typewriter');
+        if (codeElement) {
+            const codeHTML = `
+<span class="code-keyword">class</span> <span class="code-class">BackendDeveloper</span>:
+    <span class="code-keyword">def</span> <span class="code-function">__init__</span>(<span class="code-property">self</span>):
+        <span class="code-property">self</span>.name = <span class="code-string">"Yoontae Kim"</span>
+        <span class="code-property">self</span>.role = <span class="code-string">"Backend Developer"</span>
+        <span class="code-property">self</span>.stack = [<span class="code-string">"Python"</span>, <span class="code-string">"FastAPI"</span>, <span class="code-string">"Docker"</span>]
 
-            let cmdIndex = 0;
-            let charIndex = 0;
-            let isTyping = true;
+    <span class="code-keyword">def</span> <span class="code-function">solve_problem</span>(<span class="code-property">self</span>):
+        <span class="code-keyword">return</span> <span class="code-string">"Efficient & Scalable Solutions"</span>
+`;
 
-            function createLine() {
-                const line = document.createElement('div');
-                line.className = 'terminal-line';
-                line.innerHTML = `
-                    <span class="prompt-user">user@kimyt:~</span>
-                    <span class="prompt-symbol">$</span>
-                    <span class="command-text"></span>
-                    <span class="cursor-block"></span>
-                `;
-                terminalContent.appendChild(line);
-                return line;
-            }
+            let i = 0;
+            let currentHTML = "";
+            const speed = 30; // Typing speed in ms
 
-            let currentLine = createLine();
-            let commandSpan = currentLine.querySelector('.command-text');
-            let cursorSpan = currentLine.querySelector('.cursor-block');
-
-            function typeCommand() {
-                if (cmdIndex >= commands.length) {
-                    // Finished all commands
-                    cursorSpan.style.display = 'inline-block'; // Keep cursor blinking at the end
-                    return;
-                }
-
-                const currentCmd = commands[cmdIndex].cmd;
-
-                if (charIndex < currentCmd.length) {
-                    commandSpan.textContent += currentCmd.charAt(charIndex);
-                    charIndex++;
-                    setTimeout(typeCommand, 50 + Math.random() * 50); // Random typing speed
-                } else {
-                    // Command finished typing
-                    cursorSpan.remove(); // Remove cursor from current line
-
-                    // Show output if exists
-                    if (commands[cmdIndex].output) {
-                        const outputDiv = document.createElement('div');
-                        outputDiv.className = 'output-text';
-                        outputDiv.textContent = commands[cmdIndex].output;
-                        terminalContent.appendChild(outputDiv);
+            function typeWriterCode() {
+                if (i < codeHTML.length) {
+                    // If we encounter a tag opening
+                    if (codeHTML.charAt(i) === '<') {
+                        // Find the closing '>'
+                        let tagClose = codeHTML.indexOf('>', i);
+                        // Append the whole tag
+                        currentHTML += codeHTML.substring(i, tagClose + 1);
+                        i = tagClose + 1;
+                        // Recursively call immediately to type the content inside the tag
+                        typeWriterCode();
+                    } else {
+                        // Append normal character
+                        currentHTML += codeHTML.charAt(i);
+                        i++;
+                        codeElement.innerHTML = currentHTML;
+                        setTimeout(typeWriterCode, speed);
                     }
-
-                    cmdIndex++;
-                    charIndex = 0;
-
-                    // Start next command after delay
-                    setTimeout(() => {
-                        currentLine = createLine();
-                        commandSpan = currentLine.querySelector('.command-text');
-                        cursorSpan = currentLine.querySelector('.cursor-block');
-
-                        // Scroll to bottom
-                        terminalContent.scrollTop = terminalContent.scrollHeight;
-
-                        typeCommand();
-                    }, 800);
                 }
             }
 
-            // Start animation after delay
-            setTimeout(typeCommand, 1000);
+            // Start typing after a short delay
+            setTimeout(typeWriterCode, 1000);
         }
     });
 </script>
