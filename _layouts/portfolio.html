@@ -273,6 +273,30 @@ layout: default
     </section>
     {% endif %}
 
+    <!-- Achievements Section -->
+    {% if site.data.portfolio.achievements %}
+    <section id="achievements" class="portfolio-section">
+        <div class="section-header reveal">
+            <h2 class="section-title">Key Achievements</h2>
+            <p class="section-subtitle">주요 성과 요약</p>
+        </div>
+        <div class="achievements-grid">
+            {% for achievement in site.data.portfolio.achievements %}
+            <div class="achievement-card reveal">
+                <div class="achievement-icon">
+                    <i class="fas fa-{{ achievement.icon }}"></i>
+                </div>
+                <div class="achievement-metric">{{ achievement.metric }}</div>
+                <div class="achievement-label">{{ achievement.label }}</div>
+                {% if achievement.description %}
+                <div class="achievement-description">{{ achievement.description }}</div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    {% endif %}
+
     <!-- Certifications & Languages Section -->
     <section id="qualifications" class="portfolio-section">
         <div class="section-header reveal">

@@ -2081,3 +2081,115 @@ h6 {
     padding: 14px 16px;
   }
 }
+
+/* =====================================================
+   Achievements Section - Key Metrics Grid
+   ===================================================== */
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.achievement-card {
+  background: var(--bg-card);
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  border: 1px solid rgba(100, 116, 139, 0.15);
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-normal);
+}
+
+.achievement-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--accent-primary);
+}
+
+.achievement-icon {
+  width: 60px;
+  height: 60px;
+  background: var(--gradient-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 1.5rem;
+  color: white;
+  box-shadow: var(--shadow-accent);
+}
+
+.achievement-metric {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--accent-bright);
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.achievement-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.achievement-description {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* Achievements Responsive */
+@media (max-width: 768px) {
+  .achievements-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .achievement-card {
+    padding: 24px 16px;
+  }
+
+  .achievement-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+    margin-bottom: 16px;
+  }
+
+  .achievement-metric {
+    font-size: 1.6rem;
+  }
+
+  .achievement-label {
+    font-size: 0.9rem;
+  }
+
+  .achievement-description {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .achievements-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .achievement-card {
+    padding: 20px 12px;
+  }
+
+  .achievement-metric {
+    font-size: 1.4rem;
+  }
+
+  .achievement-label {
+    font-size: 0.8rem;
+  }
+}
