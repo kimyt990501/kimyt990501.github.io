@@ -1120,6 +1120,48 @@ h6 {
   }
 }
 
+/* Company Badge */
+.project-company-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  transition: all var(--transition-fast);
+}
+
+.project-company-badge i {
+  font-size: 0.75rem;
+}
+
+.project-company-badge.company {
+  background: rgba(59, 130, 246, 0.15);
+  color: #60A5FA;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.project-company-badge.personal {
+  background: rgba(139, 92, 246, 0.15);
+  color: #A78BFA;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+/* Light Mode */
+[data-theme="light"] .project-company-badge.company {
+  background: rgba(59, 130, 246, 0.1);
+  color: #2563EB;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+[data-theme="light"] .project-company-badge.personal {
+  background: rgba(139, 92, 246, 0.1);
+  color: #7C3AED;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
 .project-title {
   font-size: 1.65rem;
   font-weight: 800;

@@ -115,6 +115,17 @@ layout: default
                             {% endif %}
                         </div>
                         <div class="project-content">
+                            {% if project.company %}
+                            <span
+                                class="project-company-badge {% if project.company == '개인' %}personal{% else %}company{% endif %}">
+                                {% if project.company == '개인' %}
+                                <i class="fas fa-user"></i>
+                                {% else %}
+                                <i class="fas fa-building"></i>
+                                {% endif %}
+                                {{ project.company }}
+                            </span>
+                            {% endif %}
                             <h3 class="project-title">{{ project.title }}</h3>
                             {% if project.subtitle %}
                             <p class="project-subtitle">{{ project.subtitle }}</p>
