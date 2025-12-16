@@ -832,6 +832,138 @@ h6 {
 }
 
 /* =====================================================
+   Project Groups - Accordion Style
+   ===================================================== */
+.project-group {
+  margin-bottom: 32px;
+  background: var(--bg-card);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(100, 116, 139, 0.15);
+  box-shadow: var(--shadow-md);
+}
+
+.project-group-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 32px;
+  cursor: pointer;
+  background: var(--bg-card);
+  transition: all var(--transition-normal);
+  border-bottom: 1px solid transparent;
+}
+
+.project-group-header:hover {
+  background: var(--bg-card-hover);
+}
+
+.project-group-header.active {
+  border-bottom: 1px solid rgba(100, 116, 139, 0.15);
+}
+
+.project-group-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.project-group-info>i {
+  font-size: 1.5rem;
+  color: var(--accent-primary);
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(96, 165, 250, 0.1);
+  border-radius: 12px;
+}
+
+.project-group-info h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.project-count {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  background: var(--bg-tertiary);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+.collapse-icon {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  transition: transform var(--transition-normal);
+}
+
+.project-group-header.active .collapse-icon {
+  transform: rotate(180deg);
+}
+
+.project-group-content {
+  max-height: 10000px;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out, padding 0.3s ease;
+  padding: 32px;
+}
+
+.project-group-content.collapsed {
+  max-height: 0;
+  padding: 0 32px;
+}
+
+/* Project Period Badge */
+.project-period {
+  display: inline-block;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  background: var(--bg-tertiary);
+  padding: 4px 12px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .project-group-header {
+    padding: 20px 20px;
+  }
+
+  .project-group-info {
+    gap: 12px;
+  }
+
+  .project-group-info>i {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
+  .project-group-info h3 {
+    font-size: 1.1rem;
+  }
+
+  .project-count {
+    font-size: 0.8rem;
+    padding: 4px 10px;
+  }
+
+  .project-group-content {
+    padding: 20px;
+  }
+
+  .project-group-content.collapsed {
+    padding: 0 20px;
+  }
+}
+
+/* =====================================================
    Project Cards - 3D Flip Effect (Wide Format)
    ===================================================== */
 .projects-grid {

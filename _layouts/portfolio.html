@@ -101,106 +101,239 @@ layout: default
             <h2 class="section-title">Projects</h2>
             <p class="section-subtitle">제가 진행한 주요 프로젝트들입니다</p>
         </div>
-        <div class="projects-grid">
-            {% for project in site.data.portfolio.projects %}
-            <div class="project-card-container reveal">
-                <div class="project-card-inner">
-                    <!-- 앞면: 프로젝트 상세 정보 -->
-                    <div class="project-card project-card-front">
-                        <div class="project-image">
-                            {% if project.image and project.image != "" %}
-                            <img src="{{ project.image | relative_url }}" alt="{{ project.title }}">
-                            {% else %}
-                            <i class="fas fa-code"></i>
-                            {% endif %}
-                        </div>
-                        <div class="project-content">
-                            {% if project.company %}
-                            <span
-                                class="project-company-badge {% if project.company == '개인' %}personal{% else %}company{% endif %}">
-                                {% if project.company == '개인' %}
-                                <i class="fas fa-user"></i>
-                                {% else %}
-                                <i class="fas fa-building"></i>
-                                {% endif %}
-                                {{ project.company }}
-                            </span>
-                            {% endif %}
-                            <h3 class="project-title">{{ project.title }}</h3>
-                            {% if project.subtitle %}
-                            <p class="project-subtitle">{{ project.subtitle }}</p>
-                            {% endif %}
 
-                            {% if project.problem %}
-                            <div class="project-problem">
-                                <span class="project-problem-label">Problem</span>
-                                <p class="project-problem-text">{{ project.problem }}</p>
-                            </div>
-                            {% endif %}
-
-                            {% if project.solution %}
-                            <div class="project-solution">
-                                <span class="project-solution-label">Solution</span>
-                                <p class="project-solution-text">{{ project.solution }}</p>
-                            </div>
-                            {% endif %}
-
-                            {% if project.impact %}
-                            <div class="project-impact">
-                                {% for metric in project.impact %}
-                                <div class="impact-metric">
-                                    <span class="impact-metric-value">{{ metric.metric }}</span>
-                                    <span class="impact-metric-label">{{ metric.label }}</span>
+        <!-- 포테이토넷 프로젝트 그룹 -->
+        <div class="project-group reveal">
+            <div class="project-group-header" data-toggle="collapse" data-target="potatonet-projects">
+                <div class="project-group-info">
+                    <i class="fas fa-building"></i>
+                    <h3>포테이토넷</h3>
+                    <span class="project-count">
+                        {% assign potatonet_count = 0 %}
+                        {% for project in site.data.portfolio.projects %}
+                        {% if project.company == "포테이토넷" %}
+                        {% assign potatonet_count = potatonet_count | plus: 1 %}
+                        {% endif %}
+                        {% endfor %}
+                        {{ potatonet_count }}개 프로젝트
+                    </span>
+                </div>
+                <i class="fas fa-chevron-down collapse-icon"></i>
+            </div>
+            <div class="project-group-content" id="potatonet-projects">
+                <div class="projects-grid">
+                    {% for project in site.data.portfolio.projects %}
+                    {% if project.company == "포테이토넷" %}
+                    <div class="project-card-container">
+                        <div class="project-card-inner">
+                            <!-- 앞면: 프로젝트 상세 정보 -->
+                            <div class="project-card project-card-front">
+                                <div class="project-image">
+                                    {% if project.image and project.image != "" %}
+                                    <img src="{{ project.image | relative_url }}" alt="{{ project.title }}">
+                                    {% else %}
+                                    <i class="fas fa-code"></i>
+                                    {% endif %}
                                 </div>
-                                {% endfor %}
-                            </div>
-                            {% endif %}
+                                <div class="project-content">
+                                    {% if project.period %}
+                                    <span class="project-period">{{ project.period }}</span>
+                                    {% endif %}
+                                    <h3 class="project-title">{{ project.title }}</h3>
+                                    {% if project.subtitle %}
+                                    <p class="project-subtitle">{{ project.subtitle }}</p>
+                                    {% endif %}
 
-                            {% if project.highlights %}
-                            <ul class="project-highlights">
-                                {% for highlight in project.highlights %}
-                                <li>{{ highlight }}</li>
-                                {% endfor %}
-                            </ul>
-                            {% endif %}
+                                    {% if project.problem %}
+                                    <div class="project-problem">
+                                        <span class="project-problem-label">Problem</span>
+                                        <p class="project-problem-text">{{ project.problem }}</p>
+                                    </div>
+                                    {% endif %}
 
-                            <div class="project-tech">
-                                {% for tech in project.tech_stack %}
-                                <span class="tech-tag">{{ tech }}</span>
-                                {% endfor %}
+                                    {% if project.solution %}
+                                    <div class="project-solution">
+                                        <span class="project-solution-label">Solution</span>
+                                        <p class="project-solution-text">{{ project.solution }}</p>
+                                    </div>
+                                    {% endif %}
+
+                                    {% if project.impact %}
+                                    <div class="project-impact">
+                                        {% for metric in project.impact %}
+                                        <div class="impact-metric">
+                                            <span class="impact-metric-value">{{ metric.metric }}</span>
+                                            <span class="impact-metric-label">{{ metric.label }}</span>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                    {% endif %}
+
+                                    {% if project.highlights %}
+                                    <ul class="project-highlights">
+                                        {% for highlight in project.highlights %}
+                                        <li>{{ highlight }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                    {% endif %}
+
+                                    <div class="project-tech">
+                                        {% for tech in project.tech_stack %}
+                                        <span class="tech-tag">{{ tech }}</span>
+                                        {% endfor %}
+                                    </div>
+
+                                    {% if project.demo and project.demo != "" %}
+                                    <div class="project-links">
+                                        <a href="{{ project.demo }}" class="project-link" target="_blank">
+                                            <i class="fas fa-external-link-alt"></i> Demo
+                                        </a>
+                                    </div>
+                                    {% endif %}
+                                </div>
                             </div>
 
-                            {% if project.demo and project.demo != "" %}
-                            <div class="project-links">
-                                <a href="{{ project.demo }}" class="project-link" target="_blank">
-                                    <i class="fas fa-external-link-alt"></i> Demo
-                                </a>
+                            <!-- 뒷면: 스크린샷 -->
+                            <div class="project-card project-card-back">
+                                <div class="project-screenshot-wrapper">
+                                    {% if project.screenshot and project.screenshot != "" %}
+                                    <img src="{{ project.screenshot | relative_url }}"
+                                        alt="{{ project.title }} Screenshot" class="project-screenshot">
+                                    {% else %}
+                                    <div class="project-screenshot-placeholder">
+                                        <i class="fas fa-laptop-code"></i>
+                                        <p>프로젝트 개발 진행중</p>
+                                    </div>
+                                    {% endif %}
+                                    <div class="project-screenshot-info">
+                                        <h4>{{ project.title }}</h4>
+                                        <p>{{ project.subtitle }}</p>
+                                    </div>
+                                </div>
                             </div>
-                            {% endif %}
                         </div>
                     </div>
-
-                    <!-- 뒷면: 스크린샷 -->
-                    <div class="project-card project-card-back">
-                        <div class="project-screenshot-wrapper">
-                            {% if project.screenshot and project.screenshot != "" %}
-                            <img src="{{ project.screenshot | relative_url }}" alt="{{ project.title }} Screenshot"
-                                class="project-screenshot">
-                            {% else %}
-                            <div class="project-screenshot-placeholder">
-                                <i class="fas fa-laptop-code"></i>
-                                <p>프로젝트 개발 진행중</p>
-                            </div>
-                            {% endif %}
-                            <div class="project-screenshot-info">
-                                <h4>{{ project.title }}</h4>
-                                <p>{{ project.subtitle }}</p>
-                            </div>
-                        </div>
-                    </div>
+                    {% endif %}
+                    {% endfor %}
                 </div>
             </div>
-            {% endfor %}
+        </div>
+
+        <!-- 개인 프로젝트 그룹 -->
+        <div class="project-group reveal">
+            <div class="project-group-header" data-toggle="collapse" data-target="personal-projects">
+                <div class="project-group-info">
+                    <i class="fas fa-user"></i>
+                    <h3>개인 프로젝트</h3>
+                    <span class="project-count">
+                        {% assign personal_count = 0 %}
+                        {% for project in site.data.portfolio.projects %}
+                        {% if project.company == "개인" %}
+                        {% assign personal_count = personal_count | plus: 1 %}
+                        {% endif %}
+                        {% endfor %}
+                        {{ personal_count }}개 프로젝트
+                    </span>
+                </div>
+                <i class="fas fa-chevron-down collapse-icon"></i>
+            </div>
+            <div class="project-group-content collapsed" id="personal-projects">
+                <div class="projects-grid">
+                    {% for project in site.data.portfolio.projects %}
+                    {% if project.company == "개인" %}
+                    <div class="project-card-container">
+                        <div class="project-card-inner">
+                            <!-- 앞면: 프로젝트 상세 정보 -->
+                            <div class="project-card project-card-front">
+                                <div class="project-image">
+                                    {% if project.image and project.image != "" %}
+                                    <img src="{{ project.image | relative_url }}" alt="{{ project.title }}">
+                                    {% else %}
+                                    <i class="fas fa-code"></i>
+                                    {% endif %}
+                                </div>
+                                <div class="project-content">
+                                    {% if project.period %}
+                                    <span class="project-period">{{ project.period }}</span>
+                                    {% endif %}
+                                    <h3 class="project-title">{{ project.title }}</h3>
+                                    {% if project.subtitle %}
+                                    <p class="project-subtitle">{{ project.subtitle }}</p>
+                                    {% endif %}
+
+                                    {% if project.problem %}
+                                    <div class="project-problem">
+                                        <span class="project-problem-label">Problem</span>
+                                        <p class="project-problem-text">{{ project.problem }}</p>
+                                    </div>
+                                    {% endif %}
+
+                                    {% if project.solution %}
+                                    <div class="project-solution">
+                                        <span class="project-solution-label">Solution</span>
+                                        <p class="project-solution-text">{{ project.solution }}</p>
+                                    </div>
+                                    {% endif %}
+
+                                    {% if project.impact %}
+                                    <div class="project-impact">
+                                        {% for metric in project.impact %}
+                                        <div class="impact-metric">
+                                            <span class="impact-metric-value">{{ metric.metric }}</span>
+                                            <span class="impact-metric-label">{{ metric.label }}</span>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                    {% endif %}
+
+                                    {% if project.highlights %}
+                                    <ul class="project-highlights">
+                                        {% for highlight in project.highlights %}
+                                        <li>{{ highlight }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                    {% endif %}
+
+                                    <div class="project-tech">
+                                        {% for tech in project.tech_stack %}
+                                        <span class="tech-tag">{{ tech }}</span>
+                                        {% endfor %}
+                                    </div>
+
+                                    {% if project.demo and project.demo != "" %}
+                                    <div class="project-links">
+                                        <a href="{{ project.demo }}" class="project-link" target="_blank">
+                                            <i class="fas fa-external-link-alt"></i> Demo
+                                        </a>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            <!-- 뒷면: 스크린샷 -->
+                            <div class="project-card project-card-back">
+                                <div class="project-screenshot-wrapper">
+                                    {% if project.screenshot and project.screenshot != "" %}
+                                    <img src="{{ project.screenshot | relative_url }}"
+                                        alt="{{ project.title }} Screenshot" class="project-screenshot">
+                                    {% else %}
+                                    <div class="project-screenshot-placeholder">
+                                        <i class="fas fa-laptop-code"></i>
+                                        <p>프로젝트 개발 진행중</p>
+                                    </div>
+                                    {% endif %}
+                                    <div class="project-screenshot-info">
+                                        <h4>{{ project.title }}</h4>
+                                        <p>{{ project.subtitle }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
         </div>
     </section>
 
@@ -604,5 +737,34 @@ layout: default
             // Start typing after a short delay
             setTimeout(typeWriterCode, 1000);
         }
+
+        // Project Group Accordion Toggle
+        const groupHeaders = document.querySelectorAll('.project-group-header');
+        groupHeaders.forEach(header => {
+            const targetId = header.getAttribute('data-target');
+            const content = document.getElementById(targetId);
+
+            // Set initial state
+            if (content && !content.classList.contains('collapsed')) {
+                header.classList.add('active');
+            }
+
+            header.addEventListener('click', function () {
+                const targetId = this.getAttribute('data-target');
+                const content = document.getElementById(targetId);
+
+                if (content) {
+                    content.classList.toggle('collapsed');
+                    this.classList.toggle('active');
+
+                    // Recalculate card heights after expand
+                    if (!content.classList.contains('collapsed')) {
+                        setTimeout(() => {
+                            setCardHeights();
+                        }, 100);
+                    }
+                }
+            });
+        });
     });
 </script>
