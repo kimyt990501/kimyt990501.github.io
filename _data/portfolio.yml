@@ -39,6 +39,36 @@ about:
 
 # Featured Projects
 projects:
+  - title: "Threat Intelligence 웹 서비스"
+    subtitle: "데이터 조회 및 URL 검사 메인 웹 서비스"
+    company: "포테이토넷"
+    problem: "Threat Intelligence 데이터 조회 및 URL 검사를 위한 통합 웹 서비스 필요"
+    solution: "Next.js 기반 프론트엔드와 Flask 기반 REST API 서버를 구축하여 실시간 대시보드 개발"
+    impact:
+      - metric: "실시간"
+        label: "대시보드"
+      - metric: "Full-Stack"
+        label: "웹 서비스"
+      - metric: "진행중"
+        label: "2024.09~현재"
+    tech_stack:
+      - Next.js
+      - Python
+      - Flask
+      - MySQL
+      - MongoDB
+      - Docker
+    highlights:
+      - "Threat Intelligence 데이터 조회 및 URL 검사 메인 웹 서비스 개발"
+      - "Next.js 기반 프론트엔드, Flask 기반 REST API 서버 구축"
+      - "MySQL, MongoDB를 활용한 데이터베이스 설계 및 실시간 대시보드 개발"
+    github: "https://github.com/kimyt990501"
+    demo: ""
+    image: ""
+    screenshot: "/assets/images/projects/threat-intelligence.png"
+    featured: true
+    period: "2024.09 ~ 현재"
+
   - title: "AI 기반 멀티모달 피싱 탐지 시스템"
     subtitle: "Threat Intelligence 기반 피싱 사이트 탐지"
     company: "포테이토넷"
@@ -192,6 +222,37 @@ projects:
     screenshot: "/assets/images/projects/waf-modsecurity.png"
     featured: false
     period: "2025.01 ~ 2025.03"
+
+  - title: "온프레미스 환경 보안 제품 구축"
+    subtitle: "거래처 현장 배포 및 네트워크 구성"
+    company: "포테이토넷"
+    problem: "거래처 서버실에 보안 제품을 직접 설치하고 네트워크를 구성해야 하는 상황"
+    solution: "전체 서비스 Dockerizing, 현장 네트워크 분석 및 방화벽 정책 조정"
+    impact:
+      - metric: "전체 서비스"
+        label: "Dockerizing"
+      - metric: "현장"
+        label: "네트워크 구성"
+      - metric: "정상 운영"
+        label: "전환 완료"
+    tech_stack:
+      - Docker
+      - Linux
+      - MySQL
+      - MongoDB
+      - 방화벽 정책 관리
+      - tcpdump
+    highlights:
+      - "거래처 서버실 직접 방문하여 보안 제품 설치 및 네트워크 구성"
+      - "웹/DB(MySQL, MongoDB)/크롤러/내부엔진 포함 전체 서비스 Dockerizing 및 설치"
+      - "현장 네트워크 환경 분석 후 방화벽 정책 조정 및 필수 포트 개방 협의"
+      - "tcpdump 기반 패킷 분석 및 안정화 작업으로 정상 운영 전환"
+    github: "https://github.com/kimyt990501"
+    demo: ""
+    image: ""
+    screenshot: "/assets/images/projects/onpremise-deploy.png"
+    featured: false
+    period: "2025.03"
 
   - title: "Enterprise ERP System"
     subtitle: "중소기업 통합 자원 관리 시스템"
